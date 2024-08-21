@@ -1,4 +1,4 @@
-{ ... }: 
+{ ... }:
 {
       exec-once = [
         "systemctl --user import-environment &"
@@ -8,11 +8,13 @@
         "swaybg -m fill -i $HOME/nix-config/wallpaper.jpg &"
         "hyprctl setcursor Nordzy-cursors 22 &"
         "hyprpanel &"
+        "wl-paste --type text --watch cliphist store &"
+        "wl-paste --type image --watch cliphist store &"
       ];
 
       input = {
         kb_layout = "us";
-        kb_options ="grp:alt_caps_toggle"; 
+        kb_options ="grp:alt_caps_toggle";
         numlock_by_default = true;
         follow_mouse = 1;
         sensitivity = 0;
@@ -83,7 +85,7 @@
 
       animations = {
         enabled = true;
- 
+
         bezier = [
           "fluent_decel, 0, 0.2, 0.4, 1"
           "easeOutCirc, 0, 0.55, 0.45, 1"
@@ -120,21 +122,21 @@
         "$mainMod, B, exec, hyprctl dispatch exec '[workspace 1 silent] floorp'"
         "$mainMod, Q, killactive,"
         "$mainMod, F, fullscreen, 0"
-        "$mainMod SHIFT, F, fullscreen, 1"
+#        "$mainMod SHIFT, F, fullscreen, 1"
         "$mainMod, Space, togglefloating,"
- #       "$mainMod, D, exec, wofi --show drun"
- 	      "$mainMod, D, exec, fuzzel"
+        "$mainMod, D, exec, $HOME/.config/rofi/scripts/launcher_t1"
+# 	      "$mainMod, D, exec, fuzzel"
         "$mainMod SHIFT, D, exec, hyprctl dispatch exec '[workspace 4 silent] discord --enable-features=UseOzonePlatform --ozone-platform=wayland'"
         "$mainMod SHIFT, S, exec, hyprctl dispatch exec '[workspace 5 silent] SoundWireServer'"
-        "$mainMod, Escape, exec, swaylock"
-        "$mainMod SHIFT, Escape, exec, shutdown-script"
-        "$mainMod, P, pseudo,"
+#        "$mainMod, Escape, exec, swaylock"
+#        "$mainMod SHIFT, Escape, exec, shutdown-script"
+        "$mainMod, P, exec, $HOME/.config/rofi/scripts/powermenu_t2"
         "$mainMod, J, togglesplit,"
-        "$mainMod, E, exec, nautilus"
-        "$mainMod SHIFT, B, exec, pkill -SIGUSR1 .waybar-wrapped"
-        "$mainMod, C ,exec, hyprpicker -a"
-        "$mainMod, W,exec, wallpaper-picker"
-        "$mainMod SHIFT, W, exec, vm-start"
+        "$mainMod, E, exec, thunar"
+#        "$mainMod SHIFT, B, exec, pkill -SIGUSR1 .waybar-wrapped"
+#        "$mainMod, C ,exec, hyprpicker -a"
+#        "$mainMod, W,exec, wallpaper-picker"
+#        "$mainMod SHIFT, W, exec, vm-start"
 
         # screenshot
 	      "$mainMod, I,exec,grim -g \"$(slurp)\" $HOME/images/screenshots/\"$(date +%y.%m.%d-%H:%M:%S)\".png"
@@ -213,6 +215,7 @@
 
       # windowrule
       windowrule = [
+	"float,rofi"
         "float,imv"
         "center,imv"
         "size 1200 725,imv"

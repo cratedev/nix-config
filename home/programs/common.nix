@@ -1,6 +1,8 @@
 { lib, pkgs, inputs, ... }:
 {
   home.packages = [
+    pkgs.cliphist
+    pkgs.wl-clipboard-rs
     pkgs.zip
     pkgs.unzip
     pkgs.p7zip
@@ -13,7 +15,7 @@
     pkgs.obsidian
     pkgs.fish
     pkgs.byobu
-#    pkgs.spotify
+    pkgs.rofi-wayland
     pkgs.brightnessctl
     pkgs.gnome.gnome-bluetooth
     pkgs.ncdu
@@ -35,11 +37,13 @@
     pkgs.bitwarden
     (pkgs.discord.override {withVencord = true;})
     pkgs.fastfetch
+    pkgs.zed-editor
   ];
 
   # Manage incompatible .configs
   programs.spotify-player.enable = true; xdg.configFile."spotify-player".source = ./dots/spotify-player;
   programs.ncspot.enable = true; xdg.configFile."ncspot/credentials.json".source = ./dots/ncspot/credentials.json;
+#  programs.rofi.enable = true; xdg.configFile."rofi".source = ./dots/rofi;
 
   programs = {
     nix-index = {

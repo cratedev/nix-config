@@ -7,7 +7,7 @@
   programs.git = {
     enable = true;
 
-    userName = "tragyn";
+    userName = "cratedev";
     userEmail = "matt@crate.dev";
     package = pkgs.gitFull;
 #    config.credential.helper = "libresecret";

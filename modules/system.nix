@@ -16,7 +16,6 @@ in {
   };
 
   # Programs
-
   programs.ssh.startAgent = true;
   programs.dconf.enable = true;
   programs.sway.enable = true;
@@ -43,10 +42,8 @@ in {
   nix.settings = {
     trusted-users = [username];
     # enable flakes globally
-    experimental-features = ["nix-command" "flakes"];
-    substituters = [
-      "https://cache.nixos.org"
-    ];
+    experimental-features = [ "nix-command" "flakes" ];
+    substituters = [ "https://cache.nixos.org" ];
     trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
     ];
@@ -83,6 +80,7 @@ in {
   
   fonts = {
     packages = with pkgs; [
+      font-awesome
       material-design-icons
       noto-fonts
       noto-fonts-cjk
@@ -118,7 +116,7 @@ in {
     pkgs.scrot
     pkgs.neofetch
     pkgs.xfce.thunar
-    pkgs.nnn # terminal file manager
+    pkgs.nnn pkgs.mc # terminal file manager
     pkgs.fish
     pkgs.pamixer
     pkgs.whois
@@ -176,5 +174,11 @@ in {
       };
       openFirewall = true;
     };
+  };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-hyprland pkgs.xdg-desktop-portal-wlr ];
+    xdgOpenUsePortal = true;
   };
 }
