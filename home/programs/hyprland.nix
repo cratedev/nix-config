@@ -116,7 +116,7 @@
         "$mainMod, F1, exec, show-keybinds"
 
         # keybindings
-        "$mainMod, Return, exec, foot -e zellij attach --create default"
+        "$mainMod, Return, exec, foot -e zellij attach --create main"
         "ALT, Return, exec, foot --title float_foot"
         "$mainMod SHIFT, Return, exec, foot"
         "$mainMod, B, exec, hyprctl dispatch exec '[workspace 1 silent] floorp'"

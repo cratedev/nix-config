@@ -25,13 +25,13 @@
 
     # Hyprpanel /6c8615c
     hyprpanel = {
-      url = "github:Jas-SinghFSU/HyprPanel/6c8615c";
+      url = "github:Jas-SinghFSU/HyprPanel";
     };
 
     # hyprland
     hyprland = {
       url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    }; 
+    };
 
     # Pretty spotify
     spicetify-nix = {
@@ -63,22 +63,17 @@
     nixosConfigurations = {
       crate-laptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-	      specialArgs = {
-	        inherit inputs;
-        };
+	    specialArgs = { inherit inputs; };
         modules = [
           ./hosts/crate-laptop
-	        ./overlays
+	      ./overlays
           stylix.nixosModules.stylix
-	  nixos-cli.nixosModules.nixos-cli
+          nixos-cli.nixosModules.nixos-cli
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-
-            home-manager.extraSpecialArgs = {
-	            inherit inputs;
-            };
+            home-manager.extraSpecialArgs = { inherit inputs; };
             home-manager.users.matt = import ./home;
           }
         ];
@@ -86,22 +81,17 @@
 
       crate-desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = {
-          inherit inputs;
-        };  
+        specialArgs = { inherit inputs; };
         modules = [
           ./hosts/crate-desktop
-	        ./overlays
+	      ./overlays
           stylix.nixosModules.stylix
           nixos-cli.nixosModules.nixos-cli
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-
-            home-manager.extraSpecialArgs = {
-	            inherit inputs;
-            };
+            home-manager.extraSpecialArgs = { inherit inputs; };
             home-manager.users.matt = import ./home;
           }
         ];
