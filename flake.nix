@@ -23,30 +23,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Hyprpanel /6c8615c
-    hyprpanel = {
-      url = "github:Jas-SinghFSU/HyprPanel";
-    };
-
-    # hyprland
-    hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    };
-
-    # Pretty spotify
-    spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # nixOS CLI
-    nixos-cli = {
-      url = "github:water-sucks/nixos";
-    };
-
-    stylix = {
-      url = "github:danth/stylix";
-    };
+    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    nixos-cli.url = "github:water-sucks/nixos";
+    stylix.url = "github:danth/stylix";
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
   };
 
   outputs = inputs @ {

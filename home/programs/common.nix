@@ -14,7 +14,6 @@
     pkgs.grim
     pkgs.obsidian
     pkgs.fish
-    pkgs.byobu
     pkgs.rofi-wayland
     pkgs.brightnessctl
     pkgs.gnome.gnome-bluetooth
@@ -27,17 +26,12 @@
     pkgs.yarn
     pkgs.vlc pkgs.mpv
     pkgs.zellij
-    pkgs.vscode
-    pkgs.ncspot
-    pkgs.tmux
-    pkgs.fuzzel
     pkgs.hyprpanel
     pkgs.firefox-beta-bin
-    pkgs.spotify-player
     pkgs.bitwarden
     (pkgs.discord.override {withVencord = true;})
-    pkgs.fastfetch
     pkgs.zed-editor
+    pkgs.pamixer
   ];
 
   # Manage incompatible .configs
@@ -50,12 +44,11 @@
       enable = true;
       enableFishIntegration = true;
     };
-    fuzzel.enable = true;
+    tmux.enable = true;
     vscode.enable = true;
     btop.enable = true; # replacement of htop/nmon
     eza.enable = true; # A modern replacement for ‘ls’
     jq.enable = true; # A lightweight and flexible command-line JSON processor
-    ssh.enable = true;
     aria2.enable = true;
     skim = {
       enable = true;

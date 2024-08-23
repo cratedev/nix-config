@@ -2,7 +2,6 @@
 let
   username = "matt";
 in {
-
   # ============================= User related =============================
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.matt = {
@@ -15,20 +14,11 @@ in {
     shell = pkgs.fish;
   };
 
-  # Programs
-  programs.ssh.startAgent = true;
-  programs.dconf.enable = true;
-  programs.sway.enable = true;
-  programs.hyprland.enable = true;
-  programs.fish.enable = true;
-
   # Stylix
   stylix = {
     enable = true;
     polarity = "dark";
-    fonts.sizes = {
-      applications = 10;
-    };
+    fonts.sizes = { applications = 10; };
     # dracula, nord, ayu-mirage, da-one-ocean, harmonic16-dark
     base16Scheme = "${pkgs.base16-schemes}/share/themes/da-one-ocean.yaml";
     image = /home/${username}/nix-config/wallpaper.jpg;
@@ -77,7 +67,7 @@ in {
     LC_TELEPHONE = "en_GB.UTF-8";
     LC_TIME = "en_GB.UTF-8";
   };
-  
+
   fonts = {
     packages = with pkgs; [
       font-awesome
@@ -87,11 +77,7 @@ in {
       noto-fonts-emoji
       (nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono"];})
     ];
-    # use fonts specified by user rather than default ones
     enableDefaultPackages = false;
-    # user defined fonts
-    # the reason there's Noto Color Emoji everywhere is to override DejaVu's
-    # B&W emojis that would sometimes show instead of some Color emojis
     fontconfig.defaultFonts = {
       serif = ["Noto Serif" "Noto Color Emoji"];
       sansSerif = ["Noto Sans" "Noto Color Emoji"];
@@ -100,50 +86,8 @@ in {
     };
   };
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = [
-    pkgs.hyprland
-    pkgs.cargo
-    pkgs.rustc
-    pkgs.ncurses
-    pkgs.vim
-    pkgs.wget
-    pkgs.curl
-    pkgs.git
-    pkgs.sysstat
-    pkgs.lm_sensors # for `sensors` command
-    pkgs.scrot
-    pkgs.neofetch
-    pkgs.xfce.thunar
-    pkgs.nnn pkgs.mc # terminal file manager
-    pkgs.fish
-    pkgs.pamixer
-    pkgs.whois
-    pkgs.swaybg
-    pkgs.busybox
-    pkgs.fzf
-    pkgs.slurp
-    pkgs.grim
-    pkgs.firefox-beta-bin
-    pkgs.xdg-desktop-portal-hyprland
-    pkgs.xdg-desktop-portal-wlr
-    (pkgs.catppuccin-sddm.override {
-      flavor = "mocha";
-      font = "Noto Sans";
-      fontSize = "9";
-    })
-  ];
-
-  hardware = {
-    pulseaudio.enable = false;
-    bluetooth.enable = true;
-  };
-
-  security = {
-    polkit.enable = true;
-  };
-
+  hardware = { bluetooth.enable = true; };
+  security = { polkit.enable = true; };
   services = {
     displayManager.sddm = {
       enable = true;
@@ -152,7 +96,7 @@ in {
       package = pkgs.kdePackages.sddm;
     };
     nixos-cli.enable = true;
-    printing.enable = false;    
+    printing.enable = false;
     power-profiles-daemon.enable = true;
     dbus.packages = [pkgs.gcr];
     geoclue2.enable = true;
@@ -178,7 +122,41 @@ in {
 
   xdg.portal = {
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-hyprland pkgs.xdg-desktop-portal-wlr ];
     xdgOpenUsePortal = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal-wlr
+    ];
   };
+
+  # Programs
+  programs.ssh.startAgent = true;
+  programs.dconf.enable = true;
+  programs.hyprland.enable = true;
+  programs.fish.enable = true;
+
+  environment.systemPackages = [
+    pkgs.hyprland
+    pkgs.cargo
+    pkgs.rustc
+    pkgs.ncurses
+    pkgs.vim
+    pkgs.wget
+    pkgs.curl
+    pkgs.git
+    pkgs.sysstat
+    pkgs.lm_sensors
+    pkgs.xfce.thunar
+    pkgs.fish
+    pkgs.whois
+    pkgs.busybox
+    pkgs.xdg-desktop-portal-hyprland
+    pkgs.xdg-desktop-portal-wlr
+    (pkgs.catppuccin-sddm.override {
+      flavor = "mocha";
+      font = "Noto Sans";
+      fontSize = "9";
+    })
+  ];
 }
