@@ -28,6 +28,9 @@
     [ { device = "/dev/disk/by-uuid/183b6d7f-99ae-418f-9a9d-1c9de8c1a2ec"; }
     ];
 
+  # SSD Trim
+  services.fstrim.enable = true;
+
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction

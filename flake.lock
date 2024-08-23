@@ -443,11 +443,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1724309181,
-        "narHash": "sha256-tlOLPppphi2zzC7ZSPhgZRD5h6IioyQi1qv5SDRY7yk=",
+        "lastModified": 1724382438,
+        "narHash": "sha256-TZJo4resuPANZQATre7ChLadIe5ENgszXNd1waeJu58=",
         "owner": "Jas-SinghFSU",
         "repo": "HyprPanel",
-        "rev": "ff29790317003d4071205b303ce2ccc149f8cd21",
+        "rev": "c0d9c594c9480bf63fee22b7b4a06e64cbdbbb79",
         "type": "github"
       },
       "original": {
@@ -682,11 +682,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1724300166,
-        "narHash": "sha256-4xHNh21uFGWsakRKmh86OpbY0/E30KHvdMSrgX3bTTU=",
+        "lastModified": 1724386575,
+        "narHash": "sha256-BxhvQ5uX2W9oJ6f/lDuKmgiNVRusLN01mWhJogvHpak=",
         "owner": "Gerg-L",
         "repo": "spicetify-nix",
-        "rev": "0b865dea6eb59c3b3d3f6b65a4d4d41725ae0c12",
+        "rev": "0fc9765ae6e9dc0daaebf6549e5e14ff5acff498",
         "type": "github"
       },
       "original": {
