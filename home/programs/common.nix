@@ -32,6 +32,8 @@
     (pkgs.discord.override {withVencord = true;})
     pkgs.zed-editor
     pkgs.pamixer
+    pkgs.ytfzf
+    pkgs.hyprlock
   ];
 
   # Manage incompatible .configs
