@@ -5,7 +5,7 @@
         "hash dbus-update-activation-environment 2>/dev/null &"
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &"
         "nm-applet &"
-        "swaybg -m fill -i $HOME/nix-config/wallpaper.jpg &"
+        "swaybg -m fill -i $HOME/nix-config/wallpaper2.png &"
         "hyprctl setcursor Nordzy-cursors 22 &"
         "hyprpanel &"
         "wl-paste --type text --watch cliphist store &"
@@ -25,7 +25,7 @@
 
       general = {
         "$mainMod" = "SUPER";
-        layout = "dwindle";
+        layout = "master";
         gaps_in = 5;
         gaps_out = 20;
         border_size = 2;
