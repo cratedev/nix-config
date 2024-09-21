@@ -12,7 +12,7 @@
       dns_enabled = true;
     };
   };
-  virtualisation.oci-containers.backend = "podman";
+  virtualisation.oci-containers.backend = "docker";
 
   # Containers
   virtualisation.oci-containers.containers."komodo-komodo-core" = {
