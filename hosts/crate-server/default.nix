@@ -4,6 +4,7 @@
     [
       ../../modules/system.nix
       ./hardware-configuration.nix
+      ./docker/komodo/docker-compose.nix
     ];
 
 
