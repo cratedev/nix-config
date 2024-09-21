@@ -34,6 +34,7 @@
     pkgs.pamixer
     pkgs.ytfzf
     pkgs.hyprlock
+    pkgs.compose2nix
     pkgs.tigervnc
     pkgs.e2fsprogs
     pkgs.xfsprogs
