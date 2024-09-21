@@ -24,35 +24,41 @@
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
-  fileSystems."/storage/disks/one" =
+  fileSystems."/mnt/disks/one" =
     { device = "/dev/disk/by-uuid/bf197aab-66d5-4248-a754-470ce872a172";
       fsType = "xfs";
     };
 
-  fileSystems."/storage/disks/two" =
+  fileSystems."/mnt/disks/two" =
     { device = "/dev/disk/by-uuid/84e599ab-bf44-4b34-9d6b-9defdbc0214f";
       fsType = "xfs";
     };
 
-  fileSystems."/storage/disks/three" =
+  fileSystems."/mnt/disks/three" =
     { device = "/dev/disk/by-uuid/0a5e23b0-f209-4227-a79d-8a7c01cce9d8";
       fsType = "xfs";
     };
 
-  fileSystems."/storage/disks/four" =
+  fileSystems."/mnt/disks/four" =
     { device = "/dev/disk/by-uuid/8e7171c6-0e8d-4d71-8e93-5023df6db228";
       fsType = "xfs";
     };
 
-  fileSystems."/storage/cache/data" =
+  fileSystems."/cache/data" =
     { device = "/dev/disk/by-uuid/c652b005-395a-4195-b069-6157623789a9";
       fsType = "xfs";
     };
 
-  fileSystems."/storage/cache/appdata" =
+  fileSystems."/cache/appdata" =
     { device = "/dev/disk/by-uuid/df9a2f8d-9eb6-49c4-becd-39672885dffe";
       fsType = "xfs";
     };
+
+  fileSystems."/data" = {
+    fsType = "fuse.mergerfs";
+    device = "/mnt/disks/*";
+    options = ["cache.files=partial" "dropcacheonclose=true" "category.create=mfs"];
+  };
 
   swapDevices = [ ];
 
