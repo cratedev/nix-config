@@ -135,7 +135,7 @@ in {
   programs.dconf.enable = true;
   programs.hyprland.enable = true;
   programs.fish.enable = true;
-
+  programs.partition-manager.enable = true;
   environment.systemPackages = [
     pkgs.hyprland
     pkgs.cargo
