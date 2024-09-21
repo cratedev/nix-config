@@ -158,5 +158,6 @@ in {
       font = "Noto Sans";
       fontSize = "9";
     })
+    pkgs.mergerfs
   ];
 }

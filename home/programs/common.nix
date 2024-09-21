@@ -36,6 +36,7 @@
     pkgs.hyprlock
     pkgs.tigervnc
     pkgs.e2fsprogs
+    pkgs.xfsprogs
   ];
 
   # Manage incompatible .configs
