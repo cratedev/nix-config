@@ -34,6 +34,7 @@
     pkgs.pamixer
     pkgs.ytfzf
     pkgs.hyprlock
+    pkgs.tigervnc
   ];
 
   # Manage incompatible .configs
