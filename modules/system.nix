@@ -101,7 +101,7 @@ in {
     dbus.packages = [pkgs.gcr];
     geoclue2.enable = true;
     blueman.enable = true;
-    udev.packages = with pkgs; [gnome.gnome-settings-daemon];
+    udev.packages = with pkgs; [gnome-settings-daemon];
     pipewire = {
       enable = true;
       alsa.enable = true;

@@ -16,7 +16,7 @@
     pkgs.fish
     pkgs.rofi-wayland
     pkgs.brightnessctl
-    pkgs.gnome.gnome-bluetooth
+    pkgs.gnome-bluetooth
     pkgs.ncdu
     pkgs.libsecret
     pkgs.swaybg
