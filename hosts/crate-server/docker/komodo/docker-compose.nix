@@ -12,7 +12,7 @@
       dns_enabled = true;
     };
   };
-  virtualisation.oci-containers.backend = "docker";
+  virtualisation.oci-containers.backend = "podman";
 
   # Containers
   virtualisation.oci-containers.containers."komodo-komodo-core" = {
@@ -35,7 +35,7 @@
     dependsOn = [
       "komodo-komodo-mongo"
     ];
-    log-driver = "local";
+#    log-driver = "local";
     extraOptions = [
       "--network-alias=komodo-core"
       "--network=komodo_komodo-network"
@@ -72,7 +72,7 @@
       "27017:27017/tcp"
     ];
     cmd = [ "--quiet" ];
-    log-driver = "local";
+#    log-driver = "local";
     extraOptions = [
       "--network-alias=komodo-mongo"
       "--network=komodo_komodo-network"
@@ -100,9 +100,9 @@
     volumes = [
       "/cache/appdata/komodo/komodo-repos:/etc/komodo/repos:rw"
       "/cache/appdata/komodo/komodo-stacks:/etc/komodo/stacks:rw"
-      "/var/run/docker.sock:/var/run/docker.sock:rw"
+      "/var/run/podman/podman.sock:/var/run/docker.sock:rw"
     ];
-    log-driver = "local";
+#    log-driver = "local";
     extraOptions = [
       "--network-alias=komodo-periphery"
       "--network=komodo_komodo-network"

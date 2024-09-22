@@ -7,7 +7,7 @@ in {
   users.users.matt = {
     isNormalUser = true;
     description = "matt";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "podman"];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIItETI5nQ1tNxHQ7S7dpDodTU1aT6cPe66+jeS3el9Ac matt@crate-laptop"
     ];
@@ -159,5 +159,9 @@ in {
       fontSize = "9";
     })
     pkgs.mergerfs
+    pkgs.dive
+    pkgs.podman-tui
+    pkgs.podman-compose
+    pkgs.docker-compose
   ];
 }
