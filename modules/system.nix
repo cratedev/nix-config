@@ -118,7 +118,7 @@ in {
       };
       openFirewall = true;
     };
-    gnome-keyring.enable = true;
+    gnome3.gnome-keyring.enable = true;
   };
 
   xdg.portal = {
