@@ -39,6 +39,7 @@
     pkgs.e2fsprogs
     pkgs.xfsprogs
     pkgs.protonvpn-gui
+    pkgs.networkmanagerapplet
   ];
 
   # Manage incompatible .configs
