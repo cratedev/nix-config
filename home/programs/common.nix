@@ -37,6 +37,7 @@
     pkgs.tigervnc
     pkgs.e2fsprogs
     pkgs.xfsprogs
+    pkgs.protonvpn
   ];
 
   # Manage incompatible .configs
