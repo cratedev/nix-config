@@ -38,7 +38,8 @@
     pkgs.tigervnc
     pkgs.e2fsprogs
     pkgs.xfsprogs
-    pkgs.protonvpn
+    pkgs.protonvpn-gui
+    pkgs.gnome-keyring
   ];
 
   # Manage incompatible .configs
