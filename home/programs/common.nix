@@ -39,7 +39,6 @@
     pkgs.e2fsprogs
     pkgs.xfsprogs
     pkgs.protonvpn-gui
-    pkgs.gnome-keyring
   ];
 
   # Manage incompatible .configs

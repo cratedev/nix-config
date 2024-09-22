@@ -118,6 +118,7 @@ in {
       };
       openFirewall = true;
     };
+    services.gnome-keyring.enable = true;
   };
 
   xdg.portal = {
