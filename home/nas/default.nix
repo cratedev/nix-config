@@ -11,10 +11,14 @@
 #    ./immich.nix
 #    ./jellystat.nix
 #    ./paperless.nix
-    ./search.nix
+#    ./search.nix
 #    ./tesla.nix
 #    ./tools.nix
 #    ./proxy.nix
 #    ./passwordmgr.nix
+  ];
+
+  environment.systemPackages = [
+    pkgs.searxng
   ];
 }
