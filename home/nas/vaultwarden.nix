@@ -3,8 +3,8 @@
     services.vaultwarden = {
         enable = true;
         config = {
-            ROCKET_ADDRESS = "127.0.0.1"
-            ROCKET_PORT = "83"
+            ROCKET_ADDRESS = "::1"; # default to localhost
+            ROCKET_PORT = 8523;
         };
     };
 }
