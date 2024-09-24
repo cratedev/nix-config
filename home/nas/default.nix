@@ -21,4 +21,5 @@
   environment.systemPackages = [
     pkgs.searxng
   ];
+  programs.searxng.enable = true;
 }
