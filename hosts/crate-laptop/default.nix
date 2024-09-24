@@ -3,7 +3,7 @@
   imports =
     [
       ../../modules/system.nix
-      ../../programs/nas/default.nix
+      ../../home/nas/default.nix
       ./hardware-configuration.nix
     ];
 
