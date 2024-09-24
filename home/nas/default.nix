@@ -11,15 +11,21 @@
 #    ./immich.nix
 #    ./jellystat.nix
 #    ./paperless.nix
-#    ./search.nix
+    ./search.nix
 #    ./tesla.nix
 #    ./tools.nix
 #    ./proxy.nix
-#    ./passwordmgr.nix
+    ./vaultwarden.nix
   ];
 
-  environment.systemPackages = [
-    pkgs.searxng
+  environment.systemPackages = with pkgs; [
+    searxng
+    jellyfin
+    sonarr
+    radarr
+    prowlarr
+    traefik
+    vaultwarden
+    paperless-ngx
   ];
-  programs.searxng.enable = true;
 }
