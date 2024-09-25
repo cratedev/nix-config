@@ -4,9 +4,16 @@
   # Enable Prowlarr service
   services.prowlarr = {
     enable = true;
+  };
 
-    # Set the data directory where Prowlarr will store its configuration and data files
-    dataDir = "/appdata/prowlarr";
+  # Use systemd's service customization to bind the default /var/lib/prowlarr directory to /appdata/prowlarr
+  systemd.services.prowlarr = {
+    after = [ "network.target" ];  # Ensure it starts after the network is up
+
+    serviceConfig = {
+      # Bind the /var/lib/prowlarr directory to /appdata/prowlarr
+      BindPaths = [ "/appdata/prowlarr:/var/lib/prowlarr" ];
+    };
   };
 
   # Ensure the directory exists with appropriate permissions
@@ -20,6 +27,8 @@
   # Ensure that the system user for Prowlarr exists
   users.users.prowlarr = {
     isSystemUser = true;
+    group = "prowlarr";
     home = "/var/lib/prowlarr";
   };
+  users.groups.prowlarr = {};
 }

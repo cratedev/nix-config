@@ -11,7 +11,7 @@
 
   # Ensure the directory exists with appropriate permissions
   systemd.tmpfiles.rules = [
-    "d /appdata/sabnzbd 0755 sabnzbd sabnzbd -"
+    "dZ /appdata/sabnzbd 0755 sabnzbd sabnzbd -"
   ];
 
   # Optionally set firewall rules (if needed)
