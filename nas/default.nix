@@ -1,5 +1,6 @@
-{ ... }
+{ ... }:
+{
     imports = [
-#        ./sonarr.nix;
+        ./sonarr.nix;
     ];
 }
