@@ -20,7 +20,7 @@
   # Example: Ensure that the directory has the right owner/group and permissions
   users.users.sonarr = {
     isSystemUser = true;
-    home = "/var/lib/sonarr";
+    home = "/appdata/sonarr";
   };
 
   # Ensure the filesystem where the /appdata/sonarr is located is mounted (if using a separate volume)
