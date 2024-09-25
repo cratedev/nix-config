@@ -15,7 +15,7 @@
   ];
 
   # Optionally set firewall rules (if needed)
-  networking.firewall.allowedTCPPorts = [ 8989 ];
+  networking.firewall.allowedTCPPorts = [ 7878 ];
 
   # Example: Ensure that the directory has the right owner/group and permissions
   users.users.radarr = {

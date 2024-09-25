@@ -6,7 +6,7 @@
     enable = true;
 
     # Set the data directory where sabnzbd will store its configuration and data files
-    dataDir = "/appdata/sabnzbd";
+    configFile = "/appdata/sabnzbd/sabnzbd.ini";
   };
 
   # Ensure the directory exists with appropriate permissions
