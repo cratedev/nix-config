@@ -4,7 +4,6 @@
     [
       ../../modules/system.nix
       ./hardware-configuration.nix
-      ../../nas/default.nix
     ];
 
   # Where we're going, we don't need channels
