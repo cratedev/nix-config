@@ -89,6 +89,7 @@ in {
   hardware = { bluetooth.enable = true; };
   security = { polkit.enable = true; };
   services = {
+    teamviewer.enable = true;
     displayManager.sddm = {
       enable = true;
       wayland.enable = true;
@@ -164,5 +165,6 @@ in {
     pkgs.podman-tui
     pkgs.podman-compose
     pkgs.docker-compose
+    pkgs.cachix
   ];
 }

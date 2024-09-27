@@ -40,6 +40,8 @@
     pkgs.xfsprogs
     pkgs.protonvpn-gui
     pkgs.networkmanagerapplet
+    pkgs.teamviewer
+    pkgs.niri
   ];
 
   # Manage incompatible .configs
