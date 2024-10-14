@@ -5,7 +5,7 @@
         "hash dbus-update-activation-environment 2>/dev/null &"
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &"
         "nm-applet &"
-        "swaybg -m fill -i $HOME/nix-config/wallpaper2.png &"
+#        "swaybg -m fill -i $HOME/nix-config/wallpaper2.png &"
         "hyprctl setcursor Nordzy-cursors 22 &"
         "hyprpanel &"
         "wl-paste --type text --watch cliphist store &"

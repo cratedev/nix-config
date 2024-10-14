@@ -4,7 +4,6 @@
     [
       ../../modules/system.nix
 #      ../../modules/nas/default.nix
-      ../../modules/niri.nix
       ./hardware-configuration.nix
     ];
 
