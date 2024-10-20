@@ -126,7 +126,7 @@
           "Mod+Shift+Slash".action = show-hotkey-overlay;
 
           "Mod+Return".action = spawn "foot" "-e" "zellij" "attach" "--create" "main";
-          "Mod+D".action = spawn "$HOME/.config/rofi/scripts/launcher_t1";
+          "Mod+D".action = spawn "../../scripts/launcher_t1";
 
           "Mod+Q".action = close-window;
 
