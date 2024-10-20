@@ -26,9 +26,9 @@
             };
         };
 
-#        environment = {
-#          DISPLAY = ":0";
-#        };
+        environment = {
+          DISPLAY = ":0";
+        };
 
 #        prefer-no-csd = true;
 
