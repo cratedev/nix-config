@@ -5,7 +5,7 @@
         settings = {
             spawn-at-startup = [
                 { command = [ "${lib.getExe pkgs.swaybg}" "-i" "../../wallpaper/3.png" ]; }
-                { command = [ "systemctl" "--user" "import-environment"]; }
+#                { command = [ "systemctl" "--user" "import-environment"]; }
             ];
 
             prefer-no-csd = true;
