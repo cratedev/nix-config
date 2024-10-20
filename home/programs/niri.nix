@@ -43,15 +43,15 @@
           focus-ring = {
             enable = false;
             width = 1;
-            active.color = config.modules.desktop.themes.niri.accent;
-            inactive.color = config.modules.desktop.themes.niri.inactive;
+#            active.color = config.modules.desktop.themes.niri.accent;
+#            inactive.color = config.modules.desktop.themes.niri.inactive;
           };
 
           border = {
             enable = true;
             width = 1;
-            active.color = config.modules.desktop.themes.niri.accent;
-            inactive.color = config.modules.desktop.themes.niri.inactive;
+#            active.color = config.modules.desktop.themes.niri.accent;
+#            inactive.color = config.modules.desktop.themes.niri.inactive;
           };
         };
 
@@ -237,11 +237,7 @@
           "XF86AudioMicMute".allow-when-locked = true;
 
           "XF86Launch1".action = sh "${lib.getExe pkgs.rofi-rbw-wayland} -a copy -t password --clear-after 20";
-          "XF86ScreenSaver".action = sh "${lib.getExe config.modules.desktop.hyprlock.package}";
-
-          "Mod+V".action = sh "${lib.getExe pkgs.wezterm} start --class 'clipse' -e '${lib.getExe config.modules.desktop.clipse.package}'";
-        } // (if config.modules.desktop.wob.enable then let
-          wobSock = config.modules.desktop.wob.sockPath;
+        }
         in {
           "XF86AudioRaiseVolume".action = sh "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 10%+ && wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/[^0-9]//g' > ${wobSock}";
           "XF86AudioRaiseVolume".allow-when-locked = true;
