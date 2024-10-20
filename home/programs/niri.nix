@@ -26,35 +26,29 @@
                 };
             };
 
-#        environment = {
-#          DISPLAY = ":0";
-#        };
-
-#        prefer-no-csd = true;
+    #        environment = {
+    #          DISPLAY = ":0";
+    #        };
 
         # https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
         layout = {
-          gaps = 6;
+            gaps = 6;
+            center-focused-column = "on-overflow";
+            focus-ring = {
+                enable = false;
+                width = 1;
+#               active.color = config.modules.desktop.themes.niri.accent;
+#               inactive.color = config.modules.desktop.themes.niri.inactive;
+            };
 
-          center-focused-column = "on-overflow";
-
-          focus-ring = {
-            enable = false;
-            width = 1;
-#            active.color = config.modules.desktop.themes.niri.accent;
-#            inactive.color = config.modules.desktop.themes.niri.inactive;
-          };
-
-          border = {
-            enable = true;
-            width = 1;
-#            active.color = config.modules.desktop.themes.niri.accent;
-#            inactive.color = config.modules.desktop.themes.niri.inactive;
-          };
+            border = {
+                enable = true;
+                width = 1;
+#               active.color = config.modules.desktop.themes.niri.accent;
+#               inactive.color = config.modules.desktop.themes.niri.inactive;
+            };
         };
-
         screenshot-path = null;
-
         # https://github.com/YaLTeR/niri/wiki/Configuration:-Animations
         animations = {
           shaders.window-resize = ''
@@ -124,7 +118,8 @@
           "Mod+Shift+Slash".action = show-hotkey-overlay;
 
           "Mod+Return".action = spawn "foot" "-e" "zellij" "attach" "--create" "main";
-          "Mod+D".action = spawn "../../scripts/launcher_t1";
+#          "Mod+D".action = spawn "../../scripts/launcher_t1";
+          "Mod+D".action = spawn "fuzzel";
 
           "Mod+Q".action = close-window;
 
