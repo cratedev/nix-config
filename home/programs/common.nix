@@ -14,7 +14,7 @@
     pkgs.grim
     pkgs.obsidian
     pkgs.fish
-    pkgs.rofi
+    pkgs.rofi-wayland-unwrapped
     pkgs.brightnessctl
     pkgs.gnome-bluetooth
     pkgs.ncdu
