@@ -35,6 +35,7 @@
     hyprpanel,
     spicetify-nix,
     stylix,
+    niri,
     nixos-cli,
     ...
   }: {
