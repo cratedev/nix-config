@@ -237,19 +237,6 @@
           "XF86AudioMicMute".allow-when-locked = true;
 
           "XF86Launch1".action = sh "${lib.getExe pkgs.rofi-rbw-wayland} -a copy -t password --clear-after 20";
-        }
-        in {
-#          "XF86AudioRaiseVolume".action = sh "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 10%+ && wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/[^0-9]//g' > ${wobSock}";
-#          "XF86AudioRaiseVolume".allow-when-locked = true;
-#          "XF86AudioLowerVolume".action = sh "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 10%- && wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/[^0-9]//g' > ${wobSock}";
-#          "XF86AudioLowerVolume".allow-when-locked = true;
-#          "XF86AudioMute".action        = sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && (wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED && echo 0 > ${wobSock}) || wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/[^0-9]//g' > ${wobSock}";
-#          "XF86AudioMute".allow-when-locked = true;
-#          "XF86MonBrightnessUp".action = sh "${lib.getExe pkgs.brightnessctl} s +5% && ${lib.getExe pkgs.brightnessctl} -m | awk -F, '{ print $4 }' | sed 's/.$//' > ${wobSock}";
-#          "XF86MonBrightnessUp".allow-when-locked = true;
-#          "XF86MonBrightnessDown".action = sh "${lib.getExe pkgs.brightnessctl} s 5%- && ${lib.getExe pkgs.brightnessctl} -m | awk -F, '{ print $4 }' | sed 's/.$//' > ${wobSock}";
-#          "XF86MonBrightnessDown".allow-when-locked = true;
-        } else {
           "XF86AudioRaiseVolume".action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+";
           "XF86AudioRaiseVolume".allow-when-locked = true;
           "XF86AudioLowerVolume".action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-";
