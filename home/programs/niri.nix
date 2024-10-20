@@ -1,4 +1,4 @@
-{ lib, config, pkgs, inputs, , outputs, system, ... }:
+{ lib, config, pkgs, inputs, outputs, system, ... }:
 {
     programs.niri = {
         enable = true;
