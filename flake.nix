@@ -47,7 +47,8 @@
 	      ./overlays
           stylix.nixosModules.stylix
           nixos-cli.nixosModules.nixos-cli
-          home-manager.nixosModules.home-manager
+          niri.nixosModules.niri
+	  home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
