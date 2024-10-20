@@ -4,13 +4,15 @@
 #        enable = true;
         settings = {
             spawn-at-startup = [
-                { command = [ "${lib.getExe pkgs.swaybg}" "-i" "../../wallpaper/2.png" ]; }
+                { command = [ "${lib.getExe pkgs.swaybg}" "-i" "../../wallpaper/3.png" ]; }
 #                { command = [ "${pkgs.lxqt.lxqt-policykit}/bin/lxqt-policykit-agent" ]; }   # authentication prompts
 #                { command = [ "${lib.getExe pkgs.wl-clip-persist} --clipboard primary" ]; } # to fix wl clipboards disappearing
 #                (if config.modules.desktop.hypridle.enable then {
 #                    command = [ "${lib.getExe config.modules.desktop.hypridle.package}" ];
 #                } else null)
             ]; # ++ (map (cmd: { command = [ "sh" "-c" cmd ]; }) config.modules.desktop.execOnStart);
+
+            prefer-no-csd = true;
 
             input = {
             #workspace-auto-back-and-forth = true;
