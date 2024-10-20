@@ -247,7 +247,7 @@
           "XF86MonBrightnessUp".allow-when-locked = true;
           "XF86MonBrightnessDown".action = spawn (lib.getExe pkgs.brightnessctl) "s" "5%-";
           "XF86MonBrightnessDown".allow-when-locked = true;
-        });
+        };
       };
     };
 }
