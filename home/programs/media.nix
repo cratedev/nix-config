@@ -24,8 +24,8 @@
         hidePodcasts
         shuffle
       ];
-      theme = spicePkgs.themes.catppuccin;
-      colorScheme = "mocha";
+#      theme = spicePkgs.themes.catppuccin;
+#      colorScheme = "mocha";
     };
 
   services = {
