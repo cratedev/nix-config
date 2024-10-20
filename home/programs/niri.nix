@@ -15,16 +15,16 @@
 
             input = {
             #workspace-auto-back-and-forth = true;
-            keyboard.xkb = {
-                layout = "us";
-            };
+                keyboard.xkb = {
+                    layout = "us";
+                };
 
-            touchpad = {
-                tap = true;
-                natural-scroll = true;
-                #dwt = true;
+                touchpad = {
+                    tap = true;
+                    natural-scroll = true;
+                    #dwt = true;
+                };
             };
-        };
 
 #        environment = {
 #          DISPLAY = ":0";
