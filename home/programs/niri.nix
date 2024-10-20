@@ -8,7 +8,7 @@
 #                { command = [ "systemctl" "--user" "import-environment"]; }
             ];
 
-            prefer-no-csd = true;
+#            prefer-no-csd = true;
 
             input = {
             #workspace-auto-back-and-forth = true;
