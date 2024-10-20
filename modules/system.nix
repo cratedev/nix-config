@@ -21,7 +21,8 @@ in {
     fonts.sizes = { applications = 10; };
     # dracula, nord, ayu-mirage, da-one-ocean, harmonic16-dark
     base16Scheme = "${pkgs.base16-schemes}/share/themes/da-one-ocean.yaml";
-    image = /home/${username}/nix-config/wallpaper2.png;
+#    image = /home/${username}/nix-config/wallpaper2.png;
+    image = $HOME/nix-config/wallpaper2.png;
   };
 
   # Optimise store
