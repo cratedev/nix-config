@@ -25,7 +25,9 @@
                 };
             };
 
-	    spawn-at-startup = "foot";
+	    spawn-at-startup = {
+		"foot";
+	    };
 
             environment = {
                 DISPLAY = ":0";
