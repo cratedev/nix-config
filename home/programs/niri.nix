@@ -11,7 +11,7 @@
 #                    command = [ "${lib.getExe config.modules.desktop.hypridle.package}" ];
 #                } else null)
             # ++ (map (cmd: { command = [ "sh" "-c" cmd ]; }) config.modules.desktop.execOnStart);
-	    };
+
             input = {
             #workspace-auto-back-and-forth = true;
                 keyboard.xkb = {
