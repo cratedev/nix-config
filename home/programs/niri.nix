@@ -47,6 +47,10 @@
 #               active.color = config.modules.desktop.themes.niri.accent;
 #               inactive.color = config.modules.desktop.themes.niri.inactive;
             };
+
+            default-column-width = {
+                proportion: 0.5;
+            };
         };
         screenshot-path = null;
         # https://github.com/YaLTeR/niri/wiki/Configuration:-Animations
