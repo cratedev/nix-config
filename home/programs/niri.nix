@@ -5,6 +5,7 @@
         settings = {
             spawn-at-startup = [
                 { command = [ "${lib.getExe pkgs.swaybg}" "-i" "../../wallpaper/3.png" ]; }
+                { command = [ "foot" ]; }
 #                { command = [ "${pkgs.lxqt.lxqt-policykit}/bin/lxqt-policykit-agent" ]; }   # authentication prompts
 #                { command = [ "${lib.getExe pkgs.wl-clip-persist} --clipboard primary" ]; } # to fix wl clipboards disappearing
 #                (if config.modules.desktop.hypridle.enable then {
