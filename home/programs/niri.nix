@@ -3,7 +3,7 @@
     programs.niri = {
 #        enable = true;
         settings = {
-            spawn-at-startup = "swaybg -i ../wallpaper/2.png"
+            spawn-at-startup = "swaybg -i ../wallpaper/2.png";
 #                { command = [ "${lib.getExe pkgs.networkmanagerapplet}" ]; }
 #                { command = [ "${pkgs.lxqt.lxqt-policykit}/bin/lxqt-policykit-agent" ]; }   # authentication prompts
 #                { command = [ "${lib.getExe pkgs.wl-clip-persist} --clipboard primary" ]; } # to fix wl clipboards disappearing
