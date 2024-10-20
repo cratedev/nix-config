@@ -120,7 +120,7 @@
         ];
 
         # https://github.com/YaLTeR/niri/wiki/Configuration:-Key-Bindings
-        binds = with config.hm.lib.niri.actions; let
+        binds = let
           sh = spawn "sh" "-c";
         in {
           "Mod+Shift+Slash".action = show-hotkey-overlay;
