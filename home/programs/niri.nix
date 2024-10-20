@@ -120,9 +120,7 @@
         ];
 
         # https://github.com/YaLTeR/niri/wiki/Configuration:-Key-Bindings
-        binds = let
-          sh = spawn "sh" "-c";
-        in {
+        binds = {
           "Mod+Shift+Slash".action = show-hotkey-overlay;
 
           "Mod+D".action = spawn "fuzzel";
