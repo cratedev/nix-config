@@ -10,7 +10,7 @@
 #                (if config.modules.desktop.hypridle.enable then {
 #                    command = [ "${lib.getExe config.modules.desktop.hypridle.package}" ];
 #                } else null)
-            ] # ++ (map (cmd: { command = [ "sh" "-c" cmd ]; }) config.modules.desktop.execOnStart);
+            ]; # ++ (map (cmd: { command = [ "sh" "-c" cmd ]; }) config.modules.desktop.execOnStart);
 
             input = {
             #workspace-auto-back-and-forth = true;
