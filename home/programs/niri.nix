@@ -121,8 +121,6 @@
 
         # https://github.com/YaLTeR/niri/wiki/Configuration:-Key-Bindings
         binds = {
-          "Mod+Shift+Slash".action = show-hotkey-overlay;
-
           "Mod+D".action = spawn "fuzzel";
 
           "Mod+Q".action = close-window;
