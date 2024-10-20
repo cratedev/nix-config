@@ -26,9 +26,9 @@
                 };
             };
 
-    #        environment = {
-    #          DISPLAY = ":0";
-    #        };
+            environment = {
+              DISPLAY = ":0";
+            };
 
         # https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
         layout = {
