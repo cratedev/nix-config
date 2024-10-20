@@ -4,7 +4,7 @@
 #        enable = true;
         settings = {
             spawn-at-startup = [
-#                { command = [ "${lib.getExe pkgs.xwayland-satellite-unstable}" ]; }
+                { command = [ "foot" ]; }
 #                { command = [ "${lib.getExe pkgs.networkmanagerapplet}" ]; }
 #                { command = [ "${pkgs.lxqt.lxqt-policykit}/bin/lxqt-policykit-agent" ]; }   # authentication prompts
 #                { command = [ "${lib.getExe pkgs.wl-clip-persist} --clipboard primary" ]; } # to fix wl clipboards disappearing
