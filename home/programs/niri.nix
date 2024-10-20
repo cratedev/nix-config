@@ -125,7 +125,7 @@
         in {
           "Mod+Shift+Slash".action = show-hotkey-overlay;
 
-          "Mod+Return".action = spawn "foot";
+          "Mod+Return".action = spawn "foot -e zellij attach --create main";
           "Mod+D".action = spawn "fuzzel";
 
           "Mod+Q".action = close-window;
