@@ -1,4 +1,4 @@
-{ pkgs, config, inputs, ... }:
+{ libs, pkgs, config, inputs, ... }:
 {
   imports = [
     inputs.spicetify-nix.homeManagerModules.default
