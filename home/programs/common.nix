@@ -1,7 +1,6 @@
 { lib, pkgs, inputs, ... }:
 {
   home.packages = [
-    pkgs.ags
     pkgs.cliphist
     pkgs.wl-clipboard-rs
     pkgs.zip
@@ -21,7 +20,7 @@
     pkgs.gnome-bluetooth
     pkgs.ncdu
     pkgs.libsecret
-    pkgs.swaybg
+#    pkgs.swaybg
     pkgs.nodejs
     pkgs.nodePackages.npm
     pkgs.nodePackages.pnpm
