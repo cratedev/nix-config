@@ -51,7 +51,6 @@
   programs.spotify-player.enable = true; xdg.configFile."spotify-player".source = ./dots/spotify-player;
   programs.ncspot.enable = true; xdg.configFile."ncspot/credentials.json".source = ./dots/ncspot/credentials.json;
   xdg.configFile."rofi".source = ./dots/rofi;
-  programs.ags.enable = true;
 
   programs = {
     nix-index = {
