@@ -229,7 +229,7 @@
             "Print".action = screenshot;
             "Ctrl+Print".action = screenshot-screen;
             "Alt+Print".action = screenshot-window;
-            "Mod+I".action = spawn "grim -g \"$(slurp)\" ../../../images/screenshots/\"$(date +%y.%m.%d-%H:%M:%S)\".png";
+            "Mod+I".action = spawn "grim -g $(slurp) ../../../images/screenshots/$(date +%y.%m.%d-%H:%M:%S).png";
 
             "Mod+Shift+E".action = quit;
 
