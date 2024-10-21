@@ -122,7 +122,8 @@
             in {
             "Mod+Shift+Slash".action = show-hotkey-overlay;
 
-            "Mod+Return".action = spawn "foot" "-e" "zellij" "attach" "--create" "main";
+#            "Mod+Return".action = spawn "foot" "-e" "zellij" "attach" "--create" "main";
+	    "Mod+Return".action = spawn "foot -e zellij attach --create main";
 #          "Mod+D".action = spawn "../../scripts/launcher_t1";
             "Mod+D".action = spawn "fuzzel";
 
