@@ -43,7 +43,7 @@
     pkgs.networkmanagerapplet
     pkgs.teamviewer
     pkgs.niri
-    pkgs.feh
+    pkgs.swww
   ];
 
   # Manage incompatible .configs
