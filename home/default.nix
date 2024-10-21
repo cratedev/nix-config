@@ -44,4 +44,8 @@
       monitor=,preferred,auto,1
     ";
   };
+
+  wayland.windowManager.niri = {
+    enable = true;
+  };
 }
