@@ -4,9 +4,8 @@
 #        enable = true;
         settings = {
             spawn-at-startup = [
-                { command = [ "${lib.getExe pkgs.swww} img ../../wallpaper/3.png" ]; }
-                { command = [ "swww img ../../wallpaper/3.png" ]; }
-#                { command = [ "swaybg -i ../../wallpaper/3.png" ]; }
+#                { command = [ "${lib.getExe pkgs.swww} img ../../wallpaper/3.png" ]; }
+                { command = [ "swww" "img" "../../wallpaper/3.png" ]; }
 #                { command = [ "systemctl" "--user" "import-environment"]; }
             ];
 
