@@ -2,7 +2,6 @@
 {
     programs.niri = {
 #        enable = true;
-	xwayland.enable = true;
         settings = {
             spawn-at-startup = [
                 { command = [ "swww-daemon" ]; }
@@ -29,7 +28,8 @@
 
             environment = {
                 DISPLAY = ":0";
-            };
+            	NIXOS_OZONE_WL = "1";
+	    };
 
             # https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
             layout = {
