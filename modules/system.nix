@@ -17,6 +17,7 @@ in {
   # Stylix
   stylix = {
     enable = true;
+    autoEnable = true;
     polarity = "dark";
     fonts.sizes = { applications = 10; };
     # dracula, nord, ayu-mirage, da-one-ocean, harmonic16-dark
