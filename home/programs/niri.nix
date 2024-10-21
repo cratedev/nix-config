@@ -2,6 +2,7 @@
 {
     programs.niri = {
 #        enable = true;
+	xwayland.enable = true;
         settings = {
             spawn-at-startup = [
                 { command = [ "swww-daemon" ]; }
