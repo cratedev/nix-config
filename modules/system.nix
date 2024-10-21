@@ -21,7 +21,7 @@ in {
     fonts.sizes = { applications = 10; };
     # dracula, nord, ayu-mirage, da-one-ocean, harmonic16-dark
     base16Scheme = "${pkgs.base16-schemes}/share/themes/da-one-ocean.yaml";
-    image = ../wallpaper/2.png;
+    image = ../wallpaper/3.png;
   };
 
   # Optimise store
