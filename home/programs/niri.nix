@@ -5,7 +5,7 @@
         settings = {
             spawn-at-startup = [
                 { command = [ "swww-daemon" ]; }
-                { command = [ "swww img ../../wallpaper/3.png" ]; }
+                { command = [ "swww" "img" "../../wallpaper/3.png" ]; }
                 { command = [ "hash" "dbus-update-activation-environment" "2>/dev/null" ]; }
                 { command = [ "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP" ]; }
 #                { command = [ "systemctl" "--user" "import-environment"]; }
@@ -122,8 +122,8 @@
             in {
             "Mod+Shift+Slash".action = show-hotkey-overlay;
 
-#            "Mod+Return".action = spawn "foot" "-e" "zellij" "attach" "--create" "main";
-	    "Mod+Return".action = spawn "foot -e zellij attach --create main";
+            "Mod+Return".action = spawn "foot" "-e" "zellij" "attach" "--create" "main";
+#	    "Mod+Return".action = spawn "foot -e zellij attach --create main";
 #          "Mod+D".action = spawn "../../scripts/launcher_t1";
             "Mod+D".action = spawn "fuzzel";
 
@@ -230,7 +230,7 @@
             "Print".action = screenshot;
             "Ctrl+Print".action = screenshot-screen;
             "Alt+Print".action = screenshot-window;
-            "Mod+I".action = spawn "grim" "-g" "$(slurp)" "../../../images/screenshots/'$(date +%y.%m.%d-%H:%M:%S)'.png";
+            "Mod+I".action = spawn "grim" "-g" "$(slurp)" "../../../images/screenshots/\'$(date +%y.%m.%d-%H:%M:%S)\'.png";
 
             "Mod+Shift+E".action = quit;
 
