@@ -2,6 +2,7 @@
 {
   home.packages = [
     pkgs.libgtop
+    pkgs.ags
     pkgs.cliphist
     pkgs.wl-clipboard-rs
     pkgs.zip
