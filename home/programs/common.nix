@@ -29,7 +29,7 @@
     pkgs.zellij
     pkgs.hyprpanel
     pkgs.firefox-beta-bin
-    pkgs.bitwarden
+    pkgs.bitwarden-desktop
     (pkgs.discord.override {withVencord = true;})
     pkgs.zed-editor
     pkgs.pamixer
