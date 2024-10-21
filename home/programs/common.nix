@@ -1,6 +1,7 @@
 { lib, pkgs, inputs, ... }:
 {
   home.packages = [
+    pkgs.ags
     pkgs.cliphist
     pkgs.wl-clipboard-rs
     pkgs.zip
