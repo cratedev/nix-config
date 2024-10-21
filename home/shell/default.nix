@@ -15,7 +15,6 @@ in {
     EDITOR = "nano";
     BROWSER = "firefox";
     TERMINAL = "foot";
-    NIXOS_OZONE_WL = "1";
     # enable scrolling in git diff
     DELTA_PAGER = "less -R";
 
