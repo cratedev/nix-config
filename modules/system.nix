@@ -150,6 +150,7 @@ in {
     pkgs.sysstat
     pkgs.lm_sensors
     pkgs.xfce.thunar
+    pkgs.xfce.tumbler
     pkgs.fish
     pkgs.whois
     pkgs.busybox
