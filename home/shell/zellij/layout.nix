@@ -7,9 +7,9 @@ in /* kdl */ ''
       pane size=1 borderless=true {
         plugin location="file:$HOME/.config/zellij/plugins/zjstatus.wasm" {
           format_left   "{mode} #[fg=#E2E0DF,bold]{session}"
-          format_center "{tabs}"
+          format_center "{mode}#[bg=$bg] {tabs}"
           format_right  "{command_git_branch} {datetime}"
-          format_space  ""
+          format_space  "#[bg=$bg]"
 
           border_enabled  "false"
           border_char     "─"
@@ -18,11 +18,38 @@ in /* kdl */ ''
 
           hide_frame_for_single_pane "true"
 
-          mode_normal  "#[bg=blue] "
-          mode_tmux    "#[bg=#ffc387] "
+          mode_normal        "#[bg=$green,fg=$bg,bold] NORMAL#[bg=$bg,fg=$green]"
+          mode_locked        "#[bg=$red,fg=$bg,bold] LOCKED #[bg=$bg,fg=$red]"
+          mode_resize        "#[bg=$blue,fg=$bg,bold] RESIZE#[bg=$bg,fg=$blue]"
+          mode_pane          "#[bg=$blue,fg=$bg,bold] PANE#[bg=$bg,fg=$blue]"
+          mode_tab           "#[bg=$yellow,fg=$bg,bold] TAB#[bg=$bg,fg=$yellow]"
+          mode_scroll        "#[bg=$blue,fg=$bg,bold] SCROLL#[bg=$bg,fg=$blue]"
+          mode_enter_search  "#[bg=$orange,fg=$bg,bold] ENT-SEARCH#[bg=$bg,fg=$orange]"
+          mode_search        "#[bg=$orange,fg=$bg,bold] SEARCHARCH#[bg=$bg,fg=$orange]"
+          mode_rename_tab    "#[bg=$yellow,fg=$bg,bold] RENAME-TAB#[bg=$bg,fg=$yellow]"
+          mode_rename_pane   "#[bg=$blue,fg=$bg,bold] RENAME-PANE#[bg=$bg,fg=$blue]"
+          mode_session       "#[bg=$blue,fg=$bg,bold] SESSION#[bg=$bg,fg=$blue]"
+          mode_move          "#[bg=$blue,fg=$bg,bold] MOVE#[bg=$bg,fg=$blue]"
+          mode_prompt        "#[bg=$blue,fg=$bg,bold] PROMPT#[bg=$bg,fg=$blue]"
+          mode_tmux          "#[bg=$magenta,fg=$bg,bold] TMUX#[bg=$bg,fg=$magenta]"
 
-          tab_normal   "#[fg=#777777] {name} "
-          tab_active   "#[fg=#E2E0DF,bold,italic] {name} "
+          // formatting for inactive tabs
+          tab_normal              "#[bg=$bg,fg=$cyan]#[bg=$cyan,fg=$bg,bold]{index} #[bg=$bg,fg=$cyan,bold] {name}{floating_indicator}#[bg=$bg,fg=$bg,bold]"
+          tab_normal_fullscreen   "#[bg=$bg,fg=$cyan]#[bg=$cyan,fg=$bg,bold]{index} #[bg=$bg,fg=$cyan,bold] {name}{fullscreen_indicator}#[bg=$bg,fg=$bg,bold]"
+          tab_normal_sync         "#[bg=$bg,fg=$cyan]#[bg=$cyan,fg=$bg,bold]{index} #[bg=$bg,fg=$cyan,bold] {name}{sync_indicator}#[bg=$bg,fg=$bg,bold]"
+
+          // formatting for the current active tab
+          tab_active              "#[bg=$bg,fg=$yellow]#[bg=$yellow,fg=$bg,bold]{index} #[bg=$bg,fg=$yellow,bold] {name}{floating_indicator}#[bg=$bg,fg=$bg,bold]"
+          tab_active_fullscreen   "#[bg=$bg,fg=$yellow]#[bg=$yellow,fg=$bg,bold]{index} #[bg=$bg,fg=$yellow,bold] {name}{fullscreen_indicator}#[bg=$bg,fg=$bg,bold]"
+          tab_active_sync         "#[bg=$bg,fg=$yellow]#[bg=$yellow,fg=$bg,bold]{index} #[bg=$bg,fg=$yellow,bold] {name}{sync_indicator}#[bg=$bg,fg=$bg,bold]"
+
+          // separator between the tabs
+          tab_separator           "#[bg=$bg] "
+
+          // indicators
+          tab_sync_indicator       " "
+          tab_fullscreen_indicator " 󰊓"
+          tab_floating_indicator   " 󰹙"
 
           command_git_branch_command     "git rev-parse --abbrev-ref HEAD"
           command_git_branch_format      "#[fg=blue] {stdout} "
