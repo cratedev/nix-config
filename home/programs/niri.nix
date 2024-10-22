@@ -39,6 +39,7 @@
                     enable = false;
                     width = 1;
     #               active.color = config.modules.desktop.themes.niri.accent;
+		    active.color = "0xff344e66";
     #               inactive.color = config.modules.desktop.themes.niri.inactive;
                 };
 
