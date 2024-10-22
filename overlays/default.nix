@@ -8,7 +8,7 @@
     (self: super:
     {
       rofi-wayland = super.rofi-wayland.overrideAttrs (oldAttrs: rec {
-        src = super.fetchFromGithub {
+        src = super.fetchFromGitHub {
           owner = "Ibonn";
           repo = "rofi";
           rev = "142e78071cbd7ddc2228cc707a583e081ec3bdf2";
