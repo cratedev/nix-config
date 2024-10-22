@@ -37,7 +37,7 @@
 
   # This one is important... I guess
   wayland.windowManager.hyprland = {
-    enable = true;
+    enable = false;
     settings = lib.mkForce (import ./programs/hyprland.nix {
     });
     extraConfig = "

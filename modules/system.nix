@@ -136,11 +136,11 @@ in {
   # Programs
   programs.ssh.startAgent = true;
   programs.dconf.enable = true;
-  programs.hyprland.enable = true;
+  programs.hyprland.enable = false;
   programs.fish.enable = true;
   programs.partition-manager.enable = true;
   environment.systemPackages = [
-    pkgs.hyprland
+#    pkgs.hyprland
     pkgs.cargo
     pkgs.rustc
     pkgs.ncurses
