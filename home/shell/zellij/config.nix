@@ -1,6 +1,6 @@
-/* kdl */ ''
+/* kdl */ 
 #  ${import ./themes.nix}
-
+''
   keybinds clear-defaults=true {
     normal { }
     pane {
