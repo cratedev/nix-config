@@ -35,6 +35,7 @@
 #    pkgs.hyprlock
 #    pkgs.compose2nix
 #    pkgs.tigervnc
+    pkgs.gnumake
     pkgs.e2fsprogs
     pkgs.xfsprogs
 #    pkgs.protonvpn-gui
