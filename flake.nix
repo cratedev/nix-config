@@ -13,7 +13,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -30,6 +30,7 @@
   outputs = inputs @ {
     self,
     nixpkgs,
+    nixos-hardware,
     home-manager,
 #    hyprland,
 #    hyprpanel,
@@ -46,7 +47,8 @@
         modules = [
           ./hosts/crate-laptop
 	      ./overlays
-          stylix.nixosModules.stylix
+          nixos-hardware.nixosModules.dell-xps-15-9510
+	  stylix.nixosModules.stylix
  #         nixos-cli.nixosModules.nixos-cli
           niri.nixosModules.niri
 	  home-manager.nixosModules.home-manager
