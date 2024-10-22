@@ -36,6 +36,7 @@
 #    pkgs.compose2nix
 #    pkgs.tigervnc
     pkgs.gnumake
+    pkgs.meson
     pkgs.e2fsprogs
     pkgs.xfsprogs
 #    pkgs.protonvpn-gui
