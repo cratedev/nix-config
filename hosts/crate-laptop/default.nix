@@ -5,6 +5,7 @@
       ../../modules/system.nix
 #      ../../modules/nas/default.nix
       ./hardware-configuration.nix
+      <nixos-hardware/dell/xps/9510>
     ];
 
   # Where we're going, we don't need channels
