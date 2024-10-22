@@ -34,14 +34,4 @@
   };
   programs.home-manager.enable = true;
   programs.tmux.enable = true;
-
-  # This one is important... I guess
-  wayland.windowManager.hyprland = {
-    enable = false;
-    settings = lib.mkForce (import ./programs/hyprland.nix {
-    });
-    extraConfig = "
-      monitor=,preferred,auto,1
-    ";
-  };
 }
