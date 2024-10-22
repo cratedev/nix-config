@@ -46,6 +46,7 @@
                 border = {
                     enable = true;
                     width = 1;
+		    active.color = "0xff344e66";
     #               active.color = config.modules.desktop.themes.niri.accent;
     #               inactive.color = config.modules.desktop.themes.niri.inactive;
                 };
