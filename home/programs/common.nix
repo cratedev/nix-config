@@ -41,7 +41,7 @@
     pkgs.networkmanagerapplet
     pkgs.teamviewer
     pkgs.niri
-    pkgs.waybar
+#    pkgs.waybar
     pkgs.swww
   ];
 
