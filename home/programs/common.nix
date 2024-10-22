@@ -1,7 +1,6 @@
 { lib, pkgs, inputs, ... }:
 {
   home.packages = [
-    pkgs.shotman
     pkgs.cliphist
     pkgs.wl-clipboard-rs
     pkgs.zip
@@ -14,33 +13,32 @@
     pkgs.slurp
     pkgs.grim
     pkgs.obsidian
-    pkgs.fish
-    pkgs.rofi-wayland-unwrapped
+#    pkgs.fish
+#    pkgs.rofi-wayland-unwrapped
     pkgs.fuzzel 
     pkgs.brightnessctl
     pkgs.gnome-bluetooth
     pkgs.ncdu
     pkgs.libsecret
-#    pkgs.swaybg
     pkgs.nodejs
     pkgs.nodePackages.npm
     pkgs.nodePackages.pnpm
     pkgs.yarn
     pkgs.vlc pkgs.mpv
     pkgs.zellij
-    pkgs.hyprpanel
+#    pkgs.hyprpanel
     pkgs.firefox-beta-bin
     pkgs.bitwarden-desktop
     (pkgs.discord.override {withVencord = true;})
     pkgs.zed-editor
     pkgs.pamixer
     pkgs.ytfzf
-    pkgs.hyprlock
-    pkgs.compose2nix
-    pkgs.tigervnc
+#    pkgs.hyprlock
+#    pkgs.compose2nix
+#    pkgs.tigervnc
     pkgs.e2fsprogs
     pkgs.xfsprogs
-    pkgs.protonvpn-gui
+#    pkgs.protonvpn-gui
     pkgs.networkmanagerapplet
     pkgs.teamviewer
     pkgs.niri
