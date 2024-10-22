@@ -13,8 +13,7 @@
     pkgs.slurp
     pkgs.grim
     pkgs.obsidian
-##    pkgs.fish
-    pkgs.rofi-wayland-unwrapped
+#    pkgs.rofi-wayland-unwrapped
     pkgs.fuzzel 
     pkgs.brightnessctl
     pkgs.gnome-bluetooth

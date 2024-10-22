@@ -165,9 +165,9 @@ in {
     })
     pkgs.mergerfs
     pkgs.dive
-    pkgs.podman-tui
-    pkgs.podman-compose
-    pkgs.docker-compose
+#    pkgs.podman-tui     // The packages shouldn't be here.
+#    pkgs.podman-compose // In the future, they should go in the
+#    pkgs.docker-compose // Server config
     pkgs.cachix
   ];
 }
