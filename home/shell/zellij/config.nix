@@ -1,5 +1,5 @@
 /* kdl */ ''
-  ${import ./themes.nix}
+#  ${import ./themes.nix}
 
   keybinds clear-defaults=true {
     normal { }
