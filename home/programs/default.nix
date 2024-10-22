@@ -6,7 +6,6 @@
     ./git.nix
     ./media.nix
     ./xdg.nix
-    ./waybar.nix
     ./dots
   ];
 }
