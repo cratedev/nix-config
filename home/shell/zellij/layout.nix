@@ -20,10 +20,10 @@ in /* kdl */ ''
           color_white "#E5E9F0"
           color_orange "#D08770"
 
-          format_left   "{mode} #[fg=#E2E0DF,bold]{session}"
-          format_center "{mode}#[bg=$bg] {tabs}"
+          format_left   "#[fg=#E2E0DF,bold]{session}"
+          format_center "{tabs}"
           format_right  "{command_git_branch} {datetime}"
-          format_space  "#[bg=$bg]"
+          format_space  ""
 
           border_enabled  "false"
           border_char     "─"
