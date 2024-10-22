@@ -6,6 +6,20 @@ in /* kdl */ ''
     pane split_direction="horizontal" {
       pane size=1 borderless=true {
         plugin location="file:$HOME/.config/zellij/plugins/zjstatus.wasm" {
+
+          // Nord theme
+          color_fg "#616e88" //= Brightest + 10% - "#4C566A" = Brightest - "#434C5E" = Bright
+          color_bg "#2E3440"
+          color_black "#3B4252"
+          color_red "#BF616A"
+          color_green "#A3BE8C"
+          color_yellow "#EBCB8B"
+          color_blue "#81A1C1"
+          color_magenta "#B48EAD"
+          color_cyan "#88C0D0"
+          color_white "#E5E9F0"
+          color_orange "#D08770"
+
           format_left   "{mode} #[fg=#E2E0DF,bold]{session}"
           format_center "{mode}#[bg=$bg] {tabs}"
           format_right  "{command_git_branch} {datetime}"
