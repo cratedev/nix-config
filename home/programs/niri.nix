@@ -32,7 +32,7 @@
 
             # https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
             layout = {
-                gaps = 6;
+                gaps = 10;
                 center-focused-column = "on-overflow";
                 focus-ring = {
                     enable = false;
