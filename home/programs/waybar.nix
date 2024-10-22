@@ -75,7 +75,6 @@
         format-source-muted = "";
         on-click = "pavucontrol";
       };
-      "sway/mode" = { format = ''<span style="italic">{}</span>''; };
       temperature = {
         critical-threshold = 80;
         format = "{temperatureC}°C {icon}";
