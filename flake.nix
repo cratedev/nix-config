@@ -19,9 +19,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    nixos-cli.url = "github:water-sucks/nixos";
+#    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+#    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+#    nixos-cli.url = "github:water-sucks/nixos";
     stylix.url = "github:danth/stylix";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     niri.url = "github:sodiboo/niri-flake";
@@ -31,12 +31,12 @@
     self,
     nixpkgs,
     home-manager,
-    hyprland,
-    hyprpanel,
+#    hyprland,
+#    hyprpanel,
     spicetify-nix,
     stylix,
     niri,
-    nixos-cli,
+#    nixos-cli,
     ...
   }: {
     nixosConfigurations = {
@@ -47,7 +47,7 @@
           ./hosts/crate-laptop
 	      ./overlays
           stylix.nixosModules.stylix
-          nixos-cli.nixosModules.nixos-cli
+ #         nixos-cli.nixosModules.nixos-cli
           niri.nixosModules.niri
 	  home-manager.nixosModules.home-manager
           {
@@ -66,7 +66,7 @@
           ./hosts/crate-desktop
 	      ./overlays
           stylix.nixosModules.stylix
-          nixos-cli.nixosModules.nixos-cli
+#          nixos-cli.nixosModules.nixos-cli
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -84,7 +84,7 @@
           ./hosts/crate-server
 	      ./overlays
           stylix.nixosModules.stylix
-          nixos-cli.nixosModules.nixos-cli
+#          nixos-cli.nixosModules.nixos-cli
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
