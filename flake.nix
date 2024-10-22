@@ -18,10 +18,7 @@
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-#    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
-#    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-#    nixos-cli.url = "github:water-sucks/nixos";
+    nixos-cli.url = "github:water-sucks/nixos";
     stylix.url = "github:danth/stylix";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     niri.url = "github:sodiboo/niri-flake";
@@ -32,12 +29,10 @@
     nixpkgs,
     nixos-hardware,
     home-manager,
-#    hyprland,
-#    hyprpanel,
     spicetify-nix,
     stylix,
     niri,
-#    nixos-cli,
+    nixos-cli,
     ...
   }: {
     nixosConfigurations = {
@@ -49,7 +44,7 @@
 	      ./overlays
           nixos-hardware.nixosModules.dell-xps-15-9510
 	  stylix.nixosModules.stylix
- #         nixos-cli.nixosModules.nixos-cli
+          nixos-cli.nixosModules.nixos-cli
           niri.nixosModules.niri
 	  home-manager.nixosModules.home-manager
           {
@@ -68,7 +63,8 @@
           ./hosts/crate-desktop
 	      ./overlays
           stylix.nixosModules.stylix
-#          nixos-cli.nixosModules.nixos-cli
+          nixos-cli.nixosModules.nixos-cli
+	  niri.nixosModules.niri
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -86,7 +82,8 @@
           ./hosts/crate-server
 	      ./overlays
           stylix.nixosModules.stylix
-#          nixos-cli.nixosModules.nixos-cli
+          nixos-cli.nixosModules.nixos-cli
+	  niri.nixosModukes.niri
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

@@ -97,7 +97,7 @@ in {
       theme = "catppuccin-mocha";
       package = pkgs.kdePackages.sddm;
     };
-#    nixos-cli.enable = true; #disabled in flake
+    nixos-cli.enable = true;
     printing.enable = false;
     power-profiles-daemon.enable = true;
     dbus.packages = [pkgs.gcr];
