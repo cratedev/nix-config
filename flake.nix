@@ -47,7 +47,7 @@
         modules = [
           ./hosts/crate-laptop
 	      ./overlays
-#          nixos-hardware.nixosModules.dell-xps-15-9510
+          nixos-hardware.nixosModules.dell-xps-15-9510
 	  stylix.nixosModules.stylix
  #         nixos-cli.nixosModules.nixos-cli
           niri.nixosModules.niri
