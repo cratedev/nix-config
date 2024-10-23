@@ -144,6 +144,7 @@ in {
 #    pkgs.hyprland
     pkgs.cargo
     pkgs.rustc
+    pkgs.meson
     pkgs.ncurses
     pkgs.vim
     pkgs.wget

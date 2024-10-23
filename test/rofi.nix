@@ -6,9 +6,9 @@ with pkgs;
 
 stdenv.mkDerivation {
     pname = "rofi";
-    version = "1.7.4"
+    version = "1.7.4";
 
-    src ../../git/rofi;
+    src = ../../git/rofi;
 
     buildPhase = ''
         meson setup build
