@@ -13,7 +13,7 @@ stdenv.mkDerivation {
 	owner = "lbonn";
 	repo = "rofi";
 	rev = "142e78071cbd7ddc2228cc707a583e081ec3bdf2";
-	sha256 = "sha256-erdWUek1dKps8GFfBcg2vLK7W7hat+zMpr+ef4fPqEo=";
+	sha256 = "sha256-Hp3lCxbM5yR9N83wRQ3M5x3rhrIiCnrtcI5isbl/V+U=";
     };
 
     buildPhase = ''
