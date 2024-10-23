@@ -14,6 +14,7 @@
     pkgs.grim
     pkgs.obsidian
 #    pkgs.rofi-wayland
+    pkgs.rofi-1.7.5-dev
     pkgs.fuzzel
     pkgs.brightnessctl
     pkgs.gnome-bluetooth
