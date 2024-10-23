@@ -14,11 +14,11 @@ stdenv.mkDerivation {
 
     buildPhase = ''
       meson configure
-      ninja -C build
+      ninja
     '';
 
     installPhase = ''
-      ninja -C build install
+      ninja install
     '';
 
     nativeBuildInputs = with pkgs; [
