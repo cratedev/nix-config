@@ -1,8 +1,8 @@
-let
-    pkgs = import <nixpkgs> { };
-in
+#let
+#    pkgs = import <nixpkgs> { };
+#in
 
-with pkgs;
+#with pkgs;
 
 stdenv.mkDerivation {
     pname = "rofi-custom";
