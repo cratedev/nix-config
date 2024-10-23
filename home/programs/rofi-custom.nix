@@ -17,7 +17,7 @@ pkgs.stdenv.mkDerivation {
 	ninja install
     '';
 
-    nativeBuildInputs = [
+    nativeBuildInputs = with pkgs; [
       meson
       cmake
       autoconf
