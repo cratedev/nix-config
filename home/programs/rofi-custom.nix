@@ -47,7 +47,7 @@ stdenv.mkDerivation {
       kdePackages.wayland-protocols
       wayland
       wayland-scanner
-#      git
+      git
       doxygen
       cppcheck
     ];
