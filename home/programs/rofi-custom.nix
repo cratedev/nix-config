@@ -9,13 +9,19 @@ stdenv.mkDerivation {
     pname = "rofi";
     version = "1.0";
 
-    src = fetchFromGitHub {
-	owner = "lbonn";
-	repo = "rofi";
-	rev = "142e78071cbd7ddc2228cc707a583e081ec3bdf2";
-	sha256 = "sha256-Hp3lCxbM5yR9N83wRQ3M5x3rhrIiCnrtcI5isbl/V+U=";
+#    src = fetchFromGitHub {
+#	owner = "lbonn";
+#	repo = "rofi";
+#	rev = "142e78071cbd7ddc2228cc707a583e081ec3bdf2";
+#	sha256 = "sha256-Hp3lCxbM5yR9N83wRQ3M5x3rhrIiCnrtcI5isbl/V+U=";
+#	fetchSubmodules = true;
+#	deepClone = true;
+#    };
+
+    src = fetchgit {
+	url = "https://github.com/lbonn/rofi/commit/142e78071cbd7ddc2228cc707a583e081ec3bdf2";
+	sha256 = "lol";
 	fetchSubmodules = true;
-	deepClone = true;
     };
 
     buildPhase = ''
