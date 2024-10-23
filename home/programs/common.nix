@@ -68,7 +68,6 @@ pkgs.libstartup_notification
 pkgs.kdePackages.wayland-protocols
 pkgs.wayland
 pkgs.wayland-scanner
-pkgs.git
 pkgs.doxygen
 pkgs.cppcheck
   ];
