@@ -126,8 +126,8 @@
 
             "Mod+Return".action = spawn "foot" "-e" "zellij" "attach" "--create" "main";
 #	    "Mod+Return".action = spawn "foot -e zellij attach --create main";
-#          "Mod+D".action = spawn "../../scripts/launcher_t1";
-            "Mod+D".action = spawn "fuzzel";
+            "Mod+D".action = spawn "../../scripts/launcher_t1";
+#            "Mod+D".action = spawn "fuzzel";
 
             "Mod+Q".action = close-window;
 
