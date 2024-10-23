@@ -6,7 +6,7 @@ in
 with pkgs;
 
 stdenv.mkDerivation {
-    pname = "rofi-custom";
+    pname = "rofi";
     version = "1.0";
 
     src = ../../../git/rofi;
