@@ -13,7 +13,7 @@
     pkgs.slurp
     pkgs.grim
     pkgs.obsidian
-    pkgs.rofi-wayland
+#    pkgs.rofi-wayland
     pkgs.fuzzel
     pkgs.brightnessctl
     pkgs.gnome-bluetooth
@@ -43,33 +43,6 @@
     pkgs.niri
 #    pkgs.waybar
     pkgs.swww
-### Test
-pkgs.meson
-pkgs.cmake
-pkgs.autoconf
-pkgs.automake
-pkgs.ninja
-pkgs.flex
-pkgs.bison
-pkgs.check
-pkgs.glib
-pkgs.cairo
-pkgs.pango
-pkgs.libxkbcommon
-pkgs.gdk-pixbuf
-pkgs.pkg-config
-pkgs.xcbutilxrm
-pkgs.xcb-util-cursor
-pkgs.xcb-imdkit
-pkgs.xorg.xcbutilwm
-pkgs.xorg.xcbutil
-pkgs.xorg.xcbutilkeysyms
-pkgs.libstartup_notification
-pkgs.kdePackages.wayland-protocols
-pkgs.wayland
-pkgs.wayland-scanner
-pkgs.doxygen
-pkgs.cppcheck
   ];
 
   # Manage incompatible .configs
