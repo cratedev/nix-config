@@ -1,2 +1,2 @@
 { pkgs, ... }:
-pkgs.callPackage ./rofi.nix {}
+pkgs.callPackage ./rofi-custom.nix {}
