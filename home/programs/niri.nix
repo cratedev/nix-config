@@ -126,7 +126,7 @@
 
             "Mod+Return".action = spawn "foot" "-e" "zellij" "attach" "--create" "main";
 #	    "Mod+Return".action = spawn "foot -e zellij attach --create main";
-            "Mod+D".action = spawn "./result/bin/rofi -show drun -theme $HOME/.config/rofi/launchers/type-1/style6.rasi";
+            "Mod+D".action = spawn "./result/bin/rofi" "-show" "drun" "-theme" "$HOME/.config/rofi/launchers/type-1/style6.rasi";
 #            "Mod+D".action = spawn "fuzzel";
 
             "Mod+Q".action = close-window;
