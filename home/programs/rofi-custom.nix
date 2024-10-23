@@ -1,4 +1,4 @@
-{ lib, stdenv, fetchFromGitHub, ncurses, ... }:
+{ ... }:
 let
     pkgs = import <nixpkgs> { };
 in
