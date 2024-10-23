@@ -17,7 +17,7 @@ stdenv.mkDerivation {
     '';
 
     buildPhase = ''
-      ninja
+      ninja -C build
     '';
 
     installPhase = ''
