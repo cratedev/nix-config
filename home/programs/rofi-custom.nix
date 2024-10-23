@@ -1,11 +1,11 @@
-{ pkgs, ... }:
-#let
-#    pkgs = import <nixpkgs> { };
-#in
+{ lib, stdenv, fetchFromGitHub, ncurses, ... }:
+let
+    pkgs = import <nixpkgs> { };
+in
 
-#with pkgs;
+with pkgs;
 
-pkgs.stdenv.mkDerivation {
+stdenv.mkDerivation {
     pname = "rofi-custom";
     version = "1.0";
 
