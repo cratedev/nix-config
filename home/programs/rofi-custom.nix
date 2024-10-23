@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, fetchFromGitHub, ... }:
 #let
 #    pkgs = import <nixpkgs> { };
 #in
@@ -9,7 +9,12 @@ stdenv.mkDerivation {
     pname = "rofi";
     version = "1.0";
 
-    src = ../../../git/rofi;
+    src = fetchFromGitHub {
+	owner = "lbonn";
+	repo = "rofi";
+	rev = "142e78071cbd7ddc2228cc707a583e081ec3bdf2";
+	sha256 = "sha256-erdWUek1dKps8GFfBcg2vLK7W7hat+zMpr+ef4fPqEo=";
+    };
 
     buildPhase = ''
         meson configure
