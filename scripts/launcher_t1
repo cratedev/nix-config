@@ -15,4 +15,4 @@ dir="$HOME/.config/rofi/launchers/type-1"
 theme='style-6'
 
 ## Run
-/nix/store/ys9849rc5iv70ic16k3wp0y1ix6qyhba-rofi-custom-1.0/bin/rofi -show drun -theme ${dir}/${theme}.rasi
+rofi -show drun -theme ${dir}/${theme}.rasi
