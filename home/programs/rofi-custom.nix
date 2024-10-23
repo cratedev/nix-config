@@ -12,10 +12,16 @@ stdenv.mkDerivation {
 	fetchSubmodules = true;
     };
 
+    configurePhase = ''
+      meson configure
+    '';
+
     buildPhase = ''
-        meson setup build
-	ninja
-	ninja install
+      ninja
+    '';
+
+    installPhase = ''
+      ninja install
     '';
 
     nativeBuildInputs = with pkgs; [
