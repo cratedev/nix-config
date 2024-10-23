@@ -13,7 +13,7 @@ stdenv.mkDerivation {
     };
 
     buildPhase = ''
-        meson configure
+        meson setup build
 	ninja
 	ninja install
     '';
