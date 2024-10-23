@@ -12,8 +12,11 @@ stdenv.mkDerivation {
 	fetchSubmodules = true;
     };
 
-    buildPhase = ''
+    configurePhase = ''
       meson configure
+    '';
+
+    buildPhase = ''
       ninja
     '';
 
