@@ -6,7 +6,7 @@
     ./git.nix
     ./media.nix
     ./xdg.nix
-    ./rofi.nix
+    ./rofi-custom.nix
     ./dots
   ];
 }
