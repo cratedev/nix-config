@@ -1,4 +1,4 @@
-{ ... }:
+{ libs, pkgs, ... }:
 let
     pkgs = import <nixpkgs> { };
 in
