@@ -1,2 +1,2 @@
-{ lib, pkgs, inputs, ... }:
+{ pkgs ? import <nixpkgs> {} }:
 pkgs.callPackage ./rofi-custom.nix {}
