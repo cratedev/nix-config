@@ -4,7 +4,7 @@
 
 #with pkgs;
 
-stdenv.mkDerivation {
+pkgs.stdenv.mkDerivation {
     pname = "rofi-custom";
     version = "1.0";
 
