@@ -1,7 +1,7 @@
-{ ... }:
-let
-    pkgs = import <nixpkgs> { };
-in
+{ pkgs, ... }:
+#let
+#    pkgs = import <nixpkgs> { };
+#in
 
 with pkgs;
 
