@@ -170,6 +170,7 @@ in {
 #    pkgs.podman-compose // In the future, they should go in the
 #    pkgs.docker-compose // Server config
     pkgs.cachix
-    (import ../home/programs/rofi-custom.nix pkgs)
+    (pkgs.callPackage ../home/programs/rofi-custom.nix { })
+#    (import ../home/programs/rofi-custom.nix pkgs)
   ];
 }
