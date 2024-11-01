@@ -1,7 +1,7 @@
 { lib, config, pkgs, inputs, outputs, system, ... }:
 {
     programs.niri = {
-        enable = true;
+#        enable = true;
         settings = {
             spawn-at-startup = [
                 { command = [ "swww-daemon" ]; }

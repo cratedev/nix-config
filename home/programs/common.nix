@@ -55,6 +55,7 @@
       enable = true;
       enableFishIntegration = true;
     };
+    niri.enable = true;
     tmux.enable = true;
     vscode.enable = true;
     btop.enable = true; # replacement of htop/nmon
