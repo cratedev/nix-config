@@ -6,8 +6,6 @@
             spawn-at-startup = [
                 { command = [ "swww-daemon" ]; }
                 { command = [ "swww" "img" "../../wallpaper/3.png" ]; }
-#                { command = [ "hash" "dbus-update-activation-environment" "2>/dev/null" ]; }
-#                { command = [ "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP" ]; }
             ];
 
             prefer-no-csd = true;

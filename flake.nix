@@ -22,6 +22,7 @@
     stylix.url = "github:danth/stylix";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     niri.url = "github:sodiboo/niri-flake";
+    wezterm.url = "github:wez/wezterm/main?dir=nix";
   };
 
   outputs = inputs @ {
@@ -32,6 +33,7 @@
     spicetify-nix,
     stylix,
     niri,
+    wezterm,
     nixos-cli,
     ...
   }: {
@@ -43,10 +45,10 @@
           ./hosts/crate-laptop
 	      ./overlays
           nixos-hardware.nixosModules.dell-xps-15-9510
-	  stylix.nixosModules.stylix
+          stylix.nixosModules.stylix
           nixos-cli.nixosModules.nixos-cli
           niri.nixosModules.niri
-	  home-manager.nixosModules.home-manager
+          home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
@@ -64,7 +66,7 @@
 	      ./overlays
           stylix.nixosModules.stylix
           nixos-cli.nixosModules.nixos-cli
-#	  niri.nixosModules.niri
+          niri.nixosModules.niri
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -83,7 +85,7 @@
 	      ./overlays
           stylix.nixosModules.stylix
           nixos-cli.nixosModules.nixos-cli
-	  niri.nixosModukes.niri
+          niri.nixosModules.niri
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

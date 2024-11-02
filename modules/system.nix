@@ -89,21 +89,26 @@ in {
 
   hardware = { bluetooth.enable = true; };
   security = { polkit.enable = true; };
+
+##### SERVICES #####
   services = {
     teamviewer.enable = true;
-    displayManager.sddm = {
-      enable = true;
-      wayland.enable = true;
-      theme = "catppuccin-mocha";
-      package = pkgs.kdePackages.sddm;
-    };
     nixos-cli.enable = true;
     printing.enable = false;
     power-profiles-daemon.enable = true;
     dbus.packages = [pkgs.gcr];
     geoclue2.enable = true;
     blueman.enable = true;
+    gnome.gnome-keyring.enable = true;
     udev.packages = with pkgs; [gnome-settings-daemon];
+
+    displayManager.sddm = {
+      enable = true;
+      wayland.enable = true;
+      theme = "catppuccin-mocha";
+      package = pkgs.kdePackages.sddm;
+    };
+
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -111,6 +116,7 @@ in {
       pulse.enable = true;
       jack.enable = true;
     };
+
     openssh = {
       enable = true;
       settings = {
@@ -120,14 +126,13 @@ in {
       };
       openFirewall = true;
     };
-    gnome.gnome-keyring.enable = true;
+##### END SERVICES #####
   };
 
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
     extraPortals = [
-#      pkgs.xdg-desktop-portal-gtk
       pkgs.xdg-desktop-portal-hyprland
       pkgs.xdg-desktop-portal-wlr
     ];
@@ -138,6 +143,7 @@ in {
   programs.ssh.startAgent = true;
   programs.dconf.enable = true;
   programs.hyprland.enable = false;
+  programs.niri.enable = true;
   programs.fish.enable = true;
   programs.partition-manager.enable = true;
   environment.systemPackages = [
@@ -164,13 +170,15 @@ in {
       font = "Noto Sans";
       fontSize = "9";
     })
-    pkgs.mergerfs
-    pkgs.dive
+    pkgs.cachix
+    (pkgs.callPackage ../home/programs/rofi-custom.nix { })
+
+##### PACKAGES FOR NAS #####
+#    pkgs.mergerfs
+#    pkgs.dive
 #    pkgs.podman-tui     // The packages shouldn't be here.
 #    pkgs.podman-compose // In the future, they should go in the
 #    pkgs.docker-compose // Server config
-    pkgs.cachix
-    (pkgs.callPackage ../home/programs/rofi-custom.nix { })
-#    (import ../home/programs/rofi-custom.nix pkgs)
+##### END PACKAGES FOR NAS #####
   ];
 }
