@@ -148,6 +148,7 @@ in {
   programs.partition-manager.enable = true;
   environment.systemPackages = [
 #    pkgs.hyprland
+    pkgs.nixd
     pkgs.cargo
     pkgs.rustc
     pkgs.meson

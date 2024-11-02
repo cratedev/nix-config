@@ -1,4 +1,7 @@
 { lib, config, pkgs, inputs, outputs, system, ... }:
+let
+    username = "matt";
+in
 {
     programs.niri = {
 #        enable = true;
@@ -35,18 +38,14 @@
                 focus-ring = {
                     enable = false;
                     width = 1;
-    #               active.color = config.modules.desktop.themes.niri.accent;
-		    active.color = "#fff";
-    #               inactive.color = config.modules.desktop.themes.niri.inactive;
+		            active.color = "#fff";
                 };
 
                 border = {
                     enable = true;
                     width = 1;
-		    active.color = "#344e66";
-		    inactive.color = "#333333";
-    #               active.color = config.modules.desktop.themes.niri.accent;
-    #               inactive.color = config.modules.desktop.themes.niri.inactive;
+                    active.color = "#344e66";
+                    inactive.color = "#333333";
                 };
 
                 default-column-width = {
@@ -123,7 +122,7 @@
             "Mod+Shift+Slash".action = show-hotkey-overlay;
 
             "Mod+Return".action = spawn "foot" "-e" "zellij" "attach" "--create" "main";
-	    "Mod+D".action = spawn "rofi" "-show" "drun" "-theme" ".config/rofi/launchers/type-1/style-6.rasi";
+            "Mod+D".action = spawn "rofi" "-show" "drun" "-theme" ".config/rofi/launchers/type-1/style-6.rasi";
 
             "Mod+Q".action = close-window;
 
@@ -228,8 +227,7 @@
             "Print".action = screenshot;
             "Ctrl+Print".action = screenshot-screen;
             "Alt+Print".action = screenshot-window;
-            "Mod+I".action = spawn "grim" "-g" "\"$(slurp)\"" "../../../images/screenshots/\"$(date +%y.%m.%d-%H:%M:%S)\".png";
-
+            "Mod+I".action = sh ''grim -g "$(slurp)" /home/matt/images/screenshots/$(date +%y.%m.%d-%H:%M:%S).png'';
             "Mod+Shift+E".action = quit;
 
             "XF86AudioMicMute".action     = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle";
