@@ -157,16 +157,6 @@ in {
   programs.niri.enable = true;
   programs.fish.enable = true;
   programs.partition-manager.enable = true;
-  programs.nvf = {
-    enable = true;
-    settings = {
-        vim.viAlias = false;
-        vim.vimAlias = true;
-        vim.lsp = {
-            enable = true;
-        };
-    };
-  };
   environment.systemPackages = [
 #    pkgs.hyprland
     pkgs.nixd

@@ -8,5 +8,6 @@
     ./xdg.nix
     ./dots
 #    ./nixvim
+    ./nvf
   ];
 }
