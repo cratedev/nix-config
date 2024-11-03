@@ -27,7 +27,11 @@
 	url = "github:nix-community/nixvim";
 	inputs.nixpkgs.follows = "nixpkgs";
     };
-    nvf.url = "github:notashelf/nvf";
+    nvf = {
+        url = "github:notashelf/nvf";
+        inputs.nixpkgs.follows = "nixpkgs";
+        inputs.obsidian-nvim.follows = "obsidian-nvim";
+    };
   };
 
   outputs = inputs @ {
