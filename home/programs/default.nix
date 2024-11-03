@@ -8,6 +8,5 @@
     ./xdg.nix
     ./dots
     ./nixvim
-    inputs.nixvim.homeManagerModules.nixvim
   ];
 }

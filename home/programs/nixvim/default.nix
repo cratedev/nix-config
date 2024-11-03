@@ -1,4 +1,8 @@
+{ inputs, ... }:
 {
   # Import all your configuration modules here
-  imports = [ ./bufferline.nix ];
+  imports = [ 
+	./bufferline.nix
+	inputs.nixvim.homeManagerModules.nixvim
+  ];
 }
