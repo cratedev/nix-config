@@ -7,7 +7,6 @@ in {
     ./terminals.nix
     ./fish.nix
     ./zellij
-    inputs.nixvim.homeManagerModules.nixvim
   ];
 
   # add environment variables

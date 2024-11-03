@@ -1,4 +1,4 @@
-{ ... }:
+{ inputs, pkgs, lib, ... }:
 {
   imports = [
     ./browsers.nix
@@ -7,5 +7,7 @@
     ./media.nix
     ./xdg.nix
     ./dots
+    ./nixvim
+    inputs.nixvim.homeManagerModules.nixvim
   ];
 }
