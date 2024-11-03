@@ -15,7 +15,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.05";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-cli.url = "github:water-sucks/nixos";
@@ -23,6 +23,7 @@
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     niri.url = "github:sodiboo/niri-flake";
     wezterm.url = "github:wez/wezterm/main?dir=nix";
+    zen-browser.url = "github:MarceColl/zen-browser-flake";
   };
 
   outputs = inputs @ {
@@ -34,6 +35,7 @@
     stylix,
     niri,
     wezterm,
+    zen-browser,
     nixos-cli,
     ...
   }: {

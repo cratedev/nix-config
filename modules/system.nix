@@ -163,6 +163,7 @@ in {
     pkgs.xfce.tumbler
     pkgs.fish
     pkgs.whois
+#    pkgs.neatvnc
     pkgs.busybox
     pkgs.xdg-desktop-portal-hyprland
     pkgs.xdg-desktop-portal-wlr
@@ -173,6 +174,7 @@ in {
     })
     pkgs.cachix
     (pkgs.callPackage ../home/programs/rofi-custom.nix { })
+#    inputs.zen-browser.packages."${pkgs.system}".specific
 
 ##### PACKAGES FOR NAS #####
 #    pkgs.mergerfs
