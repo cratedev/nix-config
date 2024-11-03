@@ -23,7 +23,6 @@
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     niri.url = "github:sodiboo/niri-flake";
     wezterm.url = "github:wez/wezterm/main?dir=nix";
-    zen-browser.url = "github:MarceColl/zen-browser-flake";
   };
 
   outputs = inputs @ {
@@ -35,7 +34,6 @@
     stylix,
     niri,
     wezterm,
-    zen-browser,
     nixos-cli,
     ...
   }: {

@@ -102,11 +102,23 @@ in {
     gnome.gnome-keyring.enable = true;
     udev.packages = with pkgs; [gnome-settings-daemon];
 
-    displayManager.sddm = {
-      enable = true;
-      wayland.enable = true;
-      theme = "catppuccin-mocha";
-      package = pkgs.kdePackages.sddm;
+##### SDDM won't build because neatvnc
+#    displayManager.sddm = {
+#      enable = true;
+#      wayland.enable = true;
+#      theme = "catppuccin-mocha";
+#      package = pkgs.sddm;
+#    };
+
+    greetd = {
+        enable = true;
+        settings = rec {
+            default_session = {
+                command = "${pkgs.niri}/bin/niri-session";
+                user = "matt";
+            };
+#            default_session = initial_session;
+        };
     };
 
     pipewire = {
@@ -174,7 +186,6 @@ in {
     })
     pkgs.cachix
     (pkgs.callPackage ../home/programs/rofi-custom.nix { })
-#    inputs.zen-browser.packages."${pkgs.system}".specific
 
 ##### PACKAGES FOR NAS #####
 #    pkgs.mergerfs

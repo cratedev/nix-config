@@ -7,5 +7,6 @@
     ./media.nix
     ./xdg.nix
     ./dots
+    ./nvim
   ];
 }

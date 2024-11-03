@@ -13,7 +13,6 @@
     pkgs.slurp
     pkgs.grim
     pkgs.obsidian
-#    pkgs.rofi-wayland
     pkgs.fuzzel
     pkgs.brightnessctl
     pkgs.gnome-bluetooth
@@ -39,7 +38,7 @@
     pkgs.xfsprogs
 #    pkgs.protonvpn-gui
     pkgs.networkmanagerapplet
-    pkgs.teamviewer
+#    pkgs.teamviewer
     pkgs.niri
 #    pkgs.waybar
     pkgs.swww
@@ -51,20 +50,21 @@
   xdg.configFile."rofi".source = ./dots/rofi;
 
   programs = {
-    nix-index = {
-      enable = true;
-      enableFishIntegration = true;
-    };
     tmux.enable = true;
-    wezterm = {
-	package = inputs.wezterm.packages.${pkgs.system}.default;
-	enable = true;
-    };
     vscode.enable = true;
     btop.enable = true; # replacement of htop/nmon
     eza.enable = true; # A modern replacement for ‘ls’
     jq.enable = true; # A lightweight and flexible command-line JSON processor
     aria2.enable = true;
+
+    nix-index = {
+      enable = true;
+      enableFishIntegration = true;
+    };
+    wezterm = {
+        package = inputs.wezterm.packages.${pkgs.system}.default;
+        enable = true;
+    };
     skim = {
       enable = true;
       enableFishIntegration = true;
