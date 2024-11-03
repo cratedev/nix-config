@@ -27,6 +27,7 @@
 	url = "github:nix-community/nixvim";
 	inputs.nixpkgs.follows = "nixpkgs";
     };
+    nvf.url = "github:notashelf/nvf";
   };
 
   outputs = inputs @ {
@@ -39,6 +40,7 @@
     niri,
     wezterm,
     nixvim,
+    nvf,
     nixos-cli,
     ...
   }: {
@@ -54,6 +56,7 @@
           nixos-cli.nixosModules.nixos-cli
           niri.nixosModules.niri
           home-manager.nixosModules.home-manager
+          nvf.nixosModules.default
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;

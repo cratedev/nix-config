@@ -7,6 +7,6 @@
     ./media.nix
     ./xdg.nix
     ./dots
-    ./nixvim
+#    ./nixvim
   ];
 }
