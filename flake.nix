@@ -23,6 +23,7 @@
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     niri.url = "github:sodiboo/niri-flake";
     wezterm.url = "github:wez/wezterm/main?dir=nix";
+    nixCats.url = "github:BirdeeHub/nixCats-nvim";
   };
 
   outputs = inputs @ {
@@ -34,6 +35,7 @@
     stylix,
     niri,
     wezterm,
+    nixCats,
     nixos-cli,
     ...
   }: {
