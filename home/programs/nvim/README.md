@@ -1,10 +1,17 @@
-This directory contains an idiomatic nixCats config using `lze` for lazy loading with a backup downloading method via paq and mason in case you want to load the directory without using nix at all.
+# Nixvim template
 
-While the lazy.nvim wrapper does exist, this template is the suggested way of using nixCats.
+This template gives you a good starting point for configuring nixvim standalone.
 
-Using it this way will have the most simple feel to use, as opposed to dealing with lazy.nvim disabling all plugin loading it doesn't do itself.
+## Configuring
 
-There are many ways to use nixCats, and all are correct.
+To start configuring, just add or modify the nix files in `./config`.
+If you add a new configuration file, remember to add it to the
+[`config/default.nix`](./config/default.nix) file
 
-But hopefully this will give you a good idea of how it looks like to use nixCats as your only package manager while on nix,
-what it looks like to use something other than lazy.nvim for loading, as well as how to make a config that works with and without nix.
+## Testing your new configuration
+
+To test your configuration simply run the following command
+
+```
+nix run .
+```

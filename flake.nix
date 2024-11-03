@@ -23,7 +23,10 @@
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     niri.url = "github:sodiboo/niri-flake";
     wezterm.url = "github:wez/wezterm/main?dir=nix";
-    nixCats.url = "github:BirdeeHub/nixCats-nvim";
+    nixvim = {
+	url = "github:nix-community/nixvim";
+	inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -35,7 +38,7 @@
     stylix,
     niri,
     wezterm,
-    nixCats,
+    nixvim,
     nixos-cli,
     ...
   }: {
@@ -56,7 +59,7 @@
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = { inherit inputs; };
             home-manager.users.matt = import ./home;
-          }
+	  }
         ];
       };
 

@@ -1,4 +1,4 @@
-{ config, ... }: let
+{ inputs, config, ... }: let
 #  d = config.xdg.dataHome;
 #  c = config.xdg.configHome;
 #  cache = config.xdg.cacheHome;
@@ -7,6 +7,7 @@ in {
     ./terminals.nix
     ./fish.nix
     ./zellij
+    inputs.nixvim.homeManagerModules.nixvim
   ];
 
   # add environment variables
