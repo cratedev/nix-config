@@ -4,7 +4,6 @@ let
 in
 {
     programs.niri = {
-#        enable = true;
         settings = {
             spawn-at-startup = [
                 { command = [ "swww-daemon" ]; }
@@ -116,7 +115,6 @@ in
             {
                 matches = [
                 { app-id = "^clipse$"; }
-                #{ app-id = "^rofi-rbw$"; }
                 ];
                 block-out-from = "screen-capture";
             }
@@ -240,7 +238,6 @@ in
             "XF86AudioMicMute".action     = spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle";
             "XF86AudioMicMute".allow-when-locked = true;
 
-#          "XF86Launch1".action = sh "${lib.getExe pkgs.rofi-rbw-wayland} -a copy -t password --clear-after 20";
             "XF86AudioRaiseVolume".action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+";
             "XF86AudioRaiseVolume".allow-when-locked = true;
             "XF86AudioLowerVolume".action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-";

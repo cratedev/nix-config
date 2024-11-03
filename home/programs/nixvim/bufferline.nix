@@ -15,6 +15,7 @@
       lazy.enable = true;
       cmp.enable = true;
       nvim-tree.enable = true;
+      which-key.enable = true;
       alpha = {
 	enable = true;
 	theme = "startify";
@@ -39,6 +40,14 @@
         mode = "n";
         options = {
           desc = "Telescope";
+        };
+      }
+      {
+        action = "<cmd>WhichKey<CR>";
+        key = "<S-M-w>";
+        mode = "n";
+        options = {
+          desc = "Which key";
         };
       }
     ];

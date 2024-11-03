@@ -117,7 +117,6 @@ in {
                 command = "${pkgs.niri}/bin/niri-session";
                 user = "matt";
             };
-#            default_session = initial_session;
         };
     };
 
