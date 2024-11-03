@@ -48,7 +48,7 @@
 	    specialArgs = { inherit inputs; };
         modules = [
           ./hosts/crate-laptop
-	      ./overlays
+	  ./overlays
           nixos-hardware.nixosModules.dell-xps-15-9510
           stylix.nixosModules.stylix
           nixos-cli.nixosModules.nixos-cli
@@ -68,7 +68,7 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/crate-desktop
-	      ./overlays
+	  ./overlays
           stylix.nixosModules.stylix
           nixos-cli.nixosModules.nixos-cli
           niri.nixosModules.niri
@@ -87,7 +87,7 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/crate-server
-	      ./overlays
+	  ./overlays
           stylix.nixosModules.stylix
           nixos-cli.nixosModules.nixos-cli
           niri.nixosModules.niri

@@ -31,16 +31,11 @@
     pkgs.zed-editor
     pkgs.pamixer
     pkgs.ytfzf
-#    pkgs.hyprlock
-#    pkgs.compose2nix
-#    pkgs.tigervnc
     pkgs.e2fsprogs
     pkgs.xfsprogs
-#    pkgs.protonvpn-gui
     pkgs.networkmanagerapplet
 #    pkgs.teamviewer
     pkgs.niri
-#    pkgs.waybar
     pkgs.swww
   ];
 
