@@ -13,8 +13,14 @@
     pavucontrol
     playerctl
     pulsemixer
+    pamixer
     # images
     imv
+    # video
+    mpv
+    vlc
+    # clip
+    ytfzf
   ];
 
   programs.spicetify = let

@@ -1,42 +1,31 @@
 {pkgs, ...}: {
-  home.packages = [
-    pkgs.cliphist
-    pkgs.wl-clipboard-rs
-    pkgs.zip
-    pkgs.unzip
-    pkgs.p7zip
-    pkgs.ripgrep
-    pkgs.libnotify
-    pkgs.xdg-utils
-    pkgs.fzf
-    pkgs.slurp
-    pkgs.grim
-    pkgs.obsidian
-    pkgs.fuzzel
-    pkgs.brightnessctl
-    pkgs.gnome-bluetooth
-    pkgs.ncdu
-    pkgs.libsecret
-    pkgs.nodejs
-    pkgs.nodePackages.npm
-    pkgs.nodePackages.pnpm
-    pkgs.yarn
-    pkgs.vlc
-    pkgs.mpv
-    pkgs.zellij
-    #    pkgs.hyprpanel
-    pkgs.firefox-beta-bin
-    pkgs.bitwarden-desktop
-    (pkgs.discord.override {withVencord = true;})
-    pkgs.zed-editor
-    pkgs.pamixer
-    pkgs.ytfzf
-    pkgs.e2fsprogs
-    pkgs.xfsprogs
-    pkgs.networkmanagerapplet
-    #    pkgs.teamviewer
-    pkgs.niri
-    pkgs.swww
+  home.packages = with pkgs; [
+    cliphist
+    wl-clipboard-rs
+    zip
+    unzip
+    p7zip
+    ripgrep
+    libnotify
+    xdg-utils
+    fzf
+    obsidian
+    fuzzel
+    brightnessctl
+    gnome-bluetooth
+    ncdu
+    libsecret
+    nodejs
+    nodePackages.npm
+    nodePackages.pnpm
+    yarn
+    # pkgs.hyprpanel
+    bitwarden-desktop
+    (discord.override {withVencord = true;})
+    e2fsprogs
+    xfsprogs
+    networkmanagerapplet
+    # pkgs.teamviewer
   ];
 
   # Manage incompatible .configs

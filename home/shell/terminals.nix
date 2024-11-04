@@ -1,4 +1,12 @@
-{lib, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
+  home.packages = with pkgs; [
+    zellij
+  ];
+
   # foot
   programs.foot = {
     enable = true;

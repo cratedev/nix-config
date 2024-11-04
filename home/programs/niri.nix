@@ -4,6 +4,12 @@
   pkgs,
   ...
 }: {
+  home.packages = with pkgs; [
+    niri
+    swww
+    grim
+    slurp
+  ];
   programs.niri = {
     settings = {
       spawn-at-startup = [

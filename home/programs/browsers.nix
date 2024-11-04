@@ -1,4 +1,8 @@
-{...}: {
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+    firefox-beta-bin
+  ];
+
   programs = {
     chromium = {
       enable = true;
