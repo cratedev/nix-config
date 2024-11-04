@@ -1,15 +1,14 @@
-{ pkgs, ... }:
+{pkgs, ...}:
 with pkgs;
-
-stdenv.mkDerivation {
+  stdenv.mkDerivation {
     pname = "rofi";
     version = "1.0";
 
     src = fetchgit {
-	url = "https://github.com/lbonn/rofi";
-	rev = "142e78071cbd7ddc2228cc707a583e081ec3bdf2";
-	sha256 = "sha256-hb6AbqAN2I+icrPOTkJZtMghDcVPUGm7y2viG3fuALg=";
-	fetchSubmodules = true;
+      url = "https://github.com/lbonn/rofi";
+      rev = "142e78071cbd7ddc2228cc707a583e081ec3bdf2";
+      sha256 = "sha256-hb6AbqAN2I+icrPOTkJZtMghDcVPUGm7y2viG3fuALg=";
+      fetchSubmodules = true;
     };
 
     buildPhase = ''
@@ -50,4 +49,4 @@ stdenv.mkDerivation {
       doxygen
       cppcheck
     ];
-}
+  }
