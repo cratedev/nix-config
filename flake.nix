@@ -22,15 +22,14 @@
     stylix.url = "github:danth/stylix";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     niri.url = "github:sodiboo/niri-flake";
-    wezterm.url = "github:wez/wezterm/main?dir=nix";
-#    nixvim = {
-#	url = "github:nix-community/nixvim";
-#	inputs.nixpkgs.follows = "nixpkgs";
-#    };
+    #    wezterm.url = "github:wez/wezterm/main?dir=nix";
+    #    nixvim = {
+    #	url = "github:nix-community/nixvim";
+    #	inputs.nixpkgs.follows = "nixpkgs";
+    #    };
     nvf = {
-        url = "github:notashelf/nvf";
-        inputs.nixpkgs.follows = "nixpkgs";
-        inputs.obsidian-nvim.follows = "obsidian-nvim";
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -42,8 +41,8 @@
     spicetify-nix,
     stylix,
     niri,
-    wezterm,
-#    nixvim,
+    #    wezterm,
+    #    nixvim,
     nvf,
     nixos-cli,
     ...
@@ -51,31 +50,30 @@
     nixosConfigurations = {
       crate-laptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-	    specialArgs = { inherit inputs; };
+        specialArgs = {inherit inputs;};
         modules = [
           ./hosts/crate-laptop
-	  ./overlays
+          ./overlays
           nixos-hardware.nixosModules.dell-xps-15-9510
           stylix.nixosModules.stylix
           nixos-cli.nixosModules.nixos-cli
           niri.nixosModules.niri
           home-manager.nixosModules.home-manager
-          nvf.nixosModules.default
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager.extraSpecialArgs = {inherit inputs;};
             home-manager.users.matt = import ./home;
-	  }
+          }
         ];
       };
 
       crate-desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
+        specialArgs = {inherit inputs;};
         modules = [
           ./hosts/crate-desktop
-	  ./overlays
+          ./overlays
           stylix.nixosModules.stylix
           nixos-cli.nixosModules.nixos-cli
           niri.nixosModules.niri
@@ -83,7 +81,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager.extraSpecialArgs = {inherit inputs;};
             home-manager.users.matt = import ./home;
           }
         ];
@@ -91,10 +89,10 @@
 
       crate-server = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
+        specialArgs = {inherit inputs;};
         modules = [
           ./hosts/crate-server
-	  ./overlays
+          ./overlays
           stylix.nixosModules.stylix
           nixos-cli.nixosModules.nixos-cli
           niri.nixosModules.niri
@@ -102,7 +100,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager.extraSpecialArgs = {inherit inputs;};
             home-manager.users.matt = import ./home;
           }
         ];

@@ -55,10 +55,10 @@
       enable = true;
       enableFishIntegration = true;
     };
-    wezterm = {
-        package = inputs.wezterm.packages.${pkgs.system}.default;
-        enable = true;
-    };
+#    wezterm = {
+#        package = inputs.wezterm.packages.${pkgs.system}.default;
+#        enable = true;
+#    };
     skim = {
       enable = true;
       enableFishIntegration = true;
