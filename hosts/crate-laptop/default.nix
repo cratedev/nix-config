@@ -1,11 +1,9 @@
-{ config, pkgs, inputs, lib, ... }:
-{
-  imports =
-    [
-      ../../modules/system.nix
-#      ../../modules/nas/default.nix
-      ./hardware-configuration.nix
-    ];
+{...}: {
+  imports = [
+    ../../modules/system.nix
+    #      ../../modules/nas/default.nix
+    ./hardware-configuration.nix
+  ];
 
   # Where we're going, we don't need channels
   nix.channel.enable = false;

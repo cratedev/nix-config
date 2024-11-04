@@ -1,9 +1,4 @@
-{
-  inputs,
-  pkgs,
-  lib,
-  ...
-}: {
+{...}: {
   imports = [
     ./browsers.nix
     ./common.nix

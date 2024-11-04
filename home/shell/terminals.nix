@@ -1,5 +1,4 @@
-{ pkgs, lib, ... }:
-{
+{lib, ...}: {
   # foot
   programs.foot = {
     enable = true;
@@ -7,7 +6,7 @@
       main = {
         font = lib.mkForce "monospace:size=10";
         letter-spacing = "0";
-	      pad = "8x8";
+        pad = "8x8";
       };
     };
   };

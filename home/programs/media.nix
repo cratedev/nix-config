@@ -1,5 +1,9 @@
-{ lib, pkgs, config, inputs, ... }:
 {
+  lib,
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     inputs.spicetify-nix.homeManagerModules.default
   ];
@@ -13,20 +17,18 @@
     imv
   ];
 
-  programs.spicetify =
-    let
-      spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
-    in
-    {
-      enable = true;
-      enabledExtensions = with spicePkgs.extensions; [
-        adblock
-        hidePodcasts
-        shuffle
-      ];
-      theme = lib.mkForce spicePkgs.themes.catppuccin;
-      colorScheme = lib.mkForce "mocha";
-    };
+  programs.spicetify = let
+    spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+  in {
+    enable = true;
+    enabledExtensions = with spicePkgs.extensions; [
+      adblock
+      hidePodcasts
+      shuffle
+    ];
+    theme = lib.mkForce spicePkgs.themes.catppuccin;
+    colorScheme = lib.mkForce "mocha";
+  };
 
   services = {
     playerctld.enable = true;

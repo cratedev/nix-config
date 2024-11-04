@@ -1,5 +1,4 @@
-{ lib, pkgs, inputs, ... }:
-{
+{pkgs, ...}: {
   home.packages = [
     pkgs.cliphist
     pkgs.wl-clipboard-rs
@@ -22,9 +21,10 @@
     pkgs.nodePackages.npm
     pkgs.nodePackages.pnpm
     pkgs.yarn
-    pkgs.vlc pkgs.mpv
+    pkgs.vlc
+    pkgs.mpv
     pkgs.zellij
-#    pkgs.hyprpanel
+    #    pkgs.hyprpanel
     pkgs.firefox-beta-bin
     pkgs.bitwarden-desktop
     (pkgs.discord.override {withVencord = true;})
@@ -34,14 +34,16 @@
     pkgs.e2fsprogs
     pkgs.xfsprogs
     pkgs.networkmanagerapplet
-#    pkgs.teamviewer
+    #    pkgs.teamviewer
     pkgs.niri
     pkgs.swww
   ];
 
   # Manage incompatible .configs
-  programs.spotify-player.enable = true; xdg.configFile."spotify-player".source = ./dots/spotify-player;
-  programs.ncspot.enable = true; xdg.configFile."ncspot/credentials.json".source = ./dots/ncspot/credentials.json;
+  programs.spotify-player.enable = true;
+  xdg.configFile."spotify-player".source = ./dots/spotify-player;
+  programs.ncspot.enable = true;
+  xdg.configFile."ncspot/credentials.json".source = ./dots/ncspot/credentials.json;
   xdg.configFile."rofi".source = ./dots/rofi;
 
   programs = {
@@ -55,10 +57,10 @@
       enable = true;
       enableFishIntegration = true;
     };
-#    wezterm = {
-#        package = inputs.wezterm.packages.${pkgs.system}.default;
-#        enable = true;
-#    };
+    #    wezterm = {
+    #        package = inputs.wezterm.packages.${pkgs.system}.default;
+    #        enable = true;
+    #    };
     skim = {
       enable = true;
       enableFishIntegration = true;

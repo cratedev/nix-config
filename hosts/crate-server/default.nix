@@ -1,12 +1,9 @@
-{ config, pkgs, inputs, lib, ... }:
-{
-  imports =
-    [
-      ../../modules/system.nix
-      ./hardware-configuration.nix
-      ./docker/komodo/docker-compose.nix
-    ];
-
+{...}: {
+  imports = [
+    ../../modules/system.nix
+    ./hardware-configuration.nix
+    ./docker/komodo/docker-compose.nix
+  ];
 
   # QEMU/VM Guest
   services.qemuGuest.enable = true;

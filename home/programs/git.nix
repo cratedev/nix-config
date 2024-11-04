@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   home.packages = [pkgs.gh];
 
   programs.git = {
@@ -10,7 +7,7 @@
     userName = "cratedev";
     userEmail = "matt@crate.dev";
     package = pkgs.gitFull;
-#    config.credential.helper = "libresecret";
+    #    config.credential.helper = "libresecret";
     extraConfig = {
       init.defaultBranch = "master";
     };

@@ -22,11 +22,6 @@
     stylix.url = "github:danth/stylix";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     niri.url = "github:sodiboo/niri-flake";
-    #    wezterm.url = "github:wez/wezterm/main?dir=nix";
-    #    nixvim = {
-    #	url = "github:nix-community/nixvim";
-    #	inputs.nixpkgs.follows = "nixpkgs";
-    #    };
     nvf = {
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -41,8 +36,6 @@
     spicetify-nix,
     stylix,
     niri,
-    #    wezterm,
-    #    nixvim,
     nvf,
     nixos-cli,
     ...
@@ -60,10 +53,12 @@
           niri.nixosModules.niri
           home-manager.nixosModules.home-manager
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {inherit inputs;};
-            home-manager.users.matt = import ./home;
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              extraSpecialArgs = {inherit inputs;};
+              users.matt = import ./home;
+            };
           }
         ];
       };
@@ -79,10 +74,12 @@
           niri.nixosModules.niri
           home-manager.nixosModules.home-manager
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {inherit inputs;};
-            home-manager.users.matt = import ./home;
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              extraSpecialArgs = {inherit inputs;};
+              users.matt = import ./home;
+            };
           }
         ];
       };
@@ -98,10 +95,12 @@
           niri.nixosModules.niri
           home-manager.nixosModules.home-manager
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {inherit inputs;};
-            home-manager.users.matt = import ./home;
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              extraSpecialArgs = {inherit inputs;};
+              users.matt = import ./home;
+            };
           }
         ];
       };

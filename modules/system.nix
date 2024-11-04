@@ -1,5 +1,8 @@
-{ pkgs, lib, inputs, ... }:
-let
+{
+  pkgs,
+  lib,
+  ...
+}: let
   username = "matt";
 in {
   # ============================= User related =============================
@@ -19,7 +22,7 @@ in {
     enable = true;
     autoEnable = true;
     polarity = "dark";
-    fonts.sizes = { applications = 10; };
+    fonts.sizes = {applications = 10;};
     # dracula, nord, ayu-mirage, da-one-ocean, harmonic16-dark
     base16Scheme = "${pkgs.base16-schemes}/share/themes/da-one-ocean.yaml";
     image = ../wallpaper/3.png;
@@ -27,14 +30,14 @@ in {
 
   # Optimise store
   nix.optimise.automatic = true;
-  nix.optimise.dates = [ "03:45" ];
+  nix.optimise.dates = ["03:45"];
 
   # customise /etc/nix/nix.conf declaratively via `nix.settings`
   nix.settings = {
     trusted-users = [username];
     # enable flakes globally
-    experimental-features = [ "nix-command" "flakes" ];
-    substituters = [ "https://cache.nixos.org" ];
+    experimental-features = ["nix-command" "flakes"];
+    substituters = ["https://cache.nixos.org"];
     trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
     ];
@@ -87,10 +90,10 @@ in {
     };
   };
 
-  hardware = { bluetooth.enable = true; };
-  security = { polkit.enable = true; };
+  hardware = {bluetooth.enable = true;};
+  security = {polkit.enable = true;};
 
-##### SERVICES #####
+  ##### SERVICES #####
   services = {
     teamviewer.enable = true;
     nixos-cli.enable = true;
@@ -102,22 +105,22 @@ in {
     gnome.gnome-keyring.enable = true;
     udev.packages = with pkgs; [gnome-settings-daemon];
 
-##### SDDM won't build because neatvnc
-#    displayManager.sddm = {
-#      enable = true;
-#      wayland.enable = true;
-#      theme = "catppuccin-mocha";
-#      package = pkgs.sddm;
-#    };
+    ##### SDDM won't build because neatvnc
+    #    displayManager.sddm = {
+    #      enable = true;
+    #      wayland.enable = true;
+    #      theme = "catppuccin-mocha";
+    #      package = pkgs.sddm;
+    #    };
 
     greetd = {
-        enable = true;
-        settings = rec {
-            default_session = {
-                command = "${pkgs.niri}/bin/niri-session";
-                user = "matt";
-            };
+      enable = true;
+      settings = rec {
+        default_session = {
+          command = "${pkgs.niri}/bin/niri-session";
+          user = "matt";
         };
+      };
     };
 
     pipewire = {
@@ -137,7 +140,7 @@ in {
       };
       openFirewall = true;
     };
-##### END SERVICES #####
+    ##### END SERVICES #####
   };
 
   xdg.portal = {
@@ -158,7 +161,7 @@ in {
   programs.fish.enable = true;
   programs.partition-manager.enable = true;
   environment.systemPackages = [
-#    pkgs.hyprland
+    #    pkgs.hyprland
     pkgs.nixd
     pkgs.cargo
     pkgs.rustc
@@ -174,7 +177,7 @@ in {
     pkgs.xfce.tumbler
     pkgs.fish
     pkgs.whois
-#    pkgs.neatvnc
+    #    pkgs.neatvnc
     pkgs.busybox
     pkgs.xdg-desktop-portal-hyprland
     pkgs.xdg-desktop-portal-wlr
@@ -184,14 +187,14 @@ in {
       fontSize = "9";
     })
     pkgs.cachix
-    (pkgs.callPackage ../home/programs/rofi-custom.nix { })
+    (pkgs.callPackage ../home/programs/rofi-custom.nix {})
 
-##### PACKAGES FOR NAS #####
-#    pkgs.mergerfs
-#    pkgs.dive
-#    pkgs.podman-tui     // The packages shouldn't be here.
-#    pkgs.podman-compose // In the future, they should go in the
-#    pkgs.docker-compose // Server config
-##### END PACKAGES FOR NAS #####
+    ##### PACKAGES FOR NAS #####
+    #    pkgs.mergerfs
+    #    pkgs.dive
+    #    pkgs.podman-tui     // The packages shouldn't be here.
+    #    pkgs.podman-compose // In the future, they should go in the
+    #    pkgs.docker-compose // Server config
+    ##### END PACKAGES FOR NAS #####
   ];
 }
