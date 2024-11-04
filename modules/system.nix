@@ -29,19 +29,19 @@ in {
   };
 
   # Optimise store
-  nix.optimise.automatic = true;
-  nix.optimise.dates = ["03:45"];
-
-  # customise /etc/nix/nix.conf declaratively via `nix.settings`
-  nix.settings = {
-    trusted-users = [username];
-    # enable flakes globally
-    experimental-features = ["nix-command" "flakes"];
-    substituters = ["https://cache.nixos.org"];
-    trusted-public-keys = [
-      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-    ];
-    builders-use-substitutes = true;
+  nix = {
+    optimise.automatic = true;
+    optimise.dates = ["03:45"];
+    settings = {
+      trusted-users = [username];
+      # enable flakes globally
+      experimental-features = ["nix-command" "flakes"];
+      substituters = ["https://cache.nixos.org"];
+      trusted-public-keys = [
+        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      ];
+      builders-use-substitutes = true;
+    };
   };
 
   # do garbage collection weekly to keep disk usage low
@@ -146,22 +146,24 @@ in {
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-hyprland
-      pkgs.xdg-desktop-portal-wlr
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-hyprland
+      xdg-desktop-portal-wlr
     ];
     config.common.default = "*";
   };
 
   # Programs
-  programs.ssh.startAgent = true;
-  programs.dconf.enable = true;
-  programs.hyprland.enable = false;
-  programs.niri.enable = true;
-  programs.fish.enable = true;
-  programs.partition-manager.enable = true;
+  programs = {
+    ssh.startAgent = true;
+    dconf.enable = true;
+    hyprland.enable = false;
+    niri.enable = true;
+    fish.enable = true;
+    partition-manager.enable = true;
+  };
+
   environment.systemPackages = [
-    #    pkgs.hyprland
     pkgs.nixd
     pkgs.cargo
     pkgs.rustc
@@ -170,14 +172,11 @@ in {
     pkgs.vim
     pkgs.wget
     pkgs.curl
-    pkgs.git
     pkgs.sysstat
     pkgs.lm_sensors
     pkgs.xfce.thunar
     pkgs.xfce.tumbler
-    pkgs.fish
     pkgs.whois
-    #    pkgs.neatvnc
     pkgs.busybox
     pkgs.xdg-desktop-portal-hyprland
     pkgs.xdg-desktop-portal-wlr

@@ -19,7 +19,7 @@
     # video
     mpv
     vlc
-    # clip
+    # cli
     ytfzf
   ];
 
