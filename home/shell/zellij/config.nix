@@ -1,4 +1,6 @@
-/* kdl */ 
+/*
+kdl
+*/
 #  ${import ./themes.nix}
 ''
   keybinds clear-defaults=true {
@@ -17,7 +19,7 @@
       bind "Ctrl g" { SwitchToMode "normal"; }
     }
     tab {
-      bind "Ctrl t" { SwitchToMode "normal"; }
+      bind "Ctrl f" { SwitchToMode "normal"; }
       bind "x" { CloseTab; SwitchToMode "normal"; }
       bind "c" { SwitchToMode "RenameTab"; TabNameInput 0; }
       bind "h" "Left" "Up" "k" { GoToPreviousTab; }
@@ -96,7 +98,7 @@
       bind "Ctrl y" {
         LaunchOrFocusPlugin "file:~/.config/zellij/plugins/zellij_forgot.wasm" {
           "toggle lock mode"        "crtl + g"
-          "toggle tab mode"         "ctrl + t"
+          "toggle tab mode"         "ctrl + f"
           "toggle pane mode"        "ctrl + p"
           "toggle move mode"        "ctrl + m"
           "toggle resize mode"      "ctrl + R"
@@ -106,7 +108,7 @@
           "new pane"                "alt + n"
           "new tab"                 "ctrl + n"
           "go to tab index"         "alt + <index>"
-          "rename tab"              "ctrl + t + c"
+          "rename tab"              "ctrl + f + c"
           "toggle fullscreen"       "ctrl + p + f"
           "toggle floating pane"    "ctrl + p + w"
           "detach session"          "crtl + d"
@@ -133,7 +135,7 @@
       bind "Ctrl R" { SwitchToMode "resize"; }
     }
     shared_except "tab" "locked" {
-      bind "Ctrl t" { SwitchToMode "tab"; }
+      bind "Ctrl f" { SwitchToMode "tab"; }
     }
     shared_except "move" "locked" {
       bind "Ctrl m" { SwitchToMode "move"; }
