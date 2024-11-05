@@ -105,23 +105,22 @@ in {
     gnome.gnome-keyring.enable = true;
     udev.packages = with pkgs; [gnome-settings-daemon];
 
-    ##### SDDM won't build because neatvnc
-    #    displayManager.sddm = {
-    #      enable = true;
-    #      wayland.enable = true;
-    #      theme = "catppuccin-mocha";
-    #      package = pkgs.sddm;
-    #    };
-
-    greetd = {
+    displayManager.sddm = {
       enable = true;
-      settings = rec {
-        default_session = {
-          command = "${pkgs.niri}/bin/niri-session";
-          user = "matt";
-        };
-      };
+      wayland.enable = true;
+      theme = "catppuccin-mocha";
+      #      package = pkgs.sddm;
     };
+
+    #    greetd = {
+    #      enable = true;
+    #      settings = rec {
+    #        default_session = {
+    #          command = "${pkgs.niri}/bin/niri-session";
+    #          user = "matt";
+    #        };
+    #      };
+    #    };
 
     pipewire = {
       enable = true;
@@ -168,6 +167,7 @@ in {
     pkgs.cargo
     pkgs.rustc
     pkgs.meson
+    pkgs.cmake
     pkgs.ncurses
     pkgs.vim
     pkgs.wget

@@ -12,6 +12,10 @@
   ];
   programs.niri = {
     settings = {
+      hotkey-overlay = {
+        skip-at-startup = true;
+      };
+
       spawn-at-startup = [
         {command = ["swww-daemon"];}
         {command = ["swww" "img" "../../wallpaper/3.png"];}
