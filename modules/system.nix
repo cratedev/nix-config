@@ -109,7 +109,7 @@ in {
       enable = true;
       wayland.enable = true;
       theme = "catppuccin-mocha";
-      #      package = pkgs.sddm;
+      package = pkgs.kdePackages.sddm;
     };
 
     #    greetd = {
