@@ -25,7 +25,7 @@
     e2fsprogs
     xfsprogs
     networkmanagerapplet
-    zeditor
+    zed
     # pkgs.teamviewer
   ];
 
