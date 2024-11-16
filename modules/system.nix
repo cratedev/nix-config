@@ -1,6 +1,7 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }: let
   username = "matt";
@@ -25,7 +26,8 @@ in {
     fonts.sizes = {applications = 10;};
     # dracula, nord, ayu-mirage, da-one-ocean, harmonic16-dark
     base16Scheme = "${pkgs.base16-schemes}/share/themes/da-one-ocean.yaml";
-    image = ../wallpaper/3.png;
+    image = config.lib.stylix.pixel "base0A";
+    #    image = ../wallpaper/3.png;
   };
 
   # Optimise store
@@ -154,6 +156,7 @@ in {
 
   # Programs
   programs = {
+    xwayland.enable = true;
     ssh.startAgent = true;
     dconf.enable = true;
     hyprland.enable = false;
@@ -196,4 +199,6 @@ in {
     #    pkgs.docker-compose // Server config
     ##### END PACKAGES FOR NAS #####
   ];
+
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 }
