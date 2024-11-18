@@ -1,22 +1,20 @@
-{...}: {
+{ pkgs, ... }: {
   imports = [
     ./terminals.nix
     ./fish.nix
     ./zellij
   ];
 
-  # add environment variables
+  # Environment Variables: Group related variables together
   home.sessionVariables = {
-    # set default applications
     EDITOR = "nano";
     BROWSER = "firefox";
     TERMINAL = "foot";
-    # enable scrolling in git diff
     DELTA_PAGER = "less -R";
-
     MANPAGER = "sh -c 'col -bx | bat -l man -p'";
   };
 
+  # Shell Aliases: Define common aliases concisely
   home.shellAliases = {
     k = "kubectl";
     ls = "eza -l";

@@ -1,42 +1,25 @@
-{
-  lib,
-  pkgs,
-  inputs,
-  ...
-}: {
-  imports = [
-    inputs.spicetify-nix.homeManagerModules.default
-  ];
+{ lib, pkgs, inputs, ... }: {
+  imports = [ inputs.spicetify-nix.homeManagerModules.default ];
 
   home.packages = with pkgs; [
-    # audio control
-    pavucontrol
-    playerctl
-    pulsemixer
-    pamixer
-    # images
+    # Audio control
+    pavucontrol playerctl pulsemixer pamixer
+    # Image viewer
     imv
-    # video
-    mpv
-    vlc
-    # cli
+    # Video players
+    mpv vlc
+    # CLI tools
     ytfzf
   ];
 
-  programs.spicetify = let
-    spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
-  in {
+  programs.spicetify = {
     enable = true;
-    enabledExtensions = with spicePkgs.extensions; [
-      adblock
-      hidePodcasts
-      shuffle
+    enabledExtensions = with inputs.spicetify-nix.legacyPackages.${pkgs.system}.extensions; [
+      adblock hidePodcasts shuffle
     ];
-    theme = lib.mkForce spicePkgs.themes.catppuccin;
+    theme = lib.mkForce inputs.spicetify-nix.legacyPackages.${pkgs.system}.themes.catppuccin;
     colorScheme = lib.mkForce "mocha";
   };
 
-  services = {
-    playerctld.enable = true;
-  };
+  services.playerctld.enable = true;
 }

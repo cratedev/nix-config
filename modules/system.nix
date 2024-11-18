@@ -1,52 +1,49 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
-}: let
+{ pkgs, lib, config, ... }: let
+  # Define reusable variables
   username = "matt";
+  timezone = "Europe/London";
+  locale = "en_GB.UTF-8";
+  editor = "nano";
+  browser = "firefox";
+  terminal = "foot";
+  stylixTheme = "da-one-ocean";
+
 in {
-  # ============================= User related =============================
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.matt = {
+  # ============================= User Related =============================
+  users.users.${username} = {
     isNormalUser = true;
-    description = "matt";
+    description = username;
     extraGroups = ["networkmanager" "wheel" "podman"];
     openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIItETI5nQ1tNxHQ7S7dpDodTU1aT6cPe66+jeS3el9Ac matt@crate-laptop"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIItETI5nQ1tNxHQ7S7dpDodTU1aT6cPe66+jeS3el9Ac ${username}@crate-laptop"
     ];
     shell = pkgs.fish;
   };
 
-  # Stylix
+  # ============================= Stylix =============================
   stylix = {
     enable = true;
     autoEnable = true;
     polarity = "dark";
-    fonts.sizes = {applications = 10;};
-    # dracula, nord, ayu-mirage, da-one-ocean, harmonic16-dark
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/da-one-ocean.yaml";
+    fonts.sizes = { applications = 10; };
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/${stylixTheme}.yaml";
     image = config.lib.stylix.pixel "base0A";
-    #image = ../wallpaper/1.png;
   };
 
-  # Optimise store
+  # ============================= Nix Optimizations =============================
   nix = {
     optimise.automatic = true;
     optimise.dates = ["03:45"];
     settings = {
       trusted-users = [username];
-      # enable flakes globally
       experimental-features = ["nix-command" "flakes"];
       substituters = ["https://cache.nixos.org"];
-      trusted-public-keys = [
-        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-      ];
+      trusted-public-keys = ["cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="];
       builders-use-substitutes = true;
     };
   };
 
-  # do garbage collection weekly to keep disk usage low
+  # Garbage Collection
   nix.gc = {
     automatic = lib.mkDefault true;
     dates = lib.mkDefault "weekly";
@@ -56,24 +53,22 @@ in {
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # Set your time zone.
-  time.timeZone = "Europe/London";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_GB.UTF-8";
-    LC_IDENTIFICATION = "en_GB.UTF-8";
-    LC_MEASUREMENT = "en_GB.UTF-8";
-    LC_MONETARY = "en_GB.UTF-8";
-    LC_NAME = "en_GB.UTF-8";
-    LC_NUMERIC = "en_GB.UTF-8";
-    LC_PAPER = "en_GB.UTF-8";
-    LC_TELEPHONE = "en_GB.UTF-8";
-    LC_TIME = "en_GB.UTF-8";
+  # Time zone and locale
+  time.timeZone = timezone;
+  i18n.defaultLocale = locale;
+  i18n.extraLocaleSettings = lib.mkDefault {
+    LC_ADDRESS = locale;
+    LC_IDENTIFICATION = locale;
+    LC_MEASUREMENT = locale;
+    LC_MONETARY = locale;
+    LC_NAME = locale;
+    LC_NUMERIC = locale;
+    LC_PAPER = locale;
+    LC_TELEPHONE = locale;
+    LC_TIME = locale;
   };
 
+  # ============================= Fonts =============================
   fonts = {
     packages = with pkgs; [
       font-awesome
@@ -81,7 +76,7 @@ in {
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-emoji
-      (nerdfonts.override {fonts = ["FiraCode" "JetBrainsMono"];})
+      (nerdfonts.override { fonts = ["FiraCode" "JetBrainsMono"]; })
     ];
     enableDefaultPackages = false;
     fontconfig.defaultFonts = {
@@ -92,38 +87,27 @@ in {
     };
   };
 
-  hardware = {bluetooth.enable = false;};
-  security = {polkit.enable = true;};
+  # ============================= Hardware =============================
+  hardware = { bluetooth.enable = false; };
+  security = { polkit.enable = true; };
 
-  ##### SERVICES #####
+  # ============================= Services =============================
   services = {
     teamviewer.enable = true;
     nixos-cli.enable = true;
     printing.enable = false;
     power-profiles-daemon.enable = true;
-    dbus.packages = [pkgs.gcr];
+    dbus.packages = [ pkgs.gcr ];
     geoclue2.enable = true;
     blueman.enable = false;
     gnome.gnome-keyring.enable = true;
-    udev.packages = with pkgs; [gnome-settings-daemon];
-
+    udev.packages = with pkgs; [ gnome-settings-daemon ];
     displayManager.sddm = {
       enable = true;
       wayland.enable = true;
       theme = "catppuccin-mocha";
       package = pkgs.kdePackages.sddm;
     };
-
-    #    greetd = {
-    #      enable = true;
-    #      settings = rec {
-    #        default_session = {
-    #          command = "${pkgs.niri}/bin/niri-session";
-    #          user = "matt";
-    #        };
-    #      };
-    #    };
-
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -131,39 +115,37 @@ in {
       pulse.enable = true;
       jack.enable = true;
     };
-
     openssh = {
       enable = true;
       settings = {
         X11Forwarding = true;
-        PermitRootLogin = "no"; # disable root login
-        PasswordAuthentication = false; # disable password login
+        PermitRootLogin = "no"; 
+        PasswordAuthentication = false; 
       };
       openFirewall = true;
     };
-    ##### END SERVICES #####
   };
 
+  # ============================= XDG Portals =============================
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
     extraPortals = with pkgs; [
-      #      xdg-desktop-portal-hyprland
       xdg-desktop-portal-wlr
     ];
     config.common.default = "*";
   };
 
-  # Programs
+  # ============================= Programs =============================
   programs = {
     ssh.startAgent = true;
     dconf.enable = true;
     hyprland.enable = false;
     niri.enable = true;
     fish.enable = true;
-    #    partition-manager.enable = true;
   };
 
+  # ============================= System Packages =============================
   environment.systemPackages = [
     pkgs.nixd
     pkgs.cargo
@@ -174,20 +156,17 @@ in {
     pkgs.vim
     pkgs.wget
     pkgs.curl
-    #    pkgs.sysstat
-    #    pkgs.lm_sensors
-    pkgs.nemo
-    #    pkgs.whois
     pkgs.busybox
-    #    pkgs.xdg-desktop-portal-wlr
+    pkgs.nemo
+    pkgs.cachix
     (pkgs.catppuccin-sddm.override {
       flavor = "mocha";
       font = "Noto Sans";
       fontSize = "9";
     })
-    pkgs.cachix
     (pkgs.callPackage ../home/programs/rofi-custom.nix {})
   ];
 
+  # ============================= Session Variables =============================
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 }

@@ -1,8 +1,15 @@
 {config, ...}: let
   browser = ["firefox.desktop"];
-
+  mpv = ["mpv.desktop"];
+  imv = ["imv.desktop"];
+  zathura = ["org.pwmt.zathura.desktop"];
+  discord = ["discordcanary.desktop"];
+  spotify = ["spotify.desktop"];
+  telegram = ["telegramdesktop.desktop"];
+  
   # XDG MIME types
   associations = {
+    # Web-related
     "application/x-extension-htm" = browser;
     "application/x-extension-html" = browser;
     "application/x-extension-shtml" = browser;
@@ -11,20 +18,25 @@
     "application/xhtml+xml" = browser;
     "text/html" = browser;
     "x-scheme-handler/about" = browser;
-    "x-scheme-handler/chrome" = ["chromium-browser.desktop"];
     "x-scheme-handler/ftp" = browser;
     "x-scheme-handler/http" = browser;
     "x-scheme-handler/https" = browser;
     "x-scheme-handler/unknown" = browser;
+    "x-scheme-handler/chrome" = ["chromium-browser.desktop"];
 
-    "audio/*" = ["mpv.desktop"];
-    "video/*" = ["mpv.dekstop"];
-    "image/*" = ["imv.desktop"];
+    # Media-related
+    "audio/*" = mpv;
+    "video/*" = mpv;
+    "image/*" = imv;
+
+    # Other formats
     "application/json" = browser;
-    "application/pdf" = ["org.pwmt.zathura.desktop.desktop"];
-    "x-scheme-handler/discord" = ["discordcanary.desktop"];
-    "x-scheme-handler/spotify" = ["spotify.desktop"];
-    "x-scheme-handler/tg" = ["telegramdesktop.desktop"];
+    "application/pdf" = zathura;
+
+    # Apps
+    "x-scheme-handler/discord" = discord;
+    "x-scheme-handler/spotify" = spotify;
+    "x-scheme-handler/tg" = telegram;
   };
 in {
   xdg = {

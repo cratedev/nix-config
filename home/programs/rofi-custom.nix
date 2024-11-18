@@ -1,24 +1,26 @@
-{pkgs, ...}:
+{ pkgs, ... }:
+
 with pkgs;
-  stdenv.mkDerivation {
-    pname = "rofi";
-    version = "1.0";
 
-    src = fetchgit {
-      url = "https://github.com/lbonn/rofi";
-      rev = "142e78071cbd7ddc2228cc707a583e081ec3bdf2";
-      sha256 = "sha256-hb6AbqAN2I+icrPOTkJZtMghDcVPUGm7y2viG3fuALg=";
-      fetchSubmodules = true;
-    };
+stdenv.mkDerivation rec {
+  pname = "rofi";
+  version = "1.0";
 
-    buildPhase = ''
-      meson configure
-      ninja
-    '';
+  src = fetchgit {
+    url = "https://github.com/lbonn/rofi";
+    rev = "142e78071cbd7ddc2228cc707a583e081ec3bdf2";
+    sha256 = "sha256-hb6AbqAN2I+icrPOTkJZtMghDcVPUGm7y2viG3fuALg=";
+    fetchSubmodules = true;
+  };
 
-    installPhase = ''
-      ninja install
-    '';
+  buildPhase = ''
+    meson configure
+    ninja
+  '';
+
+  installPhase = ''
+    ninja install
+  '';
 
     nativeBuildInputs = with pkgs; [
       meson
