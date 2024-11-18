@@ -2,7 +2,6 @@
   description = "Your new nix config";
 
   nixConfig = {
-    # substituers will be appended to the default substituters when fetching packages
     extra-substituters = [
       "https://nix-community.cachix.org"
     ];
@@ -41,11 +40,12 @@
     ...
   }: {
     nixosConfigurations = {
-      crate-laptop = nixpkgs.lib.nixosSystem {
+      # Define a generic function to avoid redundancy
+      createSystemConfig = systemName: hostFile: nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = {inherit inputs;};
+        specialArgs = { inherit inputs; };
         modules = [
-          ./hosts/crate-laptop
+          hostFile
           ./overlays
           nixos-hardware.nixosModules.dell-xps-15-9510
           stylix.nixosModules.stylix
@@ -56,54 +56,16 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              extraSpecialArgs = {inherit inputs;};
+              extraSpecialArgs = { inherit inputs; };
               users.matt = import ./home;
             };
           }
         ];
       };
 
-      crate-desktop = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./hosts/crate-desktop
-          ./overlays
-          stylix.nixosModules.stylix
-          nixos-cli.nixosModules.nixos-cli
-          niri.nixosModules.niri
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              extraSpecialArgs = {inherit inputs;};
-              users.matt = import ./home;
-            };
-          }
-        ];
-      };
-
-      crate-server = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./hosts/crate-server
-          ./overlays
-          stylix.nixosModules.stylix
-          nixos-cli.nixosModules.nixos-cli
-          niri.nixosModules.niri
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              extraSpecialArgs = {inherit inputs;};
-              users.matt = import ./home;
-            };
-          }
-        ];
-      };
+      crate-laptop = createSystemConfig "crate-laptop" ./hosts/crate-laptop;
+      crate-desktop = createSystemConfig "crate-desktop" ./hosts/crate-desktop;
+      crate-server = createSystemConfig "crate-server" ./hosts/crate-server;
     };
   };
 }
