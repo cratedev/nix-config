@@ -27,7 +27,7 @@ in {
     # dracula, nord, ayu-mirage, da-one-ocean, harmonic16-dark
     base16Scheme = "${pkgs.base16-schemes}/share/themes/da-one-ocean.yaml";
     image = config.lib.stylix.pixel "base0A";
-    #    image = ../wallpaper/3.png;
+    #image = ../wallpaper/1.png;
   };
 
   # Optimise store
@@ -92,7 +92,7 @@ in {
     };
   };
 
-  hardware = {bluetooth.enable = true;};
+  hardware = {bluetooth.enable = false;};
   security = {polkit.enable = true;};
 
   ##### SERVICES #####
@@ -103,7 +103,7 @@ in {
     power-profiles-daemon.enable = true;
     dbus.packages = [pkgs.gcr];
     geoclue2.enable = true;
-    blueman.enable = true;
+    blueman.enable = false;
     gnome.gnome-keyring.enable = true;
     udev.packages = with pkgs; [gnome-settings-daemon];
 
@@ -148,7 +148,7 @@ in {
     enable = true;
     xdgOpenUsePortal = true;
     extraPortals = with pkgs; [
-      xdg-desktop-portal-hyprland
+      #      xdg-desktop-portal-hyprland
       xdg-desktop-portal-wlr
     ];
     config.common.default = "*";
@@ -156,13 +156,12 @@ in {
 
   # Programs
   programs = {
-    xwayland.enable = true;
     ssh.startAgent = true;
     dconf.enable = true;
     hyprland.enable = false;
     niri.enable = true;
     fish.enable = true;
-    partition-manager.enable = true;
+    #    partition-manager.enable = true;
   };
 
   environment.systemPackages = [
@@ -175,14 +174,12 @@ in {
     pkgs.vim
     pkgs.wget
     pkgs.curl
-    pkgs.sysstat
-    pkgs.lm_sensors
-    pkgs.xfce.thunar
-    pkgs.xfce.tumbler
-    pkgs.whois
+    #    pkgs.sysstat
+    #    pkgs.lm_sensors
+    pkgs.nemo
+    #    pkgs.whois
     pkgs.busybox
-    pkgs.xdg-desktop-portal-hyprland
-    pkgs.xdg-desktop-portal-wlr
+    #    pkgs.xdg-desktop-portal-wlr
     (pkgs.catppuccin-sddm.override {
       flavor = "mocha";
       font = "Noto Sans";
@@ -190,14 +187,6 @@ in {
     })
     pkgs.cachix
     (pkgs.callPackage ../home/programs/rofi-custom.nix {})
-
-    ##### PACKAGES FOR NAS #####
-    #    pkgs.mergerfs
-    #    pkgs.dive
-    #    pkgs.podman-tui     // The packages shouldn't be here.
-    #    pkgs.podman-compose // In the future, they should go in the
-    #    pkgs.docker-compose // Server config
-    ##### END PACKAGES FOR NAS #####
   ];
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";

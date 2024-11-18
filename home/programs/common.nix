@@ -12,7 +12,6 @@
     obsidian
     fuzzel
     brightnessctl
-    gnome-bluetooth
     ncdu
     libsecret
     nodejs
@@ -20,12 +19,13 @@
     nodePackages.pnpm
     yarn
     # pkgs.hyprpanel
-    bitwarden-desktop
     (discord.override {withVencord = true;})
     e2fsprogs
     xfsprogs
     networkmanagerapplet
-    zed-editor
+    #zed-editor
+    gowall
+    immich-cli
     # pkgs.teamviewer
   ];
 
@@ -46,10 +46,6 @@
       enable = true;
       enableFishIntegration = true;
     };
-    #    wezterm = {
-    #        package = inputs.wezterm.packages.${pkgs.system}.default;
-    #        enable = true;
-    #    };
     skim = {
       enable = true;
       enableFishIntegration = true;

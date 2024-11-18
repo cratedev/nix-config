@@ -20,5 +20,6 @@
   home.shellAliases = {
     k = "kubectl";
     ls = "eza -l";
+    immup = "immich upload -r -a $HOME/images/screenshots";
   };
 }
