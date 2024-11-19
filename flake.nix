@@ -19,6 +19,9 @@
 
     nvf.url = "github:notashelf/nvf";
     nvf.inputs.nixpkgs.follows = "nixpkgs";
+
+    opnix.url = "github:mrjones2014/opnix";
+    opnix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs @ {nixpkgs, ...}: let
@@ -29,6 +32,7 @@
       inputs.nixos-cli.nixosModules.nixos-cli
       inputs.niri.nixosModules.niri
       inputs.home-manager.nixosModules.home-manager
+      inputs.opnix.nixosModules.default
       ./overlays
     ];
 

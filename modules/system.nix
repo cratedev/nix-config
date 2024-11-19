@@ -24,7 +24,7 @@ in {
 
   # ============================= Stylix =============================
   stylix = {
-    enable = true;
+    enable = false;
     autoEnable = true;
     polarity = "dark";
     fonts.sizes = { applications = 10; };
