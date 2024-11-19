@@ -1,5 +1,5 @@
 {
-  description = "Your new nix config";
+  description = "crate";
 
   nixConfig = {
     extra-substituters = ["https://nix-community.cachix.org"];
@@ -7,10 +7,7 @@
   };
 
   inputs = {
-    mysecrets = { 
-      url = "git+ssh://git@github.com/cratedev/nix-secrets"; 
-      flake = false;
-    };
+    mysecrets = { url = "git+ssh://git@github.com/cratedev/nix-secrets"; flake = false;};
 
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -26,7 +23,6 @@
     nvf.inputs.nixpkgs.follows = "nixpkgs";
 
     agenix.url = "github:yaxitech/ragenix";
-
   };
 
   outputs = inputs @ {nixpkgs, ...}: let

@@ -23,7 +23,7 @@ in {
 
   # ============================= Stylix =============================
   stylix = {
-    enable = false;
+    enable = true;
     autoEnable = true;
     polarity = "dark";
     fonts.sizes = { applications = 10; };

@@ -17,7 +17,7 @@
     # whether secrets are symlinked to age.secrets.<name>.path
     symlink = true;
     # target path for decrypted file
-    path = "/etc/xxx/";
+    path = "/etc/xxx";
     # encrypted file path
     file =  "${inputs.mysecrets}/secrets/xxx.age";  # refer to ./xxx.age located in `mysecrets` repo
     mode = "0400";
