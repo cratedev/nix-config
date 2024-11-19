@@ -7,6 +7,8 @@
   };
 
   inputs = {
+    mysecrets = = { url = "github:cratedev/nix-secrets"; flake = false;};
+
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     home-manager.url = "github:nix-community/home-manager";
@@ -20,7 +22,7 @@
     nvf.url = "github:notashelf/nvf";
     nvf.inputs.nixpkgs.follows = "nixpkgs";
 
-    ragenix.url = "github:yaxitech/ragenix";
+    agenix.url = "github:yaxitech/ragenix";
 
   };
 
@@ -32,8 +34,9 @@
       inputs.nixos-cli.nixosModules.nixos-cli
       inputs.niri.nixosModules.niri
       inputs.home-manager.nixosModules.home-manager
-      inputs.ragenix.nixosModules.default
+      inputs.agenix.nixosModules.default
       ./overlays
+      ./secrets/default.nix
     ];
 
     # Function that dynamically takes the system architecture
