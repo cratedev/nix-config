@@ -2,10 +2,8 @@
   description = "Your new nix config";
 
   nixConfig = {
-    extra-substituters = [ "https://nix-community.cachix.org" ];
-    extra-trusted-public-keys = [ 
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=" 
-    ];
+    extra-substituters = ["https://nix-community.cachix.org"];
+    extra-trusted-public-keys = ["nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="];
   };
 
   inputs = {
@@ -23,8 +21,9 @@
     nvf.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs @ { self, nixpkgs, ... }: let
-    lib = nixpkgs.lib;
+  outputs = inputs @ {nixpkgs, ...}: let
+    inherit (nixpkgs) lib;
+
     commonModules = [
       inputs.stylix.nixosModules.stylix
       inputs.nixos-cli.nixosModules.nixos-cli
@@ -33,31 +32,32 @@
       ./overlays
     ];
 
-    createSystemConfig = hostFile: extraModules: lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = { inherit inputs; };
-      modules = lib.concatLists [
-        [ hostFile ]          # Host-specific configuration
-        commonModules         # Shared modules
-        extraModules          # Extra modules (optional)
-        [
-          {
-            home-manager = { 
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              extraSpecialArgs = { inherit inputs; };
-              users.matt = import ./home;
-            };
-          }
-        ]
-      ];
-    };
+    # Function that dynamically takes the system architecture
+    createSystemConfig = system: hostFile: extraModules: 
+      lib.nixosSystem {
+        system = system;  # Use dynamic architecture (e.g., "x86_64-linux" or "aarch64-linux")
+        specialArgs = { inherit inputs; };
+        modules = lib.concatLists [
+          [ hostFile ]
+          commonModules # Shared modules
+          extraModules  # Extra modules (optional)
+          [
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                extraSpecialArgs = { inherit inputs; };
+                users.matt = import ./home;
+              };
+            }
+          ]
+        ];
+      };
+
   in {
     nixosConfigurations = {
-      crate-laptop = createSystemConfig ./hosts/crate-laptop [
-        inputs.nixos-hardware.nixosModules.dell-xps-15-9510
-      ];
-      crate-desktop = createSystemConfig ./hosts/crate-desktop [];
+      crate-laptop = createSystemConfig "x86_64-linux" ./hosts/crate-laptop [ inputs.nixos-hardware.nixosModules.dell-xps-15-9510 ];
+      crate-desktop = createSystemConfig "x86_64-linux" ./hosts/crate-desktop [];
     };
   };
 }

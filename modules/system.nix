@@ -7,6 +7,11 @@
   browser = "firefox";
   terminal = "foot";
   stylixTheme = "da-one-ocean";
+  
+  # Define the path to the shared authorized_keys file
+  sharedAuthorizedKeys = builtins.readFile ./ssh/authorized_keys;
+  sharedKnownHosts = builtins.readFiles ./ssh/known_hosts;
+
 
 in {
   # ============================= User Related =============================
@@ -14,9 +19,8 @@ in {
     isNormalUser = true;
     description = username;
     extraGroups = ["networkmanager" "wheel" ];
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIItETI5nQ1tNxHQ7S7dpDodTU1aT6cPe66+jeS3el9Ac ${username}@crate-laptop"
-    ];
+    openssh.authorizedKeys.keys = lib.splitString "\n" sharedAuthorizedKeys;
+    openssh.knownHosts = lib.splitString "\b" sharedKnownHosts;
     shell = pkgs.fish;
   };
 
