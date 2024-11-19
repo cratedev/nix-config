@@ -7,7 +7,10 @@
   };
 
   inputs = {
-    mysecrets = = { url = "github:cratedev/nix-secrets"; flake = false;};
+    mysecrets = { 
+      url = "git+ssh://git@github.com/cratedev/nix-secrets"; 
+      flake = false;
+    };
 
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -34,7 +37,6 @@
       inputs.nixos-cli.nixosModules.nixos-cli
       inputs.niri.nixosModules.niri
       inputs.home-manager.nixosModules.home-manager
-      inputs.agenix.nixosModules.default
       ./overlays
       ./secrets/default.nix
     ];
