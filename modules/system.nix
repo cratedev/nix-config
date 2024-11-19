@@ -10,7 +10,6 @@
   
   # Define the path to the shared authorized_keys file
   sharedAuthorizedKeys = builtins.readFile ./ssh/authorized_keys;
-  sharedKnownHosts = builtins.readFiles ./ssh/known_hosts;
 
 
 in {
@@ -20,7 +19,6 @@ in {
     description = username;
     extraGroups = ["networkmanager" "wheel" ];
     openssh.authorizedKeys.keys = lib.splitString "\n" sharedAuthorizedKeys;
-    openssh.knownHosts = lib.splitString "\b" sharedKnownHosts;
     shell = pkgs.fish;
   };
 
