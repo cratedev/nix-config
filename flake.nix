@@ -58,7 +58,6 @@
         inputs.nixos-hardware.nixosModules.dell-xps-15-9510
       ];
       crate-desktop = createSystemConfig ./hosts/crate-desktop [];
-      crate-server = createSystemConfig ./hosts/crate-server [];
     };
   };
 }
