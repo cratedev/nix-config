@@ -11,7 +11,6 @@
   # Define the path to the shared authorized_keys file
   sharedAuthorizedKeys = builtins.readFile ./ssh/authorized_keys;
 
-
 in {
   # ============================= User Related =============================
   users.users.${username} = {
