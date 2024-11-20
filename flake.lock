@@ -423,11 +423,11 @@
     "mysecrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1732108310,
-        "narHash": "sha256-H56am5G+M/g5kV97ADOpIcNhlB3+F4/MXY1uqDPqnEI=",
+        "lastModified": 1732115697,
+        "narHash": "sha256-rQC5ZWRbCI4UIWotifng3uPIihaTR+lA2XzeTtp8cPk=",
         "ref": "refs/heads/master",
-        "rev": "ddf1f5a35e51954d25c6c590e485db4fe9c9680c",
-        "revCount": 4,
+        "rev": "e1bf606bb54c8f6498ef7f5999cffd46b01c71db",
+        "revCount": 7,
         "type": "git",
         "url": "ssh://git@github.com/cratedev/nix-secrets"
       },
@@ -494,11 +494,11 @@
         "xwayland-satellite-unstable": "xwayland-satellite-unstable"
       },
       "locked": {
-        "lastModified": 1732103041,
-        "narHash": "sha256-l0RvpzYEtDG0X5V0/cX5J78kkaPl8mF/bRvkuzxCoxw=",
+        "lastModified": 1732127403,
+        "narHash": "sha256-9AzSk5OMhGdlFf1JhmvwWvaTa/q6d+vahh5uJ9Jv8UU=",
         "owner": "sodiboo",
         "repo": "niri-flake",
-        "rev": "e86261883e8eba6b8fe96f48b90cccaa21e42235",
+        "rev": "ee1ac4ecbe5195ac2d3322089c4581ba848940bb",
         "type": "github"
       },
       "original": {
@@ -647,11 +647,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1731676054,
-        "narHash": "sha256-OZiZ3m8SCMfh3B6bfGC/Bm4x3qc1m2SVEAlkV6iY7Yg=",
+        "lastModified": 1732014248,
+        "narHash": "sha256-y/MEyuJ5oBWrWAic/14LaIr/u5E0wRVzyYsouYY3W6w=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "5e4fbfb6b3de1aa2872b76d49fafc942626e2add",
+        "rev": "23e89b7da85c3640bbc2173fe04f4bd114342367",
         "type": "github"
       },
       "original": {
