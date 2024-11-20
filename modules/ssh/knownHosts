@@ -9,12 +9,12 @@
     publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA1PtjF5nlFA9cdU+PWZ1tA88MdaoXJmwvoT83WSyj1u";
   };
 
-  ## crate-desktop
+  ## crate-desktop system key
   "10.0.1.19" = {
     publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKQg2lXOJPjxn5tVURFT4MG6k8+zYQdwE5nG/WSvrcKb";
   };
 
-  ## crate-laptop
+  ## crate-laptop system key
   "10.0.1.36" = {
     publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN1VD8AXVl+oVHO0Ig9++mGcfmY1O+4u+YKgrCGXElpU";
   };
