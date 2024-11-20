@@ -1,0 +1,4 @@
+"unraid/ed25519" = {
+    publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHphh6FhB7vSYn4s04wY5UE9GvfCprZfzbb2D5XEB2RE"
+    hostNames = [ "10.0.0.10" ];
+};

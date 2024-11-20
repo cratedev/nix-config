@@ -7,6 +7,5 @@
     ./xdg.nix
     ./nvf.nix
     ./dots
-    ./libvirt.nix
   ];
 }
