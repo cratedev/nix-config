@@ -10,7 +10,6 @@
   
   # Define the path to the shared authorized_keys file
   sharedAuthorizedKeys = builtins.readFile ./ssh/authorized_keys;
-  sharedKnownHosts = builtins.readFiles ./ssh/knownHosts;
 
 in {
   # ============================= User Related =============================
@@ -19,7 +18,6 @@ in {
     description = username;
     extraGroups = ["networkmanager" "wheel" ];
     openssh.authorizedKeys.keys = lib.splitString "\n" sharedAuthorizedKeys;
-    openssh.knownHosts = sharedKnownHosts;
     shell = pkgs.fish;
   };
 
@@ -125,6 +123,7 @@ in {
         PermitRootLogin = "no"; 
         PasswordAuthentication = false; 
       };
+      knownHosts = import ./ssh/knownHosts;
       openFirewall = true;
     };
   };
