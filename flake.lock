@@ -423,11 +423,11 @@
     "mysecrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1732037574,
-        "narHash": "sha256-gsDLe3YKLA+NHQfd7TLYRNs7jO31cXpxxdUwWu/A4GE=",
+        "lastModified": 1732108310,
+        "narHash": "sha256-H56am5G+M/g5kV97ADOpIcNhlB3+F4/MXY1uqDPqnEI=",
         "ref": "refs/heads/master",
-        "rev": "63b8dc0abbd8a0edc9c9f36cf4c7eb03ba045013",
-        "revCount": 2,
+        "rev": "ddf1f5a35e51954d25c6c590e485db4fe9c9680c",
+        "revCount": 4,
         "type": "git",
         "url": "ssh://git@github.com/cratedev/nix-secrets"
       },

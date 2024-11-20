@@ -34,7 +34,7 @@
       inputs.niri.nixosModules.niri
       inputs.home-manager.nixosModules.home-manager
       ./overlays
-#      ./secrets/default.nix
+      ./secrets/default.nix
     ];
 
     # Function that dynamically takes the system architecture

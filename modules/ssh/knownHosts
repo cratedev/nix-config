@@ -1,16 +1,28 @@
 {
+  ## unRAID
   "10.0.0.10" = {
     publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHphh6FhB7vSYn4s04wY5UE9GvfCprZfzbb2D5XEB2RE";
   };
+
+  ## UDM-P
   "10.0.0.1" = {
     publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA1PtjF5nlFA9cdU+PWZ1tA88MdaoXJmwvoT83WSyj1u";
   };
-  "10.0.0.147" = {
-    publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMrYsevPxlLuSMXFNgkGCdY3n2ggheQWMVYBGhv9eZ5n";
+
+  ## crate-desktop
+  "10.0.1.19" = {
+    publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKQg2lXOJPjxn5tVURFT4MG6k8+zYQdwE5nG/WSvrcKb";
   };
+
+  ## crate-laptop
+  "10.0.1.36" = {
+    publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN1VD8AXVl+oVHO0Ig9++mGcfmY1O+4u+YKgrCGXElpU";
+  };
+
   "github.com" = {
     publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl";
   };
+
   "188.245.105.110" = {
     publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPkE6q8ur78T/YuTnfzlaeZaCqpy5pjouEi5xgG2xxJS";
   };
