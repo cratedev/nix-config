@@ -16,7 +16,7 @@ in {
   users.users.${username} = {
     isNormalUser = true;
     description = username;
-    extraGroups = ["networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel" "docker" ];
     openssh.authorizedKeys.keys = lib.splitString "\n" sharedAuthorizedKeys;
     shell = pkgs.fish;
   };
