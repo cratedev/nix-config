@@ -1,7 +1,8 @@
 {...}: {
   imports = [
     ../../modules/system.nix
-    jellyfin.nix
+    ./jellyfin.nix
+    ./nas.nix
     ./hardware-configuration.nix
   ];
 
