@@ -20,7 +20,7 @@
     extraOptions = "--ffmpeg=/path/to/custom/ffmpeg";  # Customize ffmpeg if needed
   };
 
-  networking.firewall.allowedTCPPorts = [ 8096 ];  # Allow Jellyfin's default port
+#  networking.firewall.allowedTCPPorts = [ 8096 ];  # Allow Jellyfin's default port
   # Uncomment if you enable HTTPS in Jellyfin:
   # networking.firewall.allowedTCPPorts = [ 8096 8920 ];
 }
