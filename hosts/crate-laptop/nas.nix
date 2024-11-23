@@ -1,73 +1,66 @@
-{ config, pkgs, ... }:
-
 {
-  # Enable OCI container support
-virtualisation.oci-containers = {
-
+  virtualisation.oci-containers = {
+    backend = "docker"; # Use Docker as the container backend
     containers = {
+      
       komodo-core = {
-        image = "ghcr.io/mbecker20/komodo:latest";
+        image = "ghcr.io/mbecker20/komodo:latest"; # Use -aarch64 for ARM support if needed
+        extraOptions = [ "--network=proxy" ];
         ports = [ "9120:9120" ];
-        environmentFiles = [ "/etc/docker/komodo/compose.env" ];
+        dependsOn = [ "komodo-mongo" ];
         environment = {
-          POSTGRES_HOST = "komodo-postgres";
-          POSTGRES_PORT = "5432";
-          POSTGRES_USER = "admin";
-          POSTGRES_PASSWORD = "admin";
-          POSTGRES_DB = "komodo";
-
-          PASSKEY = "a_random_passkey";
-
+#          KOMODO_HOST = "https://komodo2.crate.dev"; # CHANGEME
           KOMODO_TITLE = "Komodo";
-          KOMODO_FIRST_SERVER = "https://komodo-periphery:8120";
-          KOMODO_DISABLE_CONFIRM_DIALOG = "false";
+          KOMODO_ENSURE_SERVER = "http://komodo-periphery:8120";
 
-          KOMODO_PASSKEY = "a_random_passkey";
-          KOMODO_WEBHOOK_SECRET = "a_random_secret";
+          # MongoDB
+          KOMODO_MONGO_ADDRESS = "komodo-mongo:27017";
+          KOMODO_MONGO_USERNAME = "admin";
+          KOMODO_MONGO_PASSWORD = "admin";
+
+          # Keys
+          KOMODO_PASSKEY = "zz0notsosafe";
+          KOMODO_WEBHOOK_SECRET = "zz0notsosafe1";
           KOMODO_JWT_SECRET = "a_random_jwt_secret";
 
+          # Auth & OIDC
+          KOMODO_DISABLE_CONFIRM_DIALOG = "true";
           KOMODO_LOCAL_AUTH = "true";
-          KOMODO_DISABLE_USER_REGISTRATION = "false";
-          KOMODO_ENABLE_NEW_USERS = "false";
-          KOMODO_DISABLE_NON_ADMIN_CREATE = "false";
-          KOMODO_TRANSPARENT_MODE = "false";
         };
+#        labels = {
+#          "traefik.enable" = "true";
+#          "traefik.http.routers.komodo.rule" = "Host(`komodo.crate.dev`)";
+#          "traefik.http.routers.komodo.entrypoints" = "https";
+#          "traefik.http.routers.komodo.tls" = "true";
+#          "traefik.http.routers.komodo.tls.certresolver" = "cloudflare";
+#          "traefik.http.services.komodo.loadBalancer.server.port" = "9120";
+#        };
+      };
+
+      komodo-periphery = {
+        image = "ghcr.io/mbecker20/periphery:latest"; # Use -aarch64 for ARM support if needed
+        ports = [ "8120:8120" ];
+        extraOptions = [ "--network=proxy" ];
         volumes = [
-          "/appdata/komodo/:/data"
+          "/var/run/docker.sock:/var/run/docker.sock"
+          "/appdata/komodo/komodo-repos:/etc/komodo/repos"
+          "/appdata/komodo/komodo-stacks:/etc/komodo/stacks"
         ];
       };
-      postgres = {
-        image = "docker.io/library/postgres:latest";
-        environmentFiles = [ "/etc/docker/komodo/compose.env" ];
+
+      komodo-mongo = {
+        image = "mongo";
+        ports = [ "27017:27017" ];
+        extraOptions = [ "--network=proxy" ];
         environment = {
-          POSTGRES_USER = "admin";
-          POSTGRES_PASSWORD = "admin";
-          POSTGRES_DB = "komodo";
+          MONGO_INITDB_ROOT_USERNAME = "admin";
+          MONGO_INITDB_ROOT_PASSWORD = "admin";
         };
         volumes = [
-          "/appdata/komodo/postgres:/var/lib/postgresql/data"
-        ];
-      };
-      ferret = {
-        image = "ghcr.io/ferretdb/ferretdb";
-        environmentFiles = [ "/etc/docker/komodo/compose.env" ];
-        environment = {
-          FERRETDB_POSTGRESQL_URL = "postgres://postgres:5432/komodo";
-        };
-      };
-      periphery = {
-        image = "ghcr.io/mbecker20/periphery:latest";
-        environmentFiles = [ "/etc/docker/komodo/compose.env" ];
-        volumes = [
-          "/var/run/podman/podman.sock:/var/run/docker.sock"
-          "/proc:/proc"
-          "/appdata/komodo/ssl-certs:/etc/komodo/ssl"
-          "/appdata/komodo/repos:/etc/komodo/repos"
-          "/appdata/komodo/stacks:/etc/komodo/stacks"
+          "/appdata/komodo/db-data:/data/db"
+          "/appdata/komodo/db-config:/data/configdb"
         ];
       };
     };
   };
-
-   environment.etc."docker/komodo/compose.env".source = ./docker/komodo/compose.env;
 }
