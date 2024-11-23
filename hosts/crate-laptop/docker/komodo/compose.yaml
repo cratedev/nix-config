@@ -1,0 +1,104 @@
+##################################
+# 🦎 KOMODO COMPOSE - POSTGRES 🦎 #
+##################################
+
+## This compose file will deploy:
+##   1. Postgres + FerretDB Mongo adapter
+##   2. Komodo Core
+##   3. Komodo Periphery
+
+services:
+  postgres:
+    image: postgres
+    labels:
+      komodo.skip: # Prevent Komodo from stopping with StopAllContainers
+#    restart: unless-stopped
+    logging:
+      driver: ${COMPOSE_LOGGING_DRIVER:-local}
+    networks:
+      - default
+    # ports:
+    #   - 5432:5432
+    volumes:
+      - /appdata/komodo/pg-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${KOMODO_DATABASE_DB_NAME:-komodo}
+#    env_file: ./compose.env
+  ferretdb:
+    image: ghcr.io/ferretdb/ferretdb
+    labels:
+      komodo.skip: # Prevent Komodo from stopping with StopAllContainers
+#    restart: unless-stopped
+    depends_on:
+      - postgres
+    logging:
+      driver: ${COMPOSE_LOGGING_DRIVER:-local}
+    networks:
+      - default
+    # ports:
+    #   - 27017:27017
+    environment:
+      - FERRETDB_POSTGRESQL_URL=postgres://postgres:5432/${KOMODO_DATABASE_DB_NAME:-komodo}
+  
+  core:
+    image: ghcr.io/mbecker20/komodo:${COMPOSE_KOMODO_IMAGE_TAG:-latest}
+    labels:
+      komodo.skip: # Prevent Komodo from stopping with StopAllContainers
+#    restart: unless-stopped
+    depends_on:
+      - ferretdb
+    logging:
+      driver: ${COMPOSE_LOGGING_DRIVER:-local}
+    networks:
+      - default
+    ports:
+      - 9120:9120
+    env_file: ./compose.env
+    environment:
+      KOMODO_DATABASE_URI: mongodb://${DB_USERNAME}:${DB_PASSWORD}@ferretdb:27017/${KOMODO_DATABASE_DB_NAME:-komodo}?authMechanism=PLAIN
+    volumes:
+      ## Core cache for repos for latest commit hash / contents
+      - /appdata/komodo/repo-cache:/repo-cache
+      ## Store sync files on server
+      # - /path/to/syncs:/syncs
+      ## Optionally mount a custom core.config.toml
+      # - /path/to/core.config.toml:/config/config.toml
+    ## Allows for systemd Periphery connection at 
+    ## "http://host.docker.internal:8120"
+    # extra_hosts:
+    #   - host.docker.internal:host-gateway
+
+  ## Deploy Periphery container using this block,
+  ## or deploy the Periphery binary with systemd using 
+  ## https://github.com/mbecker20/komodo/tree/main/scripts
+  periphery:
+    image: ghcr.io/mbecker20/periphery:${COMPOSE_KOMODO_IMAGE_TAG:-latest}
+    labels:
+      komodo.skip: # Prevent Komodo from stopping with StopAllContainers
+#    restart: unless-stopped
+    logging:
+      driver: ${COMPOSE_LOGGING_DRIVER:-local}
+    networks:
+      - default
+    env_file: ./compose.env
+    volumes:
+      ## Mount external docker socket
+      - /var/run/docker.sock:/var/run/docker.sock
+      ## Allow Periphery to see processes outside of container
+      - /proc:/proc
+      ## use self signed certs in docker volume, 
+      ## or mount your own signed certs.
+      - /appdata/komodo/ssl-certs:/etc/komodo/ssl
+      ## manage repos in a docker volume, 
+      ## or change it to an accessible host directory.
+      - /appdata/komodo/repos:/etc/komodo/repos
+      ## manage stack files in a docker volume, 
+      ## or change it to an accessible host directory.
+      - /appdata/komodo/stacks:/etc/komodo/stacks
+      ## Optionally mount a path to store compose files
+      # - /path/to/compose:/host/compose
+
+networks:
+  default: {}
