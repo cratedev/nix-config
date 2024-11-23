@@ -3,6 +3,7 @@
     ../../modules/system.nix
     ./jellyfin.nix
     ./nas.nix
+    ./ha.nix
     ./hardware-configuration.nix
   ];
 
