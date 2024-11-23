@@ -6,38 +6,48 @@ virtualisation.oci-containers = {
 
     containers = {
       komodo = {
-        # Define the container image
-        image = "ghcr.io/mbecker20/komodo:latest"; # Replace with the actual image
-
-        # Define ports to expose
-        ports = [ "9120:9120" ]; # Adjust port mappings as needed
-
-        # Define environment variables
+        image = "ghcr.io/mbecker20/komodo:latest";
+        ports = [ "9120:9120" ];
         environmentFiles = [ "/etc/docker/komodo/compose.env" ];
-
-        # Mount any required volumes
         volumes = [
-          "/appdata/komodo/:/data" # Adjust for your volumes
+          "/appdata/komodo/:/data"
         ];
-#	autoStart = true;
+      };
+      komodo-postgres = {
+        image = "docker.io/library/postgres:latest";
+        ports = [ "5432:5432" ];
+        environmentFiles = [ "/etc/docker/komodo/compose.env" ];
+        environment = {
+          POSTGRES_USER = "${DB_USERNAME}";
+          POSTGRES_PASSWORD = "${DB_PASSWORD}";
+          POSTGRES_DB = "${KOMODO_DATABASE_DB_NAME:-komodo}";
+          POSTGRES_DB_HOST = "localhost"
+        };
+        volumes = [
+          "/appdata/komodo/postgres:/var/lib/postgresql/data"
+        ];
+      };
+      komodo-ferret = {
+        image = "ghcr.io/ferretdb/ferretdb";
+        environmentFiles = [ "/etc/docker/komodo/compose.env" ];
+        environment = {
+          FERRETDB_POSTGRESQL_URL = "postgres://postgres:5432/${KOMODO_DATABASE_DB_NAME:-komodo}";
+        };
+      };
+      komodo-periphery = {
+        image = "ghcr.io/mbecker20/periphery:${COMPOSE_KOMODO_IMAGE_TAG:-latest}";
+        environmentFiles = [ "/etc/docker/komodo/compose.env" ];
+        volumes = [
+          "/var/run/podman/podman.sock:/var/run/docker.sock"
+          "/proc:/proc"
+          "/appdata/komodo/ssl-certs:/etc/komodo/ssl"
+          "/appdata/komodo/repos:/etc/komodo/repos"
+          "/appdata/komodo/stacks:/etc/komodo/stacks"
+        ];
       };
     };
   };
 
    environment.etc."docker/komodo/compose.env".source = ./docker/komodo/compose.env;
-   environment.etc."docker/komodo/compose.yaml".source - ./docker/komodo/compose.yaml;
-
-  # Ensure environment file is available
-#  environment.etc."docker/komodo/compose.env".source =
-#    builtins.fetchurl {
-#      url = "https://raw.githubusercontent.com/cratedev/nix-nas/refs/heads/master/komodo/compose.env";
-#      sha256 = "0rdvxlkifssg2h11hr8zamsy2z1v7m4yaimyjz4gaiira69sssys"; # Replace with the actual hash
-#    };
-
-#  environment.etc."docker/komodo/compose.yaml".source =
-#    builtins.fetchurl {
-#      url = "https://raw.githubusercontent.com/cratedev/nix-nas/refs/heads/master/komodo/compose.yaml";
-#      sha256 = "1kfw39k3yrkwhjy540hw9gplyahmdi2gxcfkn1pc76nkkrj050z8"; # Replace with the actual hash
-#    };
-
+   environment.etc."docker/komodo/compose.yaml".source = ./docker/komodo/compose.yaml;
 }
