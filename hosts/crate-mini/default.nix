@@ -8,8 +8,14 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../../modules/system.nix
       ./apple-silicon-support
     ];
+
+  # Specify path to peripheral firmware files.
+  hardware.asahi.peripheralFirmwareDirectory = ./firmware;
+  # Or disable extraction and management of them completely.
+  # hardware.asahi.extractPeripheralFirmware = false;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -80,10 +86,10 @@
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
-   programs.gnupg.agent = {
-     enable = true;
-     enableSSHSupport = true;
-   };
+#   programs.gnupg.agent = {
+#     enable = true;
+#     enableSSHSupport = true;
+#   };
 
   # List services that you want to enable:
 
