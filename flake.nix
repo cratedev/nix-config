@@ -63,7 +63,7 @@
     nixosConfigurations = {
       crate-laptop = createSystemConfig "x86_64-linux" ./hosts/crate-laptop [ inputs.nixos-hardware.nixosModules.dell-xps-15-9510 ];
       crate-desktop = createSystemConfig "x86_64-linux" ./hosts/crate-desktop [];
-      crate-mini = createSystemConfig "aarch64-darwin" ./hosts/crate-mini [];
+      crate-mini = createSystemConfig "aarch64-linux" ./hosts/crate-mini [];
     };
   };
 }
