@@ -97,7 +97,7 @@ in {
   # ============================= Services =============================
   services = {
     teamviewer.enable = false;
-    nixos-cli.enable = true;
+#    nixos-cli.enable = true;
     printing.enable = false;
     power-profiles-daemon.enable = true;
     dbus.packages = [ pkgs.gcr ];
@@ -161,7 +161,7 @@ in {
     pkgs.wget
     pkgs.curl
     pkgs.busybox
-    pkgs.nemo
+#    pkgs.nemo
     pkgs.cachix
     (pkgs.catppuccin-sddm.override {
       flavor = "mocha";

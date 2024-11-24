@@ -7,10 +7,10 @@
   };
 
   inputs = {
- #   mysecrets = { url = "git+ssh://git@github.com/cratedev/nix-secrets"; flake = false;};
+#    mysecrets = { url = "git+ssh://git@github.com/cratedev/nix-secrets"; flake = false;};
 
-#    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixpkgs.url = "github:nixos/nixpkgs/release-24.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+#    nixpkgs.url = "github:nixos/nixpkgs/release-24.05";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -31,10 +31,10 @@
 
     commonModules = [
       inputs.stylix.nixosModules.stylix
-      inputs.nixos-cli.nixosModules.nixos-cli
+#      inputs.nixos-cli.nixosModules.nixos-cli
       inputs.niri.nixosModules.niri
       inputs.home-manager.nixosModules.home-manager
-      ./overlays
+#      ./overlays
 #      ./secrets/default.nix
     ];
 
@@ -62,7 +62,7 @@
 
   in {
     nixosConfigurations = {
-      crate-laptop = createSystemConfig "x86_64-linux" ./hosts/crate-laptop [ inputs.nixos-hardware.nixosModules.dell-xps-15-9510 ];
+      crate-laptop = createSystemConfig "x86_64-linux" ./hosts/crate-laptop [ inputs.nixos-hardware.nixosModules.dell-xps-15-9510 ./secrets/default.nix ];
       crate-desktop = createSystemConfig "x86_64-linux" ./hosts/crate-desktop [];
       crate-mini = createSystemConfig "aarch64-linux" ./hosts/crate-mini [];
     };
