@@ -16,10 +16,12 @@ in {
   users.users.${username} = {
     isNormalUser = true;
     description = username;
-    extraGroups = ["networkmanager" "wheel" "docker" "podman" ];
+    extraGroups = ["networkmanager" "wheel" "docker" "podman" "libvirt" ];
     openssh.authorizedKeys.keys = lib.splitString "\n" sharedAuthorizedKeys;
     shell = pkgs.fish;
   };
+
+  users.groups.libvirt = { };
 
   # ============================= Stylix =============================
   stylix = {
