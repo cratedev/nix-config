@@ -9,7 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../modules/system.nix
-      ./apple-silicon-support
+#      ./apple-silicon-support
     ];
 
   # Specify path to peripheral firmware files.

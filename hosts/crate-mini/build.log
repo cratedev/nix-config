@@ -1,0 +1,181 @@
+path '/home/matt/nix-config/hosts/crate-mini' does not contain a 'flake.nix', searching up
+[K[Kwarning: ignoring untrusted flake configuration setting 'extra-substituters'.
+Pass '--accept-flake-config' to trust it
+warning: ignoring untrusted flake configuration setting 'extra-trusted-public-keys'.
+Pass '--accept-flake-config' to trust it
+building the system configuration...
+path '/home/matt/nix-config/hosts/crate-mini' does not contain a 'flake.nix', searching up
+[K[Kwarning: ignoring untrusted flake configuration setting 'extra-substituters'.
+Pass '--accept-flake-config' to trust it
+warning: ignoring untrusted flake configuration setting 'extra-trusted-public-keys'.
+Pass '--accept-flake-config' to trust it
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kthese 140 derivations will be built:
+  /nix/store/02yqbh2acif2pxvkflarvza63cbaagkl-nixos-configuration-reference-manpage_fish-completions.drv
+  /nix/store/1yq9jivzwmy46nalw3dw5lcq4a4y82fd-cpupower-6.10.6-asahi.drv
+  /nix/store/3mjd1mq4hf07zrhqcxf3qzxzx4a0zzmw-nixos-0.12.0-dev.drv
+  /nix/store/5n4nwf11n6sds2n89rmv7scc6wrndp29-niri-0.1.10-1.drv
+  /nix/store/zmm0z7qsyr92db780h1q4fhzy6ya2k1k-systemd-256.7.drv
+  /nix/store/ks7063sh6d2ryz0gfr4rlyv83pr25vn2-nixos-generate-config.drv
+  /nix/store/1m1hysqigfnbr1mdnimibhv6h886cw1c-system-path.drv
+  /nix/store/vp5p18qfr94y7wvkx5jg0xazv444abaa-dbus-1.drv
+  /nix/store/vj64yz5rdvl00fgk97khbnmq05ay4aa7-X-Restart-Triggers-dbus.drv
+  /nix/store/05ywd62lzxy42nxilqn24vfqss7lfcz4-unit-dbus.service.drv
+  /nix/store/06sjiwdk49zb9d6vja5azkxrnrsmlwd9-unit-script-nixos-activation-start.drv
+  /nix/store/0bymksjqr7ylp1rv4wsdc5q4pf6z5c9r-systemd-256.7_fish-completions.drv
+  /nix/store/0ibywpcl6qcnx8iczkgaiqh0s1v0mqdf-unit-systemd-random-seed.service.drv
+  /nix/store/0x9p6sb8g0iraywrr9g1rfgbdi536956-hwdb.bin.drv
+  /nix/store/3yrljfr2by9dxfxlhk3fvv489x96lg5a-m1n1-1.4.14.drv
+  /nix/store/13ydxvh18jvlgkhg1ijfdmkdf4m245ar-uboot-apple_m1_defconfig-2024.04-4-asahi.drv
+  /nix/store/16wga6blk9gnqcfl0w0am74v9csnlb98-unit-systemd-user-sessions.service.drv
+  /nix/store/1l1kyndsnpgihxz1y8b1zlpa11yryyww-unit-getty-.service.drv
+  /nix/store/5phrj6jc0mdk85xglbxpljp7ha4kh0nd-man-paths.drv
+  /nix/store/mw36ayyhgbzvf7zpccsqkq6az31qb4ym-man-cache.drv
+  /nix/store/1n42bmp616syvrgrg956mzik0yyy6mb8-etc-man_db.conf.drv
+  /nix/store/2irinxm87zbf35lfixcjkha65lgnvf22-sddm-greeter.pam.drv
+  /nix/store/msyvfzcn58n42bs09zw2jyl7fq474idv-desktops.drv
+  /nix/store/2x7fq0gqcx2npd9jimnaw56wpgkad57z-etc-pam-environment.drv
+  /nix/store/2ziqg0n5ga69gzl6q5dccyig8wbz4q40-unit-user-.service.drv
+  /nix/store/6dwaidz0ryrk6hqa2gw6z7m9m8dii043-etc-sysctl.d-60-nixos.conf.drv
+  /nix/store/367y8gy1m8b1fk5wng43rkvm253nhw83-X-Restart-Triggers-systemd-sysctl.drv
+  /nix/store/3gwim0sxyiwffssdhdbb2pvl9wm79gd6-udev-path.drv
+  /nix/store/3hg31fa8fwqskq8bl8rkpc5a3w4f78s6-unit-systemd-backlight-.service.drv
+  /nix/store/vqcg6bs0nwgkqgw91zg2dwlxhr3vwbai-linux-6.10.6-asahi.drv
+  /nix/store/q1s3c15ggws34qzgfap31rar22six9fi-boot.bin.drv
+  /nix/store/yahgzd4p0ddc7p4phx7qfv9a18bj5p5l-copy-extra-files.drv
+  /nix/store/y7vvcb2l53p5qk626d1j4kf5kpgkvza3-systemd-boot.drv
+  /nix/store/6gimymks8mi77lyzgfycg9kpmlmvlvfj-install-systemd-boot.sh.drv
+  /nix/store/69liccqaj2rr29a8wk9xiwbbhgihp48z-extra-utils.drv
+  /nix/store/hz9p0cgzfpqkpcqzq7231613jlikwall-udev-rules.drv
+  /nix/store/i7nhn57q2dkdjj724fsh90cckqv6zq2b-link-units.drv
+  /nix/store/fal1zk8wqyclshdk9b1rg9xplyabq1r4-stage-1-init.sh.drv
+  /nix/store/8qdp1zzjn9ka147rpq43crpq3kc167g0-linux-6.10.6-asahi-modules.drv
+  /nix/store/k83pl7bc5wpfmd30il3ir1m8z2ia60jk-asahi-peripheral-firmware.drv
+  /nix/store/92yvqsic00plb32cssh9psqvg7g2s84a-asahi-peripheral-firmware-zstd.drv
+  /nix/store/vpd063y6gii0q665y8j7v20igz0s5s7w-firmware.drv
+  /nix/store/l1zapalddf7hzzf3mmfqzjr2gm9igbi2-linux-6.10.6-asahi-modules-shrunk.drv
+  /nix/store/fb8himva9kdnwq2z5xb9cyfi1ck8arnb-initrd-linux-6.10.6-asahi.drv
+  /nix/store/8fmxr85rmx5hw9si427d2b7n5in9fks4-boot.json.drv
+  /nix/store/4dhmahms006mq53bqfwv6cwvi2j8w3bz-set-environment.drv
+  /nix/store/58djdvvxhllffb92diyn5mppcm1gmz0b-systemd-user.pam.drv
+  /nix/store/8r2ba1xfglvjkqvvvpwzn63s2gf90mzz-unit-niri-flake-polkit.service.drv
+  /nix/store/cr01qjh4k95yqd14m1xcasfa8y3lxsc6-unit-nixos-activation.service.drv
+  /nix/store/fmd6a1vdixif8j7chnlhfr3kvsdjq5a1-unit-wireplumber.service.drv
+  /nix/store/mw1ghpz4z0ax2smmqv801hawi0rpj56n-unit-ssh-agent.service.drv
+  /nix/store/wk9pac3czmxhpsfyrr6hqw2664wi9j0z-unit-geoclue-agent.service.drv
+  /nix/store/xilrv2hq7x3c6spvapba1y57hzc3l280-unit-systemd-tmpfiles-setup.service.drv
+  /nix/store/xw6hk2gjcn696p5j84lyqiqkbnz4399c-unit-pipewire.service.drv
+  /nix/store/ywx69s6ga420qvrglrf16badn1q9h2pm-unit-pipewire-pulse.service.drv
+  /nix/store/7m2c9alfzv1kfs58lg8mqfr6mavv7b2l-user-units.drv
+  /nix/store/g02ig0qrzqm5fhqqhd5z9xsi1x3rrgim-xserver-wrapper.drv
+  /nix/store/wvhmnf0jbm8zgz178w4xnyclm6f1d6p1-xsession-wrapper.drv
+  /nix/store/8w7m0bbgsbd9qihwgss87m43xx0g97qx-sddm.conf.drv
+  /nix/store/ddchi1b42jr8vjj7hbr5kbrpp96p56ji-udev-rules.drv
+  /nix/store/ydcr5r4z5fcss65j226bb099wwxgs84g-systemd-default-tmpfiles.drv
+  /nix/store/hxqsz4kc5bvvrwr3093j2ndvvh69ifq6-tmpfiles.d.drv
+  /nix/store/jiz532grcs8z3hfdrvv2491b45cm0jfw-sshd.pam.drv
+  /nix/store/kaw0xkvpa8l1bba52aa4y7mgb4xp9jn1-etc-profile.drv
+  /nix/store/zxzl5syqirfwr8cxgw0l1i9g25k1jw6v-systemd.drv
+  /nix/store/mmif7cj81bbhaicrxbnnc8wa5xa67gby-50-coredump.conf.drv
+  /nix/store/n52l4jalkzi3crv6dnix9aknwwmf4va2-etc-fish-nixos-env-preinit.fish.drv
+  /nix/store/49wxlfgnzpy882ryqgnk84bch51c55a2-unit-cpufreq.service.drv
+  /nix/store/y5ps3g1qn97x9icp18ri0gc52iq2r4z2-unit-script-container_-start.drv
+  /nix/store/4kr9y6k1755s39fk19a2qqpakq96fk7f-unit-container-.service.drv
+  /nix/store/5c7yil1l61rw7zmiplhm13baq1b2viy2-unit-reload-systemd-vconsole-setup.service.drv
+  /nix/store/5l7vwqnd3lrxj7ahqz9zkggdv0ar6dbm-unit-nix-optimise.service.drv
+  /nix/store/72n6c4krxk1cv4qk7zwm8xm1smi8wlxd-unit-systemd-importd.service.drv
+  /nix/store/yhn1ifkcws66cl5g4npcaq45dpz6qk8f-X-Restart-Triggers-polkit.drv
+  /nix/store/7v6w5684ixffgdflh9x3z8hsdc7y663p-unit-polkit.service.drv
+  /nix/store/9akwazzfwcx6m1jnnqgfkyf3xi694pp5-unit-audit.service.drv
+  /nix/store/9krcfd2aira87la4lh2zgz7l9cw86zxk-unit-systemd-journald-.service.drv
+  /nix/store/9mpdqn1lb85kml80jfnzdv7rm2yhhql5-unit-pre-sleep.service.drv
+  /nix/store/a49w3mxp8n8y8w1yqc05r22p1cbwycrr-unit-suid-sgid-wrappers.service.drv
+  /nix/store/a5hlpgkizxszp6yb80s7ji02drcq45yx-unit-systemd-modules-load.service.drv
+  /nix/store/ahfgxs66bs8bygjkl92avxivnaqgfqxx-unit-systemd-mkswap-.service.drv
+  /nix/store/avcd784jykl2l4xfpajqdq1iwddn4z4r-unit-nix-daemon.service.drv
+  /nix/store/axm1yapyk5qgffln59z8qknn47l6fcjx-unit-systemd-sysctl.service.drv
+  /nix/store/ay8i59qpnpmvfklrdjp55r198gqf3wk9-unit-geoclue.service.drv
+  /nix/store/b6v1a5spw898ngw7wx64k9rfh4x6jbrk-unit-systemd-nspawn-.service.drv
+  /nix/store/msaibw34bd241w4v4swr72mniwszbp8y-X-Restart-Triggers-systemd-tmpfiles-resetup.drv
+  /nix/store/bc1p3mfp5ihqmffhsk0bf3nl66ndkzm9-unit-systemd-tmpfiles-resetup.service.drv
+  /nix/store/bfzniz0ng29npzxrihwxl9fgspv4hfv3-unit-nix-gc.service.drv
+  /nix/store/c4px72915z68cc94g0l10qln3774i0kd-unit-nscd.service.drv
+  /nix/store/c71hn9rg9mlmr437mf85cpw08n6r3phd-unit-sshd.service.drv
+  /nix/store/cx2b7pnszbalclijx9xppi4051a5cfs1-unit-serial-getty-.service.drv
+  /nix/store/dj53d6gqb8307mmnf25wrcv53fk0dlrs-unit-network-setup.service.drv
+  /nix/store/fplngrgkxdvzsdyvz44ky7bbka04x2jq-unit-user-runtime-dir-.service.drv
+  /nix/store/fv2ldirdc5saz3qc0gamy5r45nhwzawp-unit-systemd-oomd.service.drv
+  /nix/store/g8gq4m7dmlra2i1m3g5vlfy8bfg5pc1c-unit-network-local-commands.service.drv
+  /nix/store/h2ssr9gqfn9zlnq0q5mni9rn61in58pr-unit-logrotate.service.drv
+  /nix/store/hfxp9kpmyf6l9p104r4lzp42bh5jwk1q-unit-save-hwclock.service.drv
+  /nix/store/i2inpf878zj2p85vj4rn55jplmiasv7s-unit-mount-pstore.service.drv
+  /nix/store/i8sp2cgv0bdrxqlwhqlisg1nw5ddjh9n-unit-prepare-kexec.service.drv
+  /nix/store/i9jibggmb7v6ww8v930g9pwgyi9vv5aq-unit-NetworkManager.service.drv
+  /nix/store/j6ll6ajnsv2jpbwbqmfmzpxrvnxyf80f-unit-ModemManager.service.drv
+  /nix/store/j9rxs6yk6r8i6b3yj3w98ncynv3q4gbh-unit-systemd-journald.service.drv
+  /nix/store/k2fja7r5rqlj5mq8w487cwrzifsw3laz-unit-logrotate-checkconf.service.drv
+  /nix/store/kd3cc07ihid1bx12vyc3nmfl3dj8q3w3-unit-container-getty-.service.drv
+  /nix/store/bdvgivgdksv50zi5nwm16rp1byfqzn36-config.kdl.drv
+  /nix/store/igrlwnl6whjb05xskywqxp2rh5c2w5cv-home-manager-files.drv
+  /nix/store/d7a15rwxmkma5k885kwhnx58yvaa9mx7-home-manager-generation.drv
+  /nix/store/kpja1854imdy0ayhv71bvg72yqk3crh2-unit-home-manager-matt.service.drv
+  /nix/store/lp2kh6pbms9f0h9c7b0lm8q23c0g35gk-unit-systemd-makefs-.service.drv
+  /nix/store/n66a0p4mdb4qck7kkrsj3yi15jf572v4-unit-systemd-fsck-.service.drv
+  /nix/store/nbm4nzwi3l3jyslhx5s1zm0h01r4d9y4-unit-systemd-udev-settle.service.drv
+  /nix/store/nw41flhh7j0rh44zw6n6jgakp2psvjlw-unit-display-manager.service.drv
+  /nix/store/pysx81m1n2j3nbcbvhhzsvmbbx8iish4-unit-systemd-timesyncd.service.drv
+  /nix/store/pzd005y3mgnandkzv316ig536gb1rh69-unit-NetworkManager-dispatcher.service.drv
+  /nix/store/rgfnhrs5ndshnp8gj0vniyqi2iv2cshv-unit-NetworkManager-wait-online.service.drv
+  /nix/store/rid9s33m2g9kffdim2rn4azk09qbd6mp-unit-systemd-logind.service.drv
+  /nix/store/rj7r0jx26j1sps8d6xnbqxcjywb1lldv-unit-dbus.service.drv
+  /nix/store/s92lisipcry1jfqpgxy4wmijria4iifh-unit-systemd-pstore.service.drv
+  /nix/store/spv5ph4nxjdgsrq61n0x0zlraac7dg73-unit-post-resume.service.drv
+  /nix/store/jhjb82zkyvrkv49cwpybk8p6brz7j8gl-X-Restart-Triggers-systemd-udevd.drv
+  /nix/store/sqb5z82iq52ihsmvi5qskha2gj92rxvz-unit-systemd-udevd.service.drv
+  /nix/store/v2inw3pmf2njym6l4cbwn0yn1qdjvajf-unit-systemd-remount-fs.service.drv
+  /nix/store/vdmxmwxpwcy7bl0y0k02l565qb3mv9wn-unit-systemd-journal-flush.service.drv
+  /nix/store/if1lxn4lqcq9n0wxgvjqmivl5b21bh24-shutdown-ramfs-contents.json.drv
+  /nix/store/vmqq9aslig2zad48xc04lmi2j4f6rdkx-unit-generate-shutdown-ramfs.service.drv
+  /nix/store/vqxpg3p3w6gfmn5wbjv7f1lk25dfv7p3-unit-kmod-static-nodes.service.drv
+  /nix/store/wb549d97y53zbnj63p4xqbqs85y37k13-unit-systemd-update-utmp.service.drv
+  /nix/store/xj179rp46fyfzc85vgalfz8xd7zj9xh7-unit-systemd-timedated.service.drv
+  /nix/store/y3z6yrva98wxkrjfkpb3cxyll6b1mcnz-unit-resolvconf.service.drv
+  /nix/store/yxiq5di48kvr2la0dlq10xgk5pc9dgpd-unit-autovt-.service.drv
+  /nix/store/qy6zs50wfhm10n0380cx76syy9fmif4d-system-units.drv
+  /nix/store/rjzv8kbn8sz1jjyhmkk0nslk4l28n5wj-login.pam.drv
+  /nix/store/gbzsvblxlaay9j1x42bm5h6iic3yivml-cpupower-6.10.6-asahi_fish-completions.drv
+  /nix/store/h85hijva25ma5835yz8a98pjypyw41hz-nixos-generate-config_fish-completions.drv
+  /nix/store/rimc3a96pw4sdixvwnffd4rhdx7wiqi6-nixos-0.12.0-dev_fish-completions.drv
+  /nix/store/vbylfmd1smc201vpxjrrfmz29b7z636w-niri-0.1.10-1_fish-completions.drv
+  /nix/store/sqxhvcskaqigr1hdr4z8py6zr2fn8j9f-system_fish-completions.drv
+  /nix/store/xyfzvlid2vphqfj63g6fhv5n4yhjv9ip-etc-modprobe.d-firmware.conf.drv
+  /nix/store/cvwmz01dkn1y8a9qiv7h812kk7hi3hb4-etc.drv
+  /nix/store/42czwfz1x2k87jid4z1hpvlrsp9bny2h-nixos-system-nixos-25.05.20241122.8edf06b.drv
+building '/nix/store/vqcg6bs0nwgkqgw91zg2dwlxhr3vwbai-linux-6.10.6-asahi.drv'...
+building '/nix/store/3yrljfr2by9dxfxlhk3fvv489x96lg5a-m1n1-1.4.14.drv'...
+building '/nix/store/02yqbh2acif2pxvkflarvza63cbaagkl-nixos-configuration-reference-manpage_fish-completions.drv'...
+building '/nix/store/1yq9jivzwmy46nalw3dw5lcq4a4y82fd-cpupower-6.10.6-asahi.drv'...
+building '/nix/store/5n4nwf11n6sds2n89rmv7scc6wrndp29-niri-0.1.10-1.drv'...
+building '/nix/store/3mjd1mq4hf07zrhqcxf3qzxzx4a0zzmw-nixos-0.12.0-dev.drv'...
+building '/nix/store/zmm0z7qsyr92db780h1q4fhzy6ya2k1k-systemd-256.7.drv'...
+building '/nix/store/k83pl7bc5wpfmd30il3ir1m8z2ia60jk-asahi-peripheral-firmware.drv'...
+building '/nix/store/92yvqsic00plb32cssh9psqvg7g2s84a-asahi-peripheral-firmware-zstd.drv'...
+error: builder for '/nix/store/3mjd1mq4hf07zrhqcxf3qzxzx4a0zzmw-nixos-0.12.0-dev.drv' failed with exit code 1;
+       last 10 log lines:
+       > 
+       > 
+       > 
+       > 
+       > 
+       > 
+       > thread 48 panic: reached unreachable code
+       > Panicked during a panic. Aborting.
+       > error: the following build command crashed:
+       > /build/f1gybp4q6kw3vq7iqgdnncncp6bs3ggp-source/zig-cache/o/e9b6cbe7dcbd1b785d215aeed770d32e/build /nix/store/ms0x20nvsp0kzlb5xxn7lsq0c5my6lm6-zig-0.13.0/bin/zig /build/f1gybp4q6kw3vq7iqgdnncncp6bs3ggp-source /build/f1gybp4q6kw3vq7iqgdnncncp6bs3ggp-source/zig-cache /build/f1gybp4q6kw3vq7iqgdnncncp6bs3ggp-source/.cache --seed 0x86f50592 -Zc771ace86fd5e8db install -Dcpu=baseline -Doptimize=ReleaseSafe -Dflake=true --prefix /nix/store/kmwly3xal1zamnvjlphmk8cjpg8aa9kl-nixos-0.12.0-dev
+       For full logs, run 'nix log /nix/store/3mjd1mq4hf07zrhqcxf3qzxzx4a0zzmw-nixos-0.12.0-dev.drv'.
+error: 1 dependencies of derivation '/nix/store/5phrj6jc0mdk85xglbxpljp7ha4kh0nd-man-paths.drv' failed to build
+error: 1 dependencies of derivation '/nix/store/rimc3a96pw4sdixvwnffd4rhdx7wiqi6-nixos-0.12.0-dev_fish-completions.drv' failed to build
+error: 1 dependencies of derivation '/nix/store/1m1hysqigfnbr1mdnimibhv6h886cw1c-system-path.drv' failed to build
+error (ignored): error: cannot unlink '/tmp/nix-build-cpupower-6.10.6-asahi.drv-1/build/source/drivers/gpu/drm': Directory not empty
+error (ignored): error: cannot unlink '/tmp/nix-build-niri-0.1.10-1.drv-5/build/cargo-vendor-dir/windows-0.51.1/src/Windows': Directory not empty
+error (ignored): error: cannot unlink '/tmp/nix-build-linux-6.10.6-asahi.drv-1/build/source/drivers/net': Directory not empty
+error: 1 dependencies of derivation '/nix/store/42czwfz1x2k87jid4z1hpvlrsp9bny2h-nixos-system-nixos-25.05.20241122.8edf06b.drv' failed to build
