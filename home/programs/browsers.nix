@@ -1,6 +1,6 @@
 { pkgs, lib, ... }: {
   home.packages = with pkgs; [
-    firefox-beta-bin
+#    firefox-beta-bin
   ];
 
   programs = {

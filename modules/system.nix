@@ -96,7 +96,7 @@ in {
 
   # ============================= Services =============================
   services = {
-    teamviewer.enable = true;
+    teamviewer.enable = false;
     nixos-cli.enable = true;
     printing.enable = false;
     power-profiles-daemon.enable = true;

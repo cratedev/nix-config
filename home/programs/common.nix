@@ -22,7 +22,7 @@
   apps = with pkgs; [
     obsidian
     fuzzel
-    (discord.override { withVencord = true; })
+#    (discord.override { withVencord = true; })
     networkmanagerapplet
   ];
 

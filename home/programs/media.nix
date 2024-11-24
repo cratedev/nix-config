@@ -13,7 +13,7 @@
   ];
 
   programs.spicetify = {
-    enable = true;
+    enable = false;
     enabledExtensions = with inputs.spicetify-nix.legacyPackages.${pkgs.system}.extensions; [
       adblock hidePodcasts shuffle
     ];
