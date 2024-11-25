@@ -4,7 +4,7 @@
     containers = {
       
       komodo-core = {
-        image = "ghcr.io/mbecker20/komodo:latest"; # Use -aarch64 for ARM support if needed
+        image = "ghcr.io/mbecker20/komodo:latest-aarch64"; # Use -aarch64 for ARM support if needed
         extraOptions = [ "--network=proxy" ];
         ports = [ "9120:9120" ];
         dependsOn = [ "komodo-mongo" ];
@@ -38,8 +38,8 @@
       };
 
       komodo-periphery = {
-        image = "ghcr.io/mbecker20/periphery:latest"; # Use -aarch64 for ARM support if needed
-        ports = [ "8120:8120" ];
+        image = "ghcr.io/mbecker20/periphery:latest-aarch64"; # Use -aarch64 for ARM support if needed
+	ports = [ "8120:8120" ];
         extraOptions = [ "--network=proxy" ];
         volumes = [
           "/var/run/docker.sock:/var/run/docker.sock"

@@ -1,7 +1,7 @@
 {...}: {
   imports = [
     ../../modules/system.nix
-    ../../modules/nas/default.nix
+#    ../../modules/nas/default.nix
     ./hardware-configuration.nix
   ];
 

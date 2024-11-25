@@ -1,7 +1,7 @@
 {...}: {
   imports = [
     ../../modules/system.nix
-#    ../../modules/nas/default.nix
+    ../../modules/nas/default.nix
     ./apple-silicon-support
     ./hardware-configuration.nix
   ];
@@ -9,9 +9,14 @@
   # Where we're going, we don't need channels
   nix.channel.enable = false;
 
-  # Bootloader.
+  # Specify path to peripheral firmware files.
+  hardware.asahi.peripheralFirmwareDirectory = ./firmware;
+  # Or disable extraction and management of them completely.
+  # hardware.asahi.extractPeripheralFirmware = false;
+
+  # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.canTouchEfiVariables = false;
 
   networking.hostName = "crate-mini"; # Define your hostname.
   networking.networkmanager.enable = true;

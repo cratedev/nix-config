@@ -5,9 +5,9 @@
     enable = true;
 
     # Optional: Configure storage for Jellyfin data (logs, database, etc.)
-    dataDir = "/var/lib/jellyfin";
-    cacheDir = "/var/cache/jellyfin";
-    logDir = "/var/log/jellyfin";
+    dataDir = "/appdata/jellyfin";
+    cacheDir = "/appdata/jellyfin/cache";
+    logDir = "/appdata/jellyfin/logs";
   };
 
 #  networking.firewall.allowedTCPPorts = [ 8096 ];  # Allow Jellyfin's default port
