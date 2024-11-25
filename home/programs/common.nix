@@ -33,10 +33,10 @@ in {
 
   # Program-specific configurations
   programs.spotify-player.enable = true;
-  xdg.configFile."spotify-player".source = ./dots/spotify-player;
+  xdg.configFile."spotify-player".source = ../../dots/spotify-player;
 
   programs.ncspot.enable = true;
-  xdg.configFile."rofi".source = ./dots/rofi;
+  xdg.configFile."rofi".source = ../../dots/rofi;
 
   programs = {
     tmux.enable = true;

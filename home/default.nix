@@ -2,7 +2,7 @@
   imports = [
     ./programs
     ./shell
-    ./programs/niri.nix
+    ./dots
   ];
 
   # Home Manager needs a bit of information about you and the
