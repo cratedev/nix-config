@@ -1,6 +1,7 @@
 { lib, pkgs, inputs, ... }: {
   imports = [ inputs.spicetify-nix.homeManagerModules.default ];
 
+
   home.packages = with pkgs; [
     # Audio control
     pavucontrol playerctl pulsemixer pamixer
