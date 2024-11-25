@@ -13,14 +13,15 @@
     ytfzf
   ];
 
-  programs.spicetify = {
-    enable = false;
+  programs.spicetify = lib.optionalAttrs (pkgs.stdenv.system == "x86_64-linux") {
+    enable = true;
     enabledExtensions = with inputs.spicetify-nix.legacyPackages.${pkgs.system}.extensions; [
       adblock hidePodcasts shuffle
     ];
     theme = lib.mkForce inputs.spicetify-nix.legacyPackages.${pkgs.system}.themes.catppuccin;
     colorScheme = lib.mkForce "mocha";
   };
+
 
   services.playerctld.enable = true;
 }

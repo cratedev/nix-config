@@ -22,9 +22,8 @@
   apps = with pkgs; [
     obsidian
     fuzzel
-#    (discord.override { withVencord = true; })
     networkmanagerapplet
-  ];
+  ] ++ (if pkgs.stdenv.system == "x86_64-linux" then [ (discord.override { withVencord = true; }) ] else []);
 
 in {
   home.packages = utilities ++ filesystemTools ++ devTools ++ apps;
