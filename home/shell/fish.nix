@@ -15,6 +15,8 @@
       nrtl = "sudo nixos-rebuild test --flake .#crate-laptop";
       nrsd = "sudo nixos-rebuild switch --flake .#crate-desktop";
       nrtd = "sudo nixos-rebuild test --flake .#crate-desktop";
+      nrsm = "sudo nixos-rebuild switch --flake .#crate-mini";
+      nrtm = "sudo nixos-rebuild test --flake .#crate-mini";
     };
   };
 }

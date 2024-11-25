@@ -160,7 +160,7 @@ in {
     pkgs.wget
     pkgs.curl
     pkgs.busybox
-#    pkgs.nemo
+    pkgs.nemo
     pkgs.cachix
     (pkgs.catppuccin-sddm.override {
       flavor = "mocha";
@@ -168,7 +168,7 @@ in {
       fontSize = "9";
     })
     (pkgs.callPackage ../home/programs/rofi-custom.nix {})
-  ];
+  ] ++ (if pkgs.stdenv.system == "x86_64-linux" then [ pkgs.nemo ] else []);
 
   # ============================= Session Variables =============================
   environment.sessionVariables.NIXOS_OZONE_WL = "1";

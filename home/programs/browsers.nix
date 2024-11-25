@@ -1,7 +1,6 @@
 { pkgs, lib, ... }: {
   home.packages = with pkgs; [
-#    firefox-beta-bin
-  ];
+  ] ++ (if pkgs.stdenv.system == "x86_64-linux" then [ firefox-beta-bin ] else []);
 
   programs = {
     # Chromium Browser
