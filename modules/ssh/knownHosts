@@ -19,6 +19,11 @@
     publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN1VD8AXVl+oVHO0Ig9++mGcfmY1O+4u+YKgrCGXElpU";
   };
 
+  ## crate-mini system key
+  "10.0.0.230" = {
+    publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAFbBhBuedxH6RM9gosUgeAFrAeL2aBITQojUNkyJwSe";
+  };
+
   "github.com" = {
     publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl";
   };
