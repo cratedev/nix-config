@@ -79,7 +79,7 @@ in {
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-emoji
-      (nerdfonts.override { fonts = ["FiraCode" "JetBrainsMono"]; })
+      fira-code
     ];
     enableDefaultPackages = false;
     fontconfig.defaultFonts = {
@@ -146,6 +146,7 @@ in {
     hyprland.enable = false;
     niri.enable = true;
     fish.enable = true;
+#    xwayland.enable = true;
   };
 
   # ============================= System Packages =============================
