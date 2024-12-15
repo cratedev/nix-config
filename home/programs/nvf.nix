@@ -37,9 +37,8 @@
 
       # Visuals and UI
       visuals = {
-        enable = true;
         nvimWebDevicons.enable = true;
-        smoothScroll.enable = true;
+        cinnamon-nvim.enable = true;
         fidget-nvim.enable = true;
         highlight-undo.enable = true;
         indentBlankline.enable = true;
@@ -51,8 +50,8 @@
       theme = { enable = true; name = "catppuccin"; style = "mocha"; transparent = false; };
       
       # General features
-      autopairs.enable = true;
-      autocomplete = { enable = true; type = "nvim-cmp"; };
+      autopairs.nvim-autopairs.enable = true;
+      autocomplete.nvim-cmp.enable = true;
       filetree = { nvimTree = { enable = true; }; };
       tabline = { nvimBufferline.enable = true; };
       treesitter.context.enable = true;
