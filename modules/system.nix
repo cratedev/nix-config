@@ -5,7 +5,7 @@
   locale = "en_GB.UTF-8";
   editor = "nano";
   browser = "firefox";
-  terminal = "foot";
+  terminal = "ghostty";
   stylixTheme = "da-one-ocean";
   
   # Define the path to the shared authorized_keys file

@@ -9,7 +9,7 @@
   home.sessionVariables = {
     EDITOR = "nano";
     BROWSER = "firefox";
-    TERMINAL = "foot";
+    TERMINAL = "ghostty";
     DELTA_PAGER = "less -R";
     MANPAGER = "sh -c 'col -bx | bat -l man -p'";
   };
