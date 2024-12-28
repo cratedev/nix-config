@@ -28,9 +28,6 @@
 in {
   home.packages = utilities ++ filesystemTools ++ devTools ++ apps;
 
-  # Uncomment lines for optional programs
-  # ++ [ pkgs.hyprpanel pkgs.teamviewer zed-editor ];
-
   # Program-specific configurations
   programs.spotify-player.enable = true;
   xdg.configFile."spotify-player".source = ../dots/spotify-player;

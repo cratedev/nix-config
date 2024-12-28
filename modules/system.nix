@@ -96,7 +96,7 @@ in {
 
   # ============================= Services =============================
   services = {
-    teamviewer.enable = false;
+    teamviewer.enable = true;
     printing.enable = false;
     power-profiles-daemon.enable = true;
     dbus.packages = [ pkgs.gcr ];
