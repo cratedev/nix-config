@@ -22,6 +22,9 @@
     nvf.inputs.nixpkgs.follows = "nixpkgs";
 
     agenix.url = "github:yaxitech/ragenix";
+
+    ghostty.url = "github:ghostty-org/ghostty";
+
   };
 
   outputs = inputs @ {nixpkgs, ...}: let

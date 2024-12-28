@@ -1,4 +1,4 @@
-{ pkgs, ... }: let
+{ pkgs, inputs, ... }: let
   # Grouped packages for better readability and maintainability
   utilities = with pkgs; [
     cliphist wl-clipboard-rs
@@ -23,7 +23,7 @@
     obsidian
     fuzzel
     networkmanagerapplet
-  ] ++ (if pkgs.stdenv.system == "x86_64-linux" then [ (discord.override { withVencord = true; }) ] else []);
+  ] ++ (if pkgs.stdenv.system == "x86_64-linux" then [ inputs.ghostty.packages.x86_64-linux.default (discord.override { withVencord = true; }) ] else []);
 
 in {
   home.packages = utilities ++ filesystemTools ++ devTools ++ apps;
@@ -34,6 +34,8 @@ in {
 
   programs.ncspot.enable = true;
   xdg.configFile."rofi".source = ../dots/rofi;
+
+  xdg.configFile."ghostty".source = ../dots/ghostty;
 
   programs = {
     tmux.enable = true;
