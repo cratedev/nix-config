@@ -7,6 +7,5 @@
     ./media.nix
     ./xdg.nix
     ./nvf.nix
-    ./fabric-cli
   ];
 }
