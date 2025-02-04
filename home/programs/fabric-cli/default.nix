@@ -1,20 +1,18 @@
-{pkgs ? import <nixpkgs> {}}:
+{pkgs, ...}:
 pkgs.stdenv.mkDerivation {
   pname = "fabric-cli";
-  version = "unstable-2024-02-04"; # Update as needed
+  version = "unstable-2024-02-04";
+
   src = pkgs.fetchFromGitHub {
     owner = "Fabric-Development";
     repo = "fabric-cli";
-    rev = "main"; # Pin a specific commit if needed
+    rev = "main";
     sha256 = "00000000000000000000000000000000000000000000"; # Replace with actual hash
   };
 
   nativeBuildInputs = [pkgs.go];
 
   buildPhase = ''
-    mkdir -p $GOPATH/src/github.com/Fabric-Development
-    ln -s $src $GOPATH/src/github.com/Fabric-Development/fabric-cli
-    cd $GOPATH/src/github.com/Fabric-Development/fabric-cli
     go build -o fabric-cli
   '';
 
@@ -27,6 +25,5 @@ pkgs.stdenv.mkDerivation {
     description = "Fabric CLI for interacting with Fabric instances over D-Bus";
     homepage = "https://github.com/Fabric-Development/fabric-cli";
     license = pkgs.lib.licenses.mit;
-    maintainers = with pkgs.lib.maintainers; [];
   };
 }
