@@ -24,6 +24,8 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    fabric-flake.url = "path:./home/programs/fabric";
+
     stylix.url = "github:danth/stylix";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     niri.url = "github:sodiboo/niri-flake";
@@ -32,13 +34,14 @@
     ghostty.url = "github:ghostty-org/ghostty";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
 
-    #hyprland.url = "github:hyprwm/Hyprland";
-    #hyprland-plugins = {
-    #url = "github:hyprwm/hyprland-plugins";
-    #inputs.hyprland.follows = "hyprland";
-    #};
-    #fabric.url = "github:Fabric-Development/fabric";
-    #fabric.flake = true; # Use Fabric flake
+    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
+    fabric.url = "github:Fabric-Development/fabric";
+    fabric.flake = true; # Use Fabric flake
+    fabric.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs @ {nixpkgs, ...}: let
@@ -68,7 +71,7 @@
                 users.matt = {
                   imports = [
                     ./home
-                    #./home/programs/hyprland.nix
+                    ./home/programs/hyprland.nix
                   ];
                 };
               };

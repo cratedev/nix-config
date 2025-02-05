@@ -41,7 +41,7 @@ in {
     optimise.dates = ["03:45"];
     settings = {
       trusted-users = [username];
-      experimental-features = ["nix-command" "flakes"];
+      experimental-features = ["nix-command" "flakes" "impure-derivations" "ca-derivations"];
       substituters = ["https://cache.nixos.org"];
       trusted-public-keys = ["cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="];
       builders-use-substitutes = true;
@@ -170,7 +170,7 @@ in {
   };
 
   programs.hyprland = {
-    enable = false;
+    enable = true;
     # set the flake package
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     # make sure to also set the portal package, so that they are in sync
@@ -179,6 +179,8 @@ in {
 
   # ============================= System Packages =============================
   environment.systemPackages = with pkgs; [
+    (import ../home/programs/fabric-cli/default.nix pkgs)
+    inputs.fabric.packages.x86_64-linux.default
     sshfs
     nixd
     niri
@@ -196,7 +198,10 @@ in {
       fontSize = "9";
     })
     rofi-wayland
-    #    hyprland
+    hyprland
+    gtk3
+    gobject-introspection
+    (python3.withPackages (p: with p; [pygobject3]))
   ];
 
   # ============================= Session Variables =============================
