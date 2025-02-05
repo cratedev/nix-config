@@ -49,8 +49,6 @@
       then [
         inputs.zen-browser.packages.x86_64-linux.default
         inputs.ghostty.packages.x86_64-linux.default
-        inputs.fabric.packages.x86_64-linux.default
-        #        inputs.fabric-flake.packages.x86_64-linux
         (discord.override {withVencord = true;})
       ]
       else []

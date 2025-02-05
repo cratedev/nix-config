@@ -181,6 +181,7 @@ in {
   environment.systemPackages = with pkgs; [
     (import ../home/programs/fabric-cli/default.nix pkgs)
     inputs.fabric.packages.x86_64-linux.default
+    (python3.withPackages (ps: with ps; [fabric]))
     sshfs
     nixd
     niri

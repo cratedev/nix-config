@@ -7,7 +7,6 @@
   home.packages = with pkgs; [
     hyprpaper
     ags
-    inputs.fabric.packages.x86_64-linux.default
   ];
 
   services.hyprpaper = {
