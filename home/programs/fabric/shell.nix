@@ -1,4 +1,4 @@
-{ pkgs ? import <nixpkgs> {} }:
+{pkgs ? import <nixpkgs> {}, ... }:
 pkgs.mkShell {
   buildInputs = [
     pkgs.python3
@@ -9,10 +9,10 @@ pkgs.mkShell {
     pkgs.pkg-config
     pkgs.cairo
     pkgs.gobject-introspection
-    pkgs.gtk3            # Provides GTK+ 3 libraries and typelibs
-#    pkgs.gobjectIntrospection  # Ensures GI typelibs are available
+    pkgs.gtk3 # Provides GTK+ 3 libraries and typelibs
+    #    pkgs.gobjectIntrospection  # Ensures GI typelibs are available
     pkgs.gtk-layer-shell
-#    pkgs.libgirepository
+    #    pkgs.libgirepository
     pkgs.python313Packages.setproctitle
   ];
 
