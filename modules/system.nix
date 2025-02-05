@@ -170,7 +170,7 @@ in {
   };
 
   programs.hyprland = {
-    enable = true;
+    enable = false;
     # set the flake package
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     # make sure to also set the portal package, so that they are in sync
@@ -179,9 +179,8 @@ in {
 
   # ============================= System Packages =============================
   environment.systemPackages = with pkgs; [
-    (import ../home/programs/fabric-cli/default.nix pkgs)
-    inputs.fabric.packages.x86_64-linux.default
-    (python3.withPackages (ps: with ps; [fabric]))
+    #(import ../home/programs/fabric-cli/default.nix pkgs)         ## These are disabled because the fabric widgets
+    #(python3.withPackages (ps: with ps; [fabric setproctitle]))   ## I want to use are built on older fabric 1
     sshfs
     nixd
     niri
@@ -199,10 +198,7 @@ in {
       fontSize = "9";
     })
     rofi-wayland
-    hyprland
-    gtk3
-    gobject-introspection
-    (python3.withPackages (p: with p; [pygobject3]))
+    #hyprland
   ];
 
   # ============================= Session Variables =============================
