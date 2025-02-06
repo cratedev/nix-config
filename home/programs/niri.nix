@@ -18,6 +18,24 @@
       spawn-at-startup = [
         {command = ["swww-daemon"];}
         {command = ["swww" "img" "../../wallpaper/3.png"];}
+        {
+          command = [
+            "sh"
+            "-c"
+            ''
+              outputs=$(${pkgs.wlr-randr}/bin/wlr-randr | grep -E '^[A-Za-z0-9-]+' | awk '{print $1}')
+              if echo "$outputs" | grep -q "eDP-1"; then
+                # Laptop setup: Use internal screen only
+                ${pkgs.wlr-randr}/bin/wlr-randr --output eDP-1 --pos 0,0 --scale 1.0 --enable
+              else
+                # Desktop setup: Arrange external monitors
+                ${pkgs.wlr-randr}/bin/wlr-randr --output HDMI-A-1 --pos 0,0 --scale 1.0 --enable
+                ${pkgs.wlr-randr}/bin/wlr-randr --output DP-1 --pos 2560,0 --scale 1.0 --enable
+                ${pkgs.wlr-randr}/bin/wlr-randr --output DP-3 --pos 5120,0 --scale 1.0 --enable
+              fi
+            ''
+          ];
+        }
       ];
 
       prefer-no-csd = true;
