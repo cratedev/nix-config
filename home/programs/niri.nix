@@ -46,6 +46,7 @@
         tap = true;
         natural-scroll = true;
       };
+      input.focus-follows-mouse.enable = true;
 
       layout = {
         gaps = 20;
