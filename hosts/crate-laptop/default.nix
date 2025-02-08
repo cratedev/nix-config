@@ -1,5 +1,6 @@
 {...}: {
   imports = [
+    ../../home/programs/x86_64-specific.nix
     ../../modules/system.nix
     ./hardware-configuration.nix
   ];
