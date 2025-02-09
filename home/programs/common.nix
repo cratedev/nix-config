@@ -17,7 +17,7 @@
     libsecret
     brightnessctl
     gowall
-    immich-cli
+    #    immich-cli
     navi
     calibre
     #swaybg

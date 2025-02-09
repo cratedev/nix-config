@@ -114,7 +114,7 @@ in {
     power-profiles-daemon.enable = true;
     dbus.packages = [pkgs.gcr];
     geoclue2.enable = true;
-    blueman.enable = false;
+    blueman.enable = true;
     gnome.gnome-keyring.enable = true;
     udev.packages = with pkgs; [gnome-settings-daemon];
     displayManager.sddm = {
@@ -139,9 +139,6 @@ in {
       };
       knownHosts = import ./ssh/knownHosts;
       openFirewall = true;
-    };
-    cockpit = {
-      enable = false;
     };
   };
 
