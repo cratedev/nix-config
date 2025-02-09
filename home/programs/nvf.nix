@@ -44,6 +44,31 @@
         enableTreesitter = true;
         enableExtraDiagnostics = true;
         nix.enable = true; # Enable Nix LSP (Note: Nim LSP disabled on Darwin)
+        # Language modules that are not as common.
+        assembly.enable = false;
+        astro.enable = false;
+        nu.enable = false;
+        csharp.enable = false;
+        julia.enable = false;
+        vala.enable = false;
+        scala.enable = false;
+        r.enable = false;
+        gleam.enable = false;
+        dart.enable = false;
+        ocaml.enable = false;
+        elixir.enable = false;
+        haskell.enable = false;
+        ruby.enable = false;
+
+        tailwind.enable = false;
+        svelte.enable = false;
+
+        # Nim LSP is broken on Darwin and therefore
+        # should be disabled by default. Users may still enable
+        # `vim.languages.vim` to enable it, this does not restrict
+        # that.
+        # See: <https://github.com/PMunch/nimlsp/issues/178#issue-2128106096>
+        nim.enable = false;
       };
 
       # Visuals and UI
@@ -96,7 +121,7 @@
 
       # Minimap & Dashboard
       minimap = {minimap-vim.enable = false;};
-      dashboard = {dashboard-nvim.enable = false;};
+      dashboard = {dashboard-nvim.enable = true;};
 
       # Notifications & Utility
       notify = {nvim-notify.enable = true;};
@@ -105,6 +130,7 @@
         motion = {
           hop.enable = true;
           leap.enable = true;
+          precognition.enable = true;
         };
       };
 
@@ -126,6 +152,7 @@
         noice.enable = true;
         colorizer.enable = true;
         illuminate.enable = true;
+        modes-nvim.enable = false;
         smartcolumn = {
           enable = true;
           setupOpts.custom_colorcolumn = {
@@ -136,6 +163,10 @@
           };
         };
         fastaction.enable = true;
+        breadcrumbs = {
+          enable = true;
+          navbuddy.enable = true;
+        };
       };
 
       # Disable unnecessary features

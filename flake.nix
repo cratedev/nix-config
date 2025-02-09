@@ -4,11 +4,11 @@
   nixConfig = {
     extra-substituters = [
       "https://nix-community.cachix.org"
-      "https://hyprland.cachix.org"
+      #"https://hyprland.cachix.org"
     ];
     extra-trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+      #"hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
     ];
   };
 
@@ -25,6 +25,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     stylix.url = "github:danth/stylix";
+
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     niri.url = "github:sodiboo/niri-flake";
     nvf.url = "github:notashelf/nvf";
@@ -32,14 +33,14 @@
     ghostty.url = "github:ghostty-org/ghostty";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
 
-    #hyprland.url = "github:hyprwm/Hyprland";
-    #hyprland-plugins = {
-    #url = "github:hyprwm/hyprland-plugins";
-    #inputs.hyprland.follows = "hyprland";
-    #};
-    #fabric.url = "github:Fabric-Development/fabric";
-    #fabric.flake = true; # Use Fabric flake
-    #fabric.inputs.nixpkgs.follows = "nixpkgs";
+    # hyprland.url = "github:hyprwm/Hyprland";
+    # hyprland-plugins = {
+    # url = "github:hyprwm/hyprland-plugins";
+    # inputs.hyprland.follows = "hyprland";
+    # };
+    # fabric.url = "github:Fabric-Development/fabric";
+    # fabric.flake = true; # Use Fabric flake
+    # fabric.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs @ {nixpkgs, ...}: let
