@@ -4,6 +4,12 @@
   programs.nvf = {
     enable = true;
     settings.vim = {
+      options = {
+        tabstop = 4;
+        shiftwidth = 4;
+        softtabstop = 4;
+        expandtab = false;
+      };
       maps = {
         normal."<leader><Left>" = {
           silent = true;
