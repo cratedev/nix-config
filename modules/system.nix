@@ -20,7 +20,7 @@ in {
     description = username;
     extraGroups = ["networkmanager" "wheel" "docker" "podman" "libvirt"];
     openssh.authorizedKeys.keys = lib.splitString "\n" sharedAuthorizedKeys;
-    shell = pkgs.nushell;
+    shell = pkgs.fish;
   };
 
   users.groups.libvirt = {};
