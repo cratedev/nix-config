@@ -3,6 +3,7 @@
     ./terminals.nix
     ./fish.nix
     ./zellij
+    ./nu.nix
   ];
 
   # Environment Variables: Group related variables together

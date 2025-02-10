@@ -20,7 +20,7 @@ in {
     description = username;
     extraGroups = ["networkmanager" "wheel" "docker" "podman" "libvirt"];
     openssh.authorizedKeys.keys = lib.splitString "\n" sharedAuthorizedKeys;
-    shell = pkgs.fish;
+    shell = pkgs.nushell;
   };
 
   users.groups.libvirt = {};
@@ -179,7 +179,7 @@ in {
     #(import ../home/programs/fabric-cli/default.nix pkgs)         ## These are disabled because the fabric widgets
     #(python3.withPackages (ps: with ps; [fabric setproctitle]))   ## I want to use are built on older fabric 1
     sshfs
-    nushell
+    #    nushell
     nixd
     niri
     python3

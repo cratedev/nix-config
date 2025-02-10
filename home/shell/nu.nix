@@ -1,13 +1,14 @@
 {pkgs, ...}: {
+  home.packages = [pkgs.nu_scripts pkgs.nufmt];
+
   programs = {
     carapace.enable = true;
     carapace.enableNushellIntegration = true;
-
     nushell = {
       enable = true;
 
       plugins = with pkgs.nushellPlugins; [
-        skim
+        #       skim
         query
         gstat
         polars
