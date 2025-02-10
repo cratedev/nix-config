@@ -179,6 +179,7 @@ in {
     #(import ../home/programs/fabric-cli/default.nix pkgs)         ## These are disabled because the fabric widgets
     #(python3.withPackages (ps: with ps; [fabric setproctitle]))   ## I want to use are built on older fabric 1
     sshfs
+    nushell
     nixd
     niri
     python3
