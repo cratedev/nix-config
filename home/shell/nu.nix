@@ -54,7 +54,7 @@
     carapace.enable = true;
     carapace.enableNushellIntegration = true;
     starship = {
-      enable = true;
+      enable = false;
       enableNushellIntegration = true;
       settings = {
         format = "$directory$all$cmd_duration$jobs$status$shell$line_break$env_var$username$sudo$character";
