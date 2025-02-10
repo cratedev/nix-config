@@ -188,7 +188,6 @@ in {
     wget
     curl
     busybox
-    nemo
     cachix
     (catppuccin-sddm.override {
       flavor = "mocha";

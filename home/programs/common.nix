@@ -23,6 +23,7 @@
     #swaybg
     #matugen
     lazygit
+    nautilus
   ];
 
   filesystemTools = with pkgs; [
