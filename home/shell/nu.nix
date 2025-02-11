@@ -6,65 +6,65 @@
       #      configFile.source = ./.../config.nu;
       # for editing directly to config.nu
       extraConfig = ''
-        source ~/nix-config/scripts/set_hostname.nu
-             				$env.config.color_config = {
-               separator: "#878d96"
-               leading_trailing_space_bg: "#c8c8c8"
-               header: "#98c379"
-               date: "#e799ff"
-               filesize: "#6bb8ff"
-               row_index: "#8af5ff"
-               bool: "#fa7883"
-               int: "#98c379"
-               duration: "#fa7883"
-               range: "#fa7883"
-               float: "#fa7883"
-               string: "#c8c8c8"
-               nothing: "#fa7883"
-               binary: "#fsa7883"
-               cellpath: "#fa7883"
-               hints: dark_gray
 
-               shape_garbage: { fg: "#ffffff" bg: "#fa7883" }
-               shape_bool: "#6bb8ff"
-               shape_int: { fg: "#e799ff" attr: b }
-               shape_float: { fg: "#e799ff" attr: b }
-               shape_range: { fg: "#ff9470" attr: b }
-               shape_internalcall: { fg: "#8af5ff" attr: b }
-               shape_external: "#8af5ff"
-               shape_externalarg: { fg: "#98c379" attr: b }
-               shape_literal: "#6bb8ff"
-               shape_operator: "#ff9470"
-               shape_signature: { fg: "#98c379" attr: b }
-               shape_string: "#98c379"
-               shape_filepath: "#6bb8ff"
-               shape_globpattern: { fg: "#6bb8ff" attr: b }
-               shape_variable: "#e799ff"
-               shape_flag: { fg: "#6bb8ff" attr: b }
-               shape_custom: { attr: b }
-             }
+        $env.machine = (uname | get nodename | str trim)
+        $env.config.color_config = {
+          separator: "#878d96"
+          leading_trailing_space_bg: "#c8c8c8"
+          header: "#98c379"
+          date: "#e799ff"
+          filesize: "#6bb8ff"
+          row_index: "#8af5ff"
+          bool: "#fa7883"
+          int: "#98c379"
+          duration: "#fa7883"
+          range: "#fa7883"
+          float: "#fa7883"
+          string: "#c8c8c8"
+          nothing: "#fa7883"
+          binary: "#fsa7883"
+          cellpath: "#fa7883"
+          hints: dark_gray
 
-             source /home/matt/.local/cache/carapace/init.nu
+          shape_garbage: { fg: "#ffffff" bg: "#fa7883" }
+          shape_bool: "#6bb8ff"
+          shape_int: { fg: "#e799ff" attr: b }
+          shape_float: { fg: "#e799ff" attr: b }
+          shape_range: { fg: "#ff9470" attr: b }
+          shape_internalcall: { fg: "#8af5ff" attr: b }
+          shape_external: "#8af5ff"
+          shape_externalarg: { fg: "#98c379" attr: b }
+          shape_literal: "#6bb8ff"
+          shape_operator: "#ff9470"
+          shape_signature: { fg: "#98c379" attr: b }
+          shape_string: "#98c379"
+          shape_filepath: "#6bb8ff"
+          shape_globpattern: { fg: "#6bb8ff" attr: b }
+          shape_variable: "#e799ff"
+          shape_flag: { fg: "#6bb8ff" attr: b }
+          shape_custom: { attr: b }
+        }
 
-             alias "garbage" = nix-collect-garbage
-             alias "garbaged" = nix-collect-garbage -d
-             alias "garbages" = sudo nix-collect-garbage
-             alias "garbagesd" = sudo nix-collect-garbage -d
-             alias "la" = eza -a
-             alias "ll" = eza -l
-             alias "lla" = eza -la
-             alias "ls" = eza
-             alias "lt" = eza --tree
-             alias "nrs" = sudo nixos-rebuild switch --flake .#($hostname)
-             alias "nrt" = sudo nixos-rebuild test --flake .#($hostname)
+        source /home/matt/.local/cache/carapace/init.nu
+        alias "garbage" = nix-collect-garbage
+        alias "garbaged" = nix-collect-garbage -d
+        alias "garbages" = sudo nix-collect-garbage
+        alias "garbagesd" = sudo nix-collect-garbage -d
+        alias "la" = eza -a
+        alias "ll" = eza -l
+        alias "lla" = eza -la
+        alias "ls" = eza
+        alias "lt" = eza --tree
+        alias "nrs" = sudo nixos-rebuild switch --flake .#($machine)
+        alias "nrt" = sudo nixos-rebuild test --flake .#($machine)
       '';
       shellAliases = {
         garbage = "nix-collect-garbage";
         garbages = "sudo nix-collect-garbage";
         garbaged = "nix-collect-garbage -d";
         garbagesd = "sudo nix-collect-garbage -d";
-        nrs = "sudo nixos-rebuild switch --flake .#($hostname)";
-        nrt = "sudo nixos-rebuild test --flake .#($hostname)";
+        nrs = "sudo nixos-rebuild switch --flake .#($machine)";
+        nrt = "sudo nixos-rebuild test --flake .#($machine)";
       };
     };
     carapace.enable = true;
