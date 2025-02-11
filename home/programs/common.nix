@@ -69,7 +69,7 @@ in {
     tmux.enable = true;
     vscode.enable = true;
     btop.enable = true;
-    eza.enable = true;
+    eza.enable = false;
     jq.enable = true;
     aria2.enable = true;
 
