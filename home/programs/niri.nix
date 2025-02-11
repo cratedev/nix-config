@@ -15,11 +15,17 @@
 
   gtk = {
     enable = true;
-    iconTheme = {
-      package = pkgs.orchis-theme;
-      name = "Orchis-Purple";
-    };
+    #    theme = {
+    #      package = pkgs.orchis-theme;
+    #      name = "Orchis-Purple";
+    #    };
+    #    iconTheme = {
+    #      package = pkgs.kora-icon-theme;
+    #      name = "kora";
+    #    };
   };
+
+  #  home.sessionVariables.GTK_THEME = "Orchis-Purple";
 
   programs.niri = {
     settings = {
