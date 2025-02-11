@@ -2,24 +2,11 @@
   programs = {
     nushell = {
       enable = true;
-      # The config.nu can be anywhere you want if you like to edit your Nushell with Nu
-      #      configFile.source = ./.../config.nu;
-      # for editing directly to config.nu
-      extraConfig = ''
-      '';
-      shellAliases = {
-        garbage = "nix-collect-garbage";
-        garbages = "sudo nix-collect-garbage";
-        garbaged = "nix-collect-garbage -d";
-        garbagesd = "sudo nix-collect-garbage -d";
-        #        nrs = "sudo nixos-rebuild switch --flake .#($hostname)";
-        #nrt = "sudo nixos-rebuild test --flake .#($hostname)";
-      };
     };
     carapace.enable = true;
     carapace.enableNushellIntegration = true;
     starship = {
-      enable = false;
+      enable = true;
       enableNushellIntegration = true;
       settings = {
         format = "$directory$all$cmd_duration$jobs$status$shell$line_break$env_var$username$sudo$character";
