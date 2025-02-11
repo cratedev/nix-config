@@ -10,7 +10,16 @@
     swww
     grim
     slurp
+    gtk3
   ];
+
+  gtk = {
+    enable = true;
+    iconTheme = {
+      package = pkgs.orchis-theme;
+      name = "Orchis-Purple";
+    };
+  };
 
   programs.niri = {
     settings = {
