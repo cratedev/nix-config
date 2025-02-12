@@ -1,20 +1,10 @@
 {pkgs, ...}: {
   imports = [
-    #    ./terminals.nix
-    #    ./fish.nix
     ./zellij
     ./nu.nix
   ];
 
   home.packages = [pkgs.zellij];
-  # Environment Variables: Group related variables together
-  #  home.sessionVariables = {
-  #  EDITOR = "nano";
-  #  BROWSER = "firefox";
-  #  TERMINAL = "ghostty";
-  #  DELTA_PAGER = "less -R";
-  #  MANPAGER = "sh -c 'col -bx | bat -l man -p'";
-  #};
 
   # Shell Aliases: Define common aliases concisely
   #  home.shellAliases = {
