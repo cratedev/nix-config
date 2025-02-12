@@ -1,9 +1,9 @@
 # DOCS: https://zellij.dev/documentation
-{ pkgs, ... }: {
+{pkgs, ...}: {
   programs.zellij.enable = true;
   xdg.configFile = {
     "zellij/plugins/zjstatus.wasm".source = pkgs.fetchurl {
-      url = "https://github.com/dj95/zjstatus/releases/download/v0.17.0/zjstatus.wasm";
+      url = "https://github.com/dj95/zjstatus/releases/download/v0.20.2/zjstatus.wasm";
       sha256 = "2204df4a5db811aa7ed3385f8b04ef99d572fddaf23f17c417b2e154d5577be5";
     };
     "zellij/plugins/zellij_forgot.wasm".source = pkgs.fetchurl {

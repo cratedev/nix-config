@@ -79,11 +79,11 @@ in
             datetime_timezone "America/Toronto"
           }
         }
-        pane
-        pane {
-          borderless true
-          size 7
-          command "spotify_player"
+       pane
+       pane {
+          borderless false
+          size 12
+          //command "spotify_player"
         }
       }
     }''

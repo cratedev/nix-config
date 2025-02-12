@@ -24,6 +24,8 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    zjstatus.url = "github:dj95/zjstatus";
+
     stylix.url = "github:danth/stylix";
 
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
