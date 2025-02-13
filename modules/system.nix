@@ -30,7 +30,7 @@ in {
     autoEnable = true;
     polarity = "dark";
     fonts.sizes = {applications = 10;};
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/${stylixTheme}.yaml";
+    #    base16Scheme = "${pkgs.base16-schemes}/share/themes/${stylixTheme}.yaml";
     #    image = config.lib.stylix.pixel "base0A";
     image = ../wallpaper/5.jpg;
   };
