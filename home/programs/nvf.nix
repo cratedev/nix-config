@@ -139,7 +139,7 @@ in {
 
       # Minimap & Dashboard
       minimap = {minimap-vim.enable = false;};
-      dashboard = {dashboard-nvim.enable = true;};
+      dashboard = {startify.enable = true;};
 
       # Notifications & Utility
       notify = {nvim-notify.enable = true;};
