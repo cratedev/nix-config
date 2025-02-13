@@ -185,6 +185,7 @@ in {
       fontSize = "9";
     })
     rofi-wayland
+    xorg.xrandr
   ];
 
   # ============================= Session Variables =============================
