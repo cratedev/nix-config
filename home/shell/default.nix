@@ -2,6 +2,7 @@
   imports = [
     ./zellij
     ./nu.nix
+    ./ghostty.nix
   ];
 
   home.packages = [pkgs.zellij];

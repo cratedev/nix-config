@@ -9,7 +9,7 @@
   username = "matt";
   timezone = "America/Toronto";
   locale = "en_US.UTF-8";
-  stylixTheme = "da-one-ocean";
+  stylixTheme = "da-one-ocean"; #darkmoss ayu-mirage da-one-gray horizon-dark tokyo-city-terminal-dark
 
   # Define the path to the shared authorized_keys file
   sharedAuthorizedKeys = builtins.readFile ./ssh/authorized_keys;
