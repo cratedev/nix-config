@@ -2,7 +2,6 @@
   pkgs,
   lib,
   config,
-  inputs,
   ...
 }: let
   # Define reusable variables
@@ -32,7 +31,8 @@ in {
     polarity = "dark";
     fonts.sizes = {applications = 10;};
     base16Scheme = "${pkgs.base16-schemes}/share/themes/${stylixTheme}.yaml";
-    image = config.lib.stylix.pixel "base0A";
+    #    image = config.lib.stylix.pixel "base0A";
+    image = ../wallpaper/5.jpg;
   };
 
   # ============================= Nix Optimizations =============================
@@ -168,6 +168,7 @@ in {
 
   # ============================= System Packages =============================
   environment.systemPackages = with pkgs; [
+    nh
     sshfs
     nixd
     niri
@@ -188,6 +189,7 @@ in {
 
   # ============================= Session Variables =============================
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment.sessionVariables.FLAKE = "/home/${username}/nix-config";
 
   # ============================= SSHFS =========================================
   #  fileSystems."/home/matt/unraid-ssh" = {
