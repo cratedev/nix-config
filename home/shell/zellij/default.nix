@@ -4,7 +4,7 @@
   config,
   ...
 }: let
-  inherit (config.lib.colors) colors;
+  inherit (config.lib.stylix) colors;
 in {
   programs.zellij.enable = true;
   xdg.configFile = {
@@ -22,6 +22,6 @@ in {
     };
 
     "zellij/config.kdl".text = import ./config.nix;
-    "zellij/layouts/default.kdl".text = import ./layout.nix;
+    "zellij/layouts/default.kdl".text = import ./layout.nix {inherit colors;};
   };
 }
