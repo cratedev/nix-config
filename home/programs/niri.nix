@@ -33,7 +33,7 @@
 
       spawn-at-startup = [
         {command = ["swww-daemon"];}
-        {command = ["swww" "img" "../../wallpaper/3.png"];}
+        {command = ["swww" "img" "../../wallpaper/12.png"];}
         {
           command = [
             "sh"
@@ -46,8 +46,8 @@
               else
                 # Desktop setup: Arrange external monitors
                 ${pkgs.wlr-randr}/bin/wlr-randr --output HDMI-A-1 --pos 0,0 --transform normal --scale 1.0
-                ${pkgs.wlr-randr}/bin/wlr-randr --output DP-1 --pos 2560,0 --scale 1.0
-                ${pkgs.wlr-randr}/bin/wlr-randr --output DP-3 --pos 5120,-560 --transform 270 --scale 1.0
+                ${pkgs.wlr-randr}/bin/wlr-randr --output DP-1 --pos 2560,-560 --transform 270 --scale 1.0
+                ${pkgs.wlr-randr}/bin/wlr-randr --output DP-3 --pos 4000,0 --transform normal --scale 1.0
               fi
             ''
           ];
