@@ -31,12 +31,12 @@ in
 
             border_enabled  "false"
             border_char     "─"
-            border_format   "#[fg=#6C7086]{char}"
+            border_format   "#[fg=#$cyan]{char}"
             border_position "top"
 
             hide_frame_for_single_pane "true"
 
-            mode_normal        "#[bg=$green,fg=$bg,bold] NORMAL#[bg=$bg,fg=$green]"
+            mode_normal        "#[bg=$cyan,fg=$bg,bold] NORMAL#[bg=$bg,fg=$cyan]"
             mode_locked        "#[bg=$red,fg=$bg,bold] LOCKED #[bg=$bg,fg=$red]"
             mode_resize        "#[bg=$blue,fg=$bg,bold] RESIZE#[bg=$bg,fg=$blue]"
             mode_pane          "#[bg=$blue,fg=$bg,bold] PANE#[bg=$bg,fg=$blue]"

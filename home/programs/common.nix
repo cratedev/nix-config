@@ -49,7 +49,6 @@
       if pkgs.stdenv.system == "x86_64-linux"
       then [
         inputs.zen-browser.packages.x86_64-linux.default
-        inputs.ghostty.packages.x86_64-linux.default
         (discord.override {withVencord = true;})
       ]
       else []
@@ -60,7 +59,6 @@ in {
   xdg.configFile = {
     "spotify-player".source = ../dots/spotify-player;
     "rofi".source = ../dots/rofi;
-    "ghostty".source = ../dots/ghostty;
   };
 
   programs = {

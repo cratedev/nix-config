@@ -1,11 +1,5 @@
 # DOCS: https://zellij.dev/documentation
-{
-  pkgs,
-  config,
-  ...
-}: let
-  inherit (config.lib.colors) colors;
-in {
+{pkgs, ...}: {
   programs.zellij.enable = true;
   xdg.configFile = {
     "zellij/plugins/zjstatus.wasm".source = pkgs.fetchurl {
