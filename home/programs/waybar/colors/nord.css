@@ -1,22 +1,34 @@
-@define-color bg #1d2129;
-@define-color container #2e3440;
+@define-color background #1f2229;
+@define-color on-background #eceff4;
 
-@define-color fg #d8dee9;
-@define-color fg-1 #ffffff;
+@define-color primary #88c0d0;
+@define-color on-primary #333945;
 
-@define-color arch #a9cef5;
-@define-color memory #7ba3d4;
-@define-color themes #e0afd7;
-@define-color weather #c7eda8;
+@define-color secondary #81a1c1;
+@define-color on-secondary #2e3440;
 
-@define-color workspace #596378;
-@define-color workspace-active #88c0d0;
+@define-color primary-container #292F3A;
+@define-color on-primary-container #88c0d0;
 
-@define-color slider #393b34;
-@define-color slider-highlight #ebcb8b;
-@define-color calender #a4dedd;
-@define-color clock #c7eda8;
-@define-color power #ed7b86;
+@define-color secondary-container #292F3A;
+@define-color on-secondary-container #e5e9f0;
 
-@define-color logout #ebcb8b;
-@define-color reboot #e09c87;
+@define-color workspace #88c0d0;
+@define-color workspace-active #a7c98f;
+
+@define-color outline #4c566a;
+
+@define-color surface-variant #3b4252;
+@define-color on-surface-variant #d8dee9;
+@define-color surface-tint #88c0d0;
+
+@define-color load #de8a92;
+@define-color clock #a0e0eb;
+@define-color red #bf616a;
+@define-color cava #8fbcbb;
+@define-color updates #d9ce91;
+@define-color network #c7d991;
+@define-color playerctl-1 #ebcb8b;
+@define-color playerctl-2 #d08770;
+@define-color upload #a7c080;
+@define-color download #d699b6;
