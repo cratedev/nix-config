@@ -20,7 +20,7 @@
           "group/music-controller"
           "network#up"
           "network#down"
-          "hyprland/workspaces"
+          "niri/workspaces"
         ];
 
         modules-center = [];
@@ -111,7 +111,7 @@
           interval = 2;
         };
 
-        "hyprland/workspaces" = {
+        "niri/workspaces" = {
           all-outputs = false;
           active-only = false;
           on-click = "activate";

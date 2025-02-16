@@ -132,23 +132,23 @@
         '';
       };
 
-      window-rules = [
-        {matches = [{app-id = "^org\\.wezfurlong\\.wezterm$";}];}
-        {
-          geometry-corner-radius = {
-            bottom-left = 6.0;
-            bottom-right = 6.0;
-            top-left = 6.0;
-            top-right = 6.0;
-          };
-          clip-to-geometry = true;
-        }
-        {
-          matches = [{app-id = "^clipse$";}];
-          block-out-from = "screen-capture";
-        }
-      ];
-
+      #      window-rules = [
+      #        # Apply shadow globally or for specific windows
+      #        {
+      #          matches = [{app-id = "^.*$";}]; # Match all windows (or adjust the regex to match specific apps)
+      #    shadow = {
+      #      on = true; # Enable shadows
+      #      softness = 40; # Adjust the softness of the shadow
+      #      spread = 5; # Adjust the spread of the shadow
+      #      offset = {
+      #        x = 0;
+      #        y = 5;
+      #      }; # Set the offset for shadow positioning
+      #      drawBehindWindow = true; # Draw the shadow behind the window
+      #      color = "#00000064"; # Shadow color with opacity
+      #    };
+      #  }
+      #];
       binds = with config.lib.niri.actions; let
         sh = spawn "sh" "-c";
       in {
