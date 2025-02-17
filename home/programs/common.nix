@@ -65,7 +65,7 @@ in {
     spotify-player.enable = true;
     ncspot.enable = true;
     tmux.enable = true;
-    vscode.enable = true;
+    vscode.enable = false;
     btop.enable = true;
     eza.enable = false;
     jq.enable = true;

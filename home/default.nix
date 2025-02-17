@@ -19,11 +19,11 @@
   home.enableNixpkgsReleaseCheck = false;
 
   programs = {
-    nix-index = {
-      enable = true;
-      enableFishIntegration = true;
-    };
+    #    nix-index = {
+    #  enable = true;
+    #  enableFishIntegration = true;
+    #};
     home-manager.enable = true;
-    tmux.enable = true;
+    #tmux.enable = true;
   };
 }
