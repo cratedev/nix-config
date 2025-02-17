@@ -2,12 +2,8 @@
   description = "crate";
 
   nixConfig = {
-    extra-substituters = [
-      "https://nix-community.cachix.org"
-    ];
-    extra-trusted-public-keys = [
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-    ];
+    extra-substituters = ["https://nix-community.cachix.org"];
+    extra-trusted-public-keys = ["nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="];
   };
 
   inputs = {
@@ -40,15 +36,14 @@
       ./secrets/default.nix
     ];
 
-    # Function that dynamically takes the system architecture
     createSystemConfig = system: hostFile: extraModules:
       lib.nixosSystem {
-        inherit system; # Use dynamic architecture (e.g., "x86_64-linux" or "aarch64-linux")
+        inherit system;
         specialArgs = {inherit inputs;};
         modules = lib.concatLists [
           [hostFile]
-          commonModules # Shared modules
-          extraModules # Extra modules (optional)
+          commonModules
+          extraModules
           [
             {
               home-manager = {
@@ -69,7 +64,7 @@
     nixosConfigurations = {
       crate-laptop = createSystemConfig "x86_64-linux" ./hosts/crate-laptop [inputs.nixos-hardware.nixosModules.dell-xps-15-9510];
       crate-desktop = createSystemConfig "x86_64-linux" ./hosts/crate-desktop [];
-      crate-mini = createSystemConfig "aarch64-linux" ./hosts/crate-mini [];
+      #      crate-mini = createSystemConfig "aarch64-linux" ./hosts/crate-mini [];
     };
   };
 }

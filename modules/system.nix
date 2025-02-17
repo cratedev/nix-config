@@ -30,9 +30,9 @@ in {
     autoEnable = true;
     polarity = "dark";
     fonts.sizes = {applications = 10;};
-    #    base16Scheme = "${pkgs.base16-schemes}/share/themes/${stylixTheme}.yaml";
-    #    image = config.lib.stylix.pixel "base0A";
-    image = ../wallpaper/12.png;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/${stylixTheme}.yaml";
+    image = config.lib.stylix.pixel "base0A";
+    #    image = ../wallpaper/12.png;
   };
 
   # ============================= Nix Optimizations =============================
@@ -100,6 +100,12 @@ in {
   # ============================= Hardware =============================
   hardware = {bluetooth.enable = false;};
   security = {polkit.enable = true;};
+  security.pam.services.sddm.text = ''
+    auth      sufficient   pam_fprintd.so
+    auth      required     pam_unix.so try_first_pass
+    account   required     pam_unix.so
+    session   required     pam_unix.so
+  '';
 
   # ============================= Services =============================
   services = {
@@ -144,6 +150,13 @@ in {
       };
       knownHosts = import ./ssh/knownHosts;
       openFirewall = true;
+    };
+    fprintd = {
+      enable = true;
+      package = pkgs.fprintd-tod;
+      tod.enable = true;
+      # Search for "libfprint" in packages to find other drivers
+      tod.driver = pkgs.libfprint-2-tod1-broadcom;
     };
   };
 

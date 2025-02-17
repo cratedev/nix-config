@@ -16,14 +16,14 @@
 
   gtk = {
     enable = true;
-    #theme = lib.mkForce {
-    #  package = pkgs.orchis-theme;
-    #  name = "Orchis-Purple";
-    #};
-    #iconTheme = {
-    #  package = pkgs.tela-icon-theme;
-    #  name = "Tela-nord";
-    #};
+    theme = lib.mkForce {
+      package = pkgs.orchis-theme;
+      name = "Orchis-Purple";
+    };
+    iconTheme = {
+      package = pkgs.kora-icon-theme;
+      name = "kora";
+    };
   };
 
   #  home.sessionVariables.GTK_THEME = "Orchis-Purple";
