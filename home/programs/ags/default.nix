@@ -52,7 +52,7 @@ in {
     };
     Service = {
       Environment = "PATH=/run/wrappers/bin:${lib.makeBinPath dependencies}";
-      ExecStart = "${cfg.package}/bin/ags -c ${config.xdg.configHome}/ags/config.js";
+      ExecStart = "${cfg.package}/bin/ags -c ./config.js";
       Restart = "on-failure";
     };
     Install.WantedBy = ["graphical-session.target"];
