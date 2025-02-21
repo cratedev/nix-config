@@ -25,7 +25,6 @@
     nvf.inputs.nixpkgs.follows = "nixpkgs";
     ghostty.url = "github:ghostty-org/ghostty";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
-    ags.url = "github:aylur/ags";
   };
 
   outputs = inputs @ {nixpkgs, ...}: let
