@@ -1,184 +1,88 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: let
+  waybarConfig = {
+    layer = "top";
+    position = "top";
+    modules-left = ["custom/logo" "clock" "disk" "memory" "cpu" "temperature"];
+    modules-center = ["niri/workspaces"];
+    modules-right = ["pulseaudio" "network" "battery"];
+    reload_style_on_change = true;
+
+    "custom/logo" = {
+      format = "<span font='14px'>  </span>";
+      tooltip = false;
+      on-click = "swaync-client -t";
+    };
+
+    network = {
+      format-wifi = "";
+      format-ethernet = "";
+      format-disconnected = "";
+      tooltip-format-disconnected = "Error";
+      tooltip-format-wifi = "{essid} ({signalStrength}%) ";
+      tooltip-format-ethernet = "{ifname} 🖧 ";
+      on-click = "ghostty -e nmtui";
+    };
+
+    pulseaudio = {
+      scroll-step = 5;
+      max-volume = 150;
+      format = " {volume}%";
+      format-bluetooth = "󱄡 {volume}%";
+      on-click = "pavucontrol";
+      tooltip = false;
+    };
+
+    clock = {
+      format = "{:%I:%M %p}";
+      tooltip = true;
+      tooltip-format = "<small>{:%D}</small>";
+      calendar-weeks-pos = "right";
+    };
+
+    disk = {
+      interval = 30;
+      format = " {percentage_used}%";
+      path = "/";
+    };
+
+    memory = {
+      format = " {percentage}%";
+    };
+
+    cpu = {
+      interval = 1;
+      format = " {usage}%";
+    };
+
+    temperature = {
+      format = " {temperatureC}°C";
+      format-critical = " {temperatureC}°C";
+      interval = 1;
+      critical-threshold = 80;
+    };
+
+    "niri/workspaces" = {
+      format = "<span font='14px'>{icon}</span>";
+      format-icons = {
+        "1" = "";
+        "2" = "";
+        "3" = " ";
+        "4" = "󱝿";
+        "5" = "";
+      };
+      persistent-workspaces = {"*" = [1 2 3 4 5];};
+    };
+  };
+in {
   programs.waybar = {
     enable = true;
-    package = pkgs.waybar;
+    settings = {
+      mainBar = waybarConfig;
+    };
     style = builtins.readFile ./style.css;
-
-    settings = [
-      {
-        layer = "top";
-        position = "top";
-        height = 40;
-        margin-top = 0;
-        margin-left = 0;
-        margin-bottom = 0;
-        margin-right = 0;
-        spacing = 0;
-
-        modules-left = [
-          "group/launcher"
-          "group/music-controller"
-          "network#up"
-          "network#down"
-          "niri/workspaces"
-        ];
-
-        modules-center = [];
-
-        modules-right = [
-          "custom/cpuinfo"
-          "memory"
-          "network"
-          "group/clock-container"
-        ];
-
-        # Module definitions
-        "group/launcher" = {
-          orientation = "horizontal";
-          drawer = {
-            transition-duration = 500;
-            children-class = "launcher";
-            transition-left-to-right = true;
-            click-to-reveal = true;
-          };
-          modules = ["custom/launcher" "tray"];
-        };
-
-        "custom/launcher" = {
-          format = "  ";
-          tooltip = false;
-        };
-
-        tray = {
-          icon-size = 12;
-          spacing = 7;
-        };
-
-        "group/music-controller" = {
-          orientation = "horizontal";
-          modules = [
-            "custom/playerctl-backward"
-            "custom/playerctl-play"
-            "custom/playerctl-forward"
-          ];
-        };
-
-        "custom/playerctl-backward" = {
-          format = "";
-          tooltip = false;
-          on-click = "playerctl previous";
-          on-scroll-up = "playerctl volume .05+";
-          on-scroll-down = "playerctl volume .05-";
-        };
-
-        "custom/playerctl-play" = {
-          format = "{icon}";
-          return-type = "json";
-          exec = "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F";
-          on-click = "playerctl play-pause";
-          on-scroll-up = "playerctl volume .05+";
-          on-scroll-down = "playerctl volume .05-";
-          format-icons = {
-            Playing = "<span></span>";
-            Paused = "<span></span>";
-            Stopped = "<span></span>";
-          };
-        };
-
-        "custom/playerctl-forward" = {
-          format = "";
-          tooltip = false;
-          on-click = "playerctl next";
-          on-scroll-up = "playerctl volume .05+";
-          on-scroll-down = "playerctl volume .05-";
-        };
-
-        load = {
-          interval = 10;
-          format = " Load {load1}";
-          max-length = 15;
-        };
-
-        "network#up" = {
-          format = "{bandwidthUpBytes:>3}";
-          tooltip = false;
-          interval = 2;
-        };
-
-        "network#down" = {
-          format = "{bandwidthDownBytes:>3}";
-          tooltip = false;
-          interval = 2;
-        };
-
-        "niri/workspaces" = {
-          all-outputs = false;
-          active-only = false;
-          on-click = "activate";
-          format = "{icon}";
-          on-scroll-up = "hyprctl dispatch workspace e+1";
-          on-scroll-down = "hyprctl dispatch workspace e-1";
-          format-icons = {
-            "1" = "󰸳";
-            "2" = "󰸳";
-            "3" = "󰸳";
-            "4" = "󰸳";
-            "5" = "󰸳";
-            "6" = "󰸳";
-            "7" = "󰸳";
-            "8" = "󰸳";
-            "9" = "󰸳";
-            "10" = "󰸳";
-            urgent = "";
-            default = "󰸳";
-          };
-        };
-
-        "wlr/taskbar" = {
-          format = "{icon}";
-          icon-size = 12;
-          icon-theme = "Tela-circle-dracula";
-          spacing = 0;
-          tooltip-format = "{title}";
-          on-click = "activate";
-          on-click-middle = "close";
-          ignore-list = ["Alacritty"];
-          app_ids-mapping = {
-            "firefoxdeveloperedition" = "firefox-developer-edition";
-          };
-        };
-
-        memory = {
-          interval = 30;
-          format = "󰫺󰫲󰫺 {used}GB";
-          max-length = 14;
-          tooltip = true;
-          tooltip-format = "   {percentage}%\n {used:0.1f}GB/{total:0.1f}GB \n {swapUsed}GB/{swapTotal}GB";
-        };
-
-        "group/system-container" = {
-          orientation = "horizontal";
-          modules = [
-            "group/updates-grp"
-            "group/pulseaudio-grp"
-            "group/disk-grp"
-            "group/redshift-grp"
-            "group/cpu-grp"
-          ];
-        };
-
-        "group/clock-container" = {
-          orientation = "horizontal";
-          modules = ["clock"];
-        };
-
-        clock = {
-          timezone = "America/Toronto";
-          format = "  {:%I:%M %p}";
-          format-alt = "  {:%d·%m·%y}";
-          tooltip-format = "<tt>{calendar}</tt>";
-        };
-      }
-    ];
   };
 }

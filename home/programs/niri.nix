@@ -12,6 +12,7 @@
     slurp
     gtk3
     swaybg
+    xwayland-satellite
   ];
 
   gtk = {
@@ -35,6 +36,7 @@
       spawn-at-startup = [
         {command = ["swww-daemon"];}
         {command = ["swww" "img" "../../wallpaper/12.png"];}
+        {command = ["waybar"];}
         #        {command = ["swaybg" "-o" "DP-1" "-i" "../../wallpaper/vert.jpg"];}
         {
           command = [

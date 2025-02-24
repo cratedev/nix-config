@@ -17,6 +17,9 @@
 
   # Let Home Manager install and manage itself.
   home.enableNixpkgsReleaseCheck = false;
+  stylix.targets = {
+    waybar.enable = false;
+  };
 
   programs = {
     #    nix-index = {

@@ -87,6 +87,9 @@ in {
       dina-font
       proggyfonts
       liberation_ttf
+      jetbrains-mono
+      nerd-fonts.jetbrains-mono
+      font-awesome
     ];
     enableDefaultPackages = false;
     fontconfig.defaultFonts = {
