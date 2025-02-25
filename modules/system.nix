@@ -213,6 +213,14 @@ in {
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   environment.sessionVariables.FLAKE = "/home/${username}/nix-config";
 
+  environment.etc = {
+    "1password/custom_allowed_browsers" = {
+      text = ''
+        .zen-wrapped
+      '';
+      mode = "0755";
+    };
+  };
   # ============================= SSHFS =========================================
   #  fileSystems."/home/matt/unraid-ssh" = {
   #device = "root@10.0.0.10:/mnt";

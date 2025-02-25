@@ -37,6 +37,7 @@
         {command = ["swww-daemon"];}
         {command = ["swww" "img" "../../wallpaper/12.png"];}
         {command = ["waybar"];}
+        {command = ["1password" "--ozone-platform-hint=auto"];}
         #        {command = ["swaybg" "-o" "DP-1" "-i" "../../wallpaper/vert.jpg"];}
         {
           command = [
@@ -71,7 +72,8 @@
       };
 
       layout = {
-        gaps = 20;
+        #        shadow = "on";
+        gaps = 10;
         center-focused-column = "on-overflow";
         focus-ring = {
           enable = false;
