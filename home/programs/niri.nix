@@ -72,7 +72,10 @@
       };
 
       layout = {
-        #        shadow = "on";
+        shadow = {
+          enable = true;
+          draw-behind-window = true;
+        };
         gaps = 10;
         center-focused-column = "on-overflow";
         focus-ring = {
