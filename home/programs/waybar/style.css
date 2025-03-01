@@ -2,7 +2,7 @@
   border: none;
   font-size: 10px;
   font-family: JetBrainsMono Nerd Font,JetBrainsMono NF;
-  min-height: 10px;
+  min-height: 8px;
 }
 
 window#waybar {
@@ -100,7 +100,7 @@ window#waybar > box {
 #pulseaudio-slider trough {
   margin-top: -3px;
   min-width: 90px;
-  min-height: 10px;
+  min-height: 8px;
   margin-bottom: -4px;
   border-radius: 8px;
   background: #a6a69c;

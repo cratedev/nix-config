@@ -8,7 +8,7 @@
     position = "top";
     modules-left = ["custom/logo" "clock" "disk" "memory" "cpu" "temperature"];
     modules-center = ["niri/workspaces"];
-    modules-right = ["pulseaudio" "network" "battery"];
+    modules-right = ["pulseaudio/slider" "battery" "network"];
     reload_style_on_change = true;
 
     "custom/logo" = {
