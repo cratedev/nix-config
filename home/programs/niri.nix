@@ -70,6 +70,10 @@
         };
         focus-follows-mouse.enable = true;
       };
+      cursor = {
+        theme = "Adwaita";
+        size = 18;
+      };
 
       layout = {
         shadow = {

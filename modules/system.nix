@@ -31,7 +31,7 @@ in {
     polarity = "dark";
     fonts.sizes = {applications = 10;};
     base16Scheme = "${pkgs.base16-schemes}/share/themes/${stylixTheme}.yaml";
-    image = config.lib.stylix.pixel "base0A";
+    #    image = config.lib.stylix.pixel "base0A";
     #    image = ../wallpaper/12.png;
   };
 
@@ -155,7 +155,7 @@ in {
       openFirewall = true;
     };
     fprintd = {
-      enable = true;
+      enable = false;
       package = pkgs.fprintd-tod;
       tod.enable = true;
       # Search for "libfprint" in packages to find other drivers
@@ -207,6 +207,7 @@ in {
     })
     rofi-wayland
     xorg.xrandr
+    nss
   ];
 
   # ============================= Session Variables =============================
