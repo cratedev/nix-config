@@ -155,7 +155,7 @@ in {
       openFirewall = true;
     };
     fprintd = {
-      enable = false;
+      enable = true; # Broken until fprintd-tod is fixed https://github.com/NixOS/nixpkgs/pull/388905
       package = pkgs.fprintd-tod;
       tod.enable = true;
       # Search for "libfprint" in packages to find other drivers

@@ -72,7 +72,7 @@
       };
       cursor = {
         theme = "Adwaita";
-        size = 18;
+        size = 12;
       };
 
       layout = {
