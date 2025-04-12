@@ -50,6 +50,8 @@
       then [
         inputs.zen-browser.packages.x86_64-linux.default
         (discord.override {withVencord = true;})
+        lutris
+        wine
       ]
       else []
     );
@@ -70,7 +72,6 @@ in {
     eza.enable = false;
     jq.enable = true;
     aria2.enable = true;
-
     nix-index = {
       enable = true;
       enableFishIntegration = true;

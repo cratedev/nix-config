@@ -161,6 +161,11 @@ in {
       # Search for "libfprint" in packages to find other drivers
       tod.driver = pkgs.libfprint-2-tod1-broadcom;
     };
+    xserver = {
+      enable = true;
+      desktopManager.gnome.enable = true;
+      displayManager.sddm.enable = true;
+    };
   };
 
   # ============================= XDG Portals =============================
@@ -179,12 +184,13 @@ in {
     dconf.enable = true;
     niri.enable = true;
     fish.enable = true;
-    #    xwayland.enable = true;
+    xwayland.enable = true;
     _1password.enable = true;
     _1password-gui = {
       enable = true;
       polkitPolicyOwners = ["matt"];
     };
+    steam.enable = true;
   };
 
   # ============================= System Packages =============================
@@ -208,6 +214,15 @@ in {
     rofi-wayland
     xorg.xrandr
     nss
+    wineWowPackages.stagingFull
+    winetricks
+    vulkan-tools
+    libpulseaudio
+    libGL
+    glxinfo
+    pciutils
+    xdg-user-dirs
+    gnome-session
   ];
 
   # ============================= Session Variables =============================
