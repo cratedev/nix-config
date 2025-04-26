@@ -44,6 +44,7 @@
       obsidian
       fuzzel
       networkmanagerapplet
+      #      inputs.astal.packages.${system}.default
     ]
     ++ (
       if pkgs.stdenv.system == "x86_64-linux"

@@ -162,8 +162,8 @@ in {
       tod.driver = pkgs.libfprint-2-tod1-broadcom;
     };
     xserver = {
-      enable = true;
-      desktopManager.gnome.enable = true;
+      enable = false;
+      desktopManager.gnome.enable = false;
       displayManager.sddm.enable = true;
     };
   };
@@ -222,7 +222,7 @@ in {
     glxinfo
     pciutils
     xdg-user-dirs
-    gnome-session
+    #    gnome-session
   ];
 
   # ============================= Session Variables =============================
@@ -233,6 +233,7 @@ in {
     "1password/custom_allowed_browsers" = {
       text = ''
         .zen-wrapped
+        .zen-beta-wrapped
       '';
       mode = "0755";
     };
