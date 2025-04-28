@@ -2,7 +2,6 @@
   imports = [
     ../../modules/system.nix
     ./hardware-configuration.nix
-    ../../modules/hosts.nix
   ];
 
   # Where we're going, we don't need channels
