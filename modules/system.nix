@@ -223,7 +223,6 @@ in {
     pciutils
     xdg-user-dirs
     #    gnome-session
-    ags
   ];
 
   # ============================= Session Variables =============================
