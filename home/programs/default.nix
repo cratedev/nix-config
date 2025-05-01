@@ -8,5 +8,6 @@
     ./xdg.nix
     ./nvf.nix
     ./waybar/default.nix
+    ./ags/default.nix
   ];
 }
