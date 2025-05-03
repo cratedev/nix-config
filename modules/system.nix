@@ -173,6 +173,7 @@ in {
     xdgOpenUsePortal = true;
     extraPortals = with pkgs; [
       xdg-desktop-portal-wlr
+      xdg-desktop-portal-hyprland
     ];
     config.common.default = "*";
   };
@@ -182,6 +183,7 @@ in {
     ssh.startAgent = true;
     dconf.enable = true;
     niri.enable = true;
+    hyprland.enable = true;
     fish.enable = true;
     xwayland.enable = true;
     _1password.enable = true;
@@ -198,6 +200,7 @@ in {
     sshfs
     nixd
     niri
+    kitty
     python3
     ncurses
     vim
