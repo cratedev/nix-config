@@ -3,7 +3,7 @@
     ./common.nix
     ./browsers.nix
     ./niri.nix
-    ./hyprland.nix
+    #    ./hyprland.nix
     ./git.nix
     ./media.nix
     ./xdg.nix

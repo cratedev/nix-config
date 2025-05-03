@@ -20,20 +20,11 @@
 
     stylix.url = "github:danth/stylix";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
-    niri.url = "github:sodiboo/niri-flake";
+    niri.url = "github:sodiboo/niri-flake/d21e04836830680650bf44fa3d8ab80d7ea762bd";
     nvf.url = "github:notashelf/nvf";
     nvf.inputs.nixpkgs.follows = "nixpkgs";
     ghostty.url = "github:ghostty-org/ghostty";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
-
-    astal = {
-      url = "github:aylur/astal";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    ags = {
-      url = "github:aylur/ags";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = inputs @ {nixpkgs, ...}: let

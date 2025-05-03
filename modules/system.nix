@@ -173,7 +173,7 @@ in {
     xdgOpenUsePortal = true;
     extraPortals = with pkgs; [
       xdg-desktop-portal-wlr
-      xdg-desktop-portal-hyprland
+      #      xdg-desktop-portal-hyprland
     ];
     config.common.default = "*";
   };
@@ -183,7 +183,7 @@ in {
     ssh.startAgent = true;
     dconf.enable = true;
     niri.enable = true;
-    hyprland.enable = true;
+    hyprland.enable = false;
     fish.enable = true;
     xwayland.enable = true;
     _1password.enable = true;
