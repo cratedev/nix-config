@@ -155,10 +155,9 @@ in {
       openFirewall = true;
     };
     fprintd = {
-      enable = true; # Broken until fprintd-tod is fixed https://github.com/NixOS/nixpkgs/pull/388905
+      enable = true;
       package = pkgs.fprintd-tod;
       tod.enable = true;
-      # Search for "libfprint" in packages to find other drivers
       tod.driver = pkgs.libfprint-2-tod1-broadcom;
     };
     xserver = {
@@ -221,8 +220,6 @@ in {
     libGL
     glxinfo
     pciutils
-    xdg-user-dirs
-    #    gnome-session
   ];
 
   # ============================= Session Variables =============================
@@ -232,8 +229,10 @@ in {
   environment.etc = {
     "1password/custom_allowed_browsers" = {
       text = ''
-        .zen-wrapped
-        .zen-beta-wrapped
+            .zen-wrapped
+            .zen-beta-wrapp
+        zen
+        zen-beta
       '';
       mode = "0755";
     };
