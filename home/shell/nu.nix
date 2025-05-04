@@ -33,10 +33,9 @@
         garbages = "sudo nix-collect-garbage";
         garbaged = "nix-collect-garbage -d";
         garbagesd = "sudo nix-collect-garbage -d";
-        nrs = "sudo nixos-rebuild switch --flake .#($env.machine)";
-        nrt = "sudo nixos-rebuild test --flake .#($env.machine)";
         switch = "nh os switch";
         test = "nh os test";
+        "1password" = "1password --ozone-platform-hint=auto";
       };
     };
 
