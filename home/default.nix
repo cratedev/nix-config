@@ -17,6 +17,9 @@
 
   stylix.targets = {
     waybar.enable = false;
+    firefox = {
+      profileNames = ["matt"];
+    };
   };
 
   programs = {

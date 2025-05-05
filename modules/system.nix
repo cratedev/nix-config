@@ -163,7 +163,6 @@ in {
     xserver = {
       enable = false;
       desktopManager.gnome.enable = false;
-      displayManager.sddm.enable = true;
     };
   };
 
@@ -227,7 +226,7 @@ in {
 
   # ============================= Session Variables =============================
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
-  environment.sessionVariables.FLAKE = "/home/${username}/nix-config";
+  environment.sessionVariables.NH_FLAKE = "/home/${username}/nix-config";
 
   environment.etc = {
     "1password/custom_allowed_browsers" = {

@@ -33,6 +33,7 @@ in {
 
       # Language Server Protocol (LSP) settings
       lsp = {
+        enable = true;
         formatOnSave = true;
         lightbulb.enable = true;
         trouble.enable = true;
@@ -49,7 +50,6 @@ in {
 
       # Languages and Formatters
       languages = {
-        enableLSP = true;
         enableFormat = true;
         enableTreesitter = true;
         enableExtraDiagnostics = true;
