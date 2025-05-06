@@ -38,7 +38,10 @@
         "1password" = "1password --ozone-platform-hint=auto";
       };
     };
-
+    zoxide = {
+      enable = true;
+      options = ["--cmd" "cd"];
+    };
     carapace.enable = true;
     carapace.enableNushellIntegration = true;
     starship = {

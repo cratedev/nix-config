@@ -191,6 +191,10 @@ in {
       polkitPolicyOwners = ["matt"];
     };
     steam.enable = true;
+    zoxide = {
+      enable = true;
+      flags = ["--cmd cd"];
+    };
   };
 
   # ============================= System Packages =============================
