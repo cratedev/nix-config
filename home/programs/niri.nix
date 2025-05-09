@@ -93,7 +93,7 @@
           active.color = "#344e66";
           inactive.color = "#333333";
         };
-        default-column-width.proportion = 0.5;
+        default-column-width = {};
       };
 
       screenshot-path = null;
