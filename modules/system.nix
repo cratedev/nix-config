@@ -202,6 +202,8 @@ in {
     nh
     sshfs
     nixd
+    nix-search-cli
+    nix-search-tv
     niri
     kitty
     python3

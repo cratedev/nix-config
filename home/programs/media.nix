@@ -19,6 +19,7 @@
     vlc
     # CLI tools
     ytfzf
+    youtube-music
   ];
 
   programs.spicetify = {
@@ -34,4 +35,3 @@
 
   services.playerctld.enable = true;
 }
-
