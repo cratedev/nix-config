@@ -4,10 +4,9 @@ kdl
 */
 ''
   layout {
-    pane split_direction="horizontal" {
-      pane size=1 borderless=true {
+    pane {
+      pane size=1 borderless=false {
         plugin location="file:$HOME/.config/zellij/plugins/zjstatus.wasm" {
-
           // Nord theme
           color_fg "#616e88" //= Brightest + 10% - "#4C566A" = Brightest - "#434C5E" = Bright
           color_bg "#2E3440"
@@ -31,7 +30,7 @@ kdl
           border_format   "#[fg=#${colors.base0B}]{char}"
           border_position "top"
 
-          hide_frame_for_single_pane "true"
+          hide_frame_for_single_pane "false"
 
   		mode_normal        "#[bg=#${colors.base0B},fg=#${colors.base02},bold] NORMAL#[bg=#${colors.base03},fg=#${colors.base0B}]█"
   		mode_locked        "#[bg=#${colors.base04},fg=#${colors.base02},bold] LOCKED #[bg=#${colors.base03},fg=#${colors.base04}]█"
@@ -77,10 +76,8 @@ kdl
         }
       }
      pane
-     pane {
-        borderless false
-        size 12
-        //command "spotify_player"
-      }
+   pane size=1 borderless=true {
+  	plugin location="zellij:status-bar"
+   }
     }
   }''
