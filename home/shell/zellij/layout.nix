@@ -4,8 +4,8 @@ kdl
 */
 ''
   layout {
-    pane split_direction="horizontal" {
-      pane size=1 {
+    default_tab_template {
+      pane size=1 borderless=true {
         plugin location="file:$HOME/.config/zellij/plugins/zjstatus.wasm" {
 
           // Nord theme
@@ -31,7 +31,7 @@ kdl
           border_format   "#[fg=#${colors.base0B}]{char}"
           border_position "top"
 
-          hide_frame_for_single_pane "true"
+          hide_frame_for_single_pane "fe
 
   		mode_normal        "#[bg=#${colors.base0B},fg=#${colors.base02},bold] NORMAL#[bg=#${colors.base03},fg=#${colors.base0B}]█"
   		mode_locked        "#[bg=#${colors.base04},fg=#${colors.base02},bold] LOCKED #[bg=#${colors.base03},fg=#${colors.base04}]█"
@@ -76,11 +76,13 @@ kdl
           datetime_timezone "America/Toronto"
         }
       }
-     pane
-     pane {
-        borderless false
+     pane split_direction="horizontal" {
+  		borderless false
+   }
+   pane {
+        borderless true
         size 1
         plugin location="zellij:status-bar"
       }
-    }
+  }
   }''
