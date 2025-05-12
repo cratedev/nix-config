@@ -31,7 +31,7 @@ kdl
           border_format   "#[fg=#${colors.base0B}]{char}"
           border_position "top"
 
-          hide_frame_for_single_pane "fe
+          hide_frame_for_single_pane "false"
 
   		mode_normal        "#[bg=#${colors.base0B},fg=#${colors.base02},bold] NORMAL#[bg=#${colors.base03},fg=#${colors.base0B}]█"
   		mode_locked        "#[bg=#${colors.base04},fg=#${colors.base02},bold] LOCKED #[bg=#${colors.base03},fg=#${colors.base04}]█"
