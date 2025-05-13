@@ -2,6 +2,7 @@
 /*
 kdl
 */
+builtins.trace "base0B is ${colors.base00}"
 ''
   layout {
     default_tab_template {
@@ -28,7 +29,7 @@ kdl
 
           border_enabled  "false"
           border_char     "─"
-          border_format   "#[fg=#${colors.base0B}]{char}"
+          border_format   "#[fg=#${colors.base00}]{char}"
           border_position "top"
 
           hide_frame_for_single_pane "false"
@@ -76,9 +77,9 @@ kdl
           datetime_timezone "America/Toronto"
         }
       }
-     pane split_direction="horizontal" {
+   pane split_direction="horizontal" {
   		borderless false
-   }
+  }
    pane {
         borderless true
         size 1

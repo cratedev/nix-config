@@ -21,7 +21,7 @@ in {
       sha256 = "757c8d30f32359d64f61d21a9fd508c65b49aa737b5140c0384f3906183d1993";
     };
 
-    "zellij/config.kdl".text = import ./config.nix;
+    "zellij/config.kdl".text = import ./config.nix {inherit colors;};
     "zellij/layouts/default.kdl".text = import ./layout.nix {inherit colors;};
     #    pluginPath = "/home/matt/.config/zellij/plugins/zjstatus.wasm";
   };
