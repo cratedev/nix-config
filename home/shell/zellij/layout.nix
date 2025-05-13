@@ -2,7 +2,6 @@
 /*
 kdl
 */
-builtins.trace "base0B is ${colors.base00}"
 ''
   layout {
     default_tab_template {
