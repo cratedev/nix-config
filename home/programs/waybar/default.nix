@@ -5,76 +5,191 @@
 }: let
   waybarConfig = {
     layer = "top";
-    position = "top";
-    modules-left = ["custom/logo" "clock" "disk" "memory" "cpu" "temperature"];
-    modules-center = ["niri/workspaces"];
-    modules-right = ["pulseaudio/slider" "battery" "network"];
-    reload_style_on_change = true;
+    position = "left";
+    height = 32;
+    exclusive = true;
+    passthrough = false;
+    "gtk-layer-shell" = true;
+    "modules-left" = [
+      "group/launcher"
+      "cpu"
+      "memory"
+      "temperature"
+      "group/themes"
+      "custom/weather"
+    ];
+    "modules-center" = ["hyprland/workspaces"];
+    "modules-right" = [
+      "pulseaudio/slider"
+      "pulseaudio#audio"
+      "clock#calender"
+      "clock"
+      "group/power"
+    ];
 
-    "custom/logo" = {
-      format = "<span font='14px'>  </span>";
+    # Group Launchers
+    "group/launcher" = {
+      orientation = "vertical";
+      drawer = {
+        "transition-duration" = 500;
+        "children-class" = "not-power";
+        "transition-left-to-right" = true;
+        "click-to-reveal" = true;
+      };
+      modules = ["custom/launcher" "tray"];
+    };
+
+    "custom/launcher" = {
+      format = "";
       tooltip = false;
-      on-click = "swaync-client -t";
     };
 
-    network = {
-      format-wifi = "";
-      format-ethernet = "";
-      format-disconnected = "";
-      tooltip-format-disconnected = "Error";
-      tooltip-format-wifi = "{essid} ({signalStrength}%) ";
-      tooltip-format-ethernet = "{ifname} 🖧 ";
-      on-click = "ghostty -e nmtui";
-    };
-
-    pulseaudio = {
-      scroll-step = 5;
-      max-volume = 150;
-      format = " {volume}%";
-      format-bluetooth = "󱄡 {volume}%";
-      on-click = "pavucontrol";
-      tooltip = false;
-    };
-
-    clock = {
-      format = "{:%I:%M %p}";
-      tooltip = true;
-      tooltip-format = "<small>{:%D}</small>";
-      calendar-weeks-pos = "right";
-    };
-
-    disk = {
-      interval = 30;
-      format = " {percentage_used}%";
-      path = "/";
-    };
-
-    memory = {
-      format = " {percentage}%";
+    tray = {
+      "icon-size" = 15;
+      spacing = 7;
     };
 
     cpu = {
       interval = 1;
-      format = " {usage}%";
+      format = "{usage:02}%";
+      rotate = 90;
+    };
+
+    memory = {
+      states = {
+        c = 90;
+        h = 75;
+        m = 30;
+      };
+      interval = 30;
+      format = "󰾆";
+      "format-m" = "󰾅";
+      "format-h" = "󰓅";
+      "format-c" = "";
+      "max-length" = 10;
+      tooltip = true;
+      "tooltip-format" = "{percentage}%\n{used:0.1f}GB/{total:0.1f}GB";
     };
 
     temperature = {
-      format = " {temperatureC}°C";
-      format-critical = " {temperatureC}°C";
-      interval = 1;
-      critical-threshold = 80;
+      format = "{temperatureC}°C";
+      interval = 2;
+      rotate = 90;
     };
 
-    "niri/workspaces" = {
-      format = "<span font='14px'>{icon}</span>";
-      format-icons = {
-        "1" = "";
-        "2" = "";
-        "3" = " ";
-        "4" = "󱝿";
-        "5" = "";
+    "custom/dots" = {
+      format = "";
+      tooltip = false;
+      rotate = 90;
+    };
+
+    "custom/updates" = {
+      exec = "~/.config/hypr/scripts/systemupdate.sh";
+      "return-type" = "json";
+      format = "{}";
+      interval = 3600;
+      tooltip = true;
+      rotate = 90;
+    };
+
+    "custom/weather" = {
+      format = "{}";
+      tooltip = true;
+      interval = 600;
+      exec = "~/.local/bin/wttrbar --location patna --custom-indicator {FeelsLikeC}°C";
+      "return-type" = "json";
+      rotate = 90;
+    };
+
+    "group/themes" = {
+      orientation = "vertical";
+      modules = ["custom/theme-switcher"];
+    };
+
+    "custom/theme-switcher" = {
+      format = "󰬁󰫵󰫲󱎥󰫲󱎤";
+      "tooltip-format" = "Switch Themes";
+      "on-click" = "~/.config/hypr/scripts/themeswitcher.sh";
+      rotate = 90;
+    };
+
+    "hyprland/workspaces" = {
+      format = "{icon}";
+      "format-icons" = {
+        "1" = "󰸶";
+        "2" = "󰸶";
+        "3" = "󰸶";
+        "4" = "󰸶";
+        "5" = "󰸶";
+        "6" = "󰸶";
+        "7" = "󰸶";
+        default = "󰸶";
+        urgent = "";
       };
-      persistent-workspaces = {"*" = [1 2 3 4 5];};
+      "persistent-workspaces" = {
+        "*" = 5;
+        "HDMI-A-1" = 6;
+      };
+    };
+
+    "wlr/taskbar" = {
+      format = "{icon}";
+      "icon-size" = 16;
+      "icon-theme" = "Tela-circle-dracula";
+      spacing = 0;
+      "tooltip-format" = "{title}";
+      "on-click" = "activate";
+      "on-click-middle" = "close";
+      "ignore-list" = ["Alacritty"];
+      "app_ids-mapping" = {
+        firefoxdeveloperedition = "firefox-developer-edition";
+      };
+    };
+
+    "pulseaudio/slider" = {
+      min = 0;
+      max = 100;
+      orientation = "vertical";
+    };
+
+    "clock#calender" = {
+      format = "{:%d·%m·%y}";
+      tooltip = false;
+      rotate = 90;
+    };
+
+    clock = {
+      interval = 1;
+      format = "\n{:%H\n%M}";
+      tooltip = false;
+    };
+
+    "group/power" = {
+      orientation = "vertical";
+      drawer = {
+        "transition-duration" = 500;
+        "children-class" = "not-power";
+        "transition-left-to-right" = false;
+        "click-to-reveal" = true;
+      };
+      modules = ["custom/power" "custom/quit" "custom/reboot"];
+    };
+
+    "custom/power" = {
+      format = "⏻";
+      tooltip = false;
+    };
+
+    "custom/reboot" = {
+      format = "󰬙";
+      "tooltip-format" = "Reboot-baby";
+      "on-click" = "reboot";
+    };
+
+    "custom/quit" = {
+      format = "󰬓";
+      "tooltip-format" = "Log-out";
+      "on-click" = "hyprctl dispatch exit";
     };
   };
 in {
