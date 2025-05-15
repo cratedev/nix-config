@@ -4,7 +4,7 @@
     // Defaults
     "wlr/taskbar": {
 		"format": "{icon}",
-		"icon-size": 18,
+		"icon-size": 16,
 		"icon-theme": "Tela-circle-dracula",
         "spacing": 0,
 		"tooltip-format": "{title}",
@@ -73,7 +73,7 @@
         "format": "{}",
         "separate-outputs": true,
         "rewrite": {
-            "(.*)${USER}@${set_sysname}:(.*)": "$1  :$2",
+//            "(.*)${USER}@${set_sysname}:(.*)": "$1  :$2",
             "(.*) — Mozilla Firefox": "$1 󰈹",
             "(.*)Mozilla Firefox": "$1 Firefox 󰈹",
             "(.*) - Visual Studio Code": "$1 󰨞",
@@ -163,10 +163,10 @@
             "dnd-inhibited-none": ""
         },
         "return-type": "json",
-        "exec-if": "which swaync-client",
-        "exec": "swaync-client -swb",
-        "on-click": "sleep 0.1 && swaync-client -t -sw",
-        "on-click-right": "swaync-client -d -sw",
+//        "exec-if": "which swaync-client",
+//        "exec": "swaync-client -swb",
+//        "on-click": "sleep 0.1 && swaync-client -t -sw",
+//        "on-click-right": "swaync-client -d -sw",
         "escape": true,
     },
 
@@ -185,10 +185,10 @@
         //     "dnd-inhibited-none": ""
         // },
         "return-type": "json",
-        "exec-if": "which swaync-client",
-        "exec": "swaync-client -swb",
-        "on-click": "sleep 0.1 && swaync-client -t -sw",
-        "on-click-right": "swaync-client -d -sw",
+//        "exec-if": "which swaync-client",
+//        "exec": "swaync-client -swb",
+//        "on-click": "sleep 0.1 && swaync-client -t -sw",
+//        "on-click-right": "swaync-client -d -sw",
         "escape": true,
     },
 
@@ -212,13 +212,13 @@
         "on-click-middle": "",
         "on-click-right": "",
         "on-update": "",
-        "on-scroll-up": "~/.config/hypr/scripts/brightness.sh up",
-        "on-scroll-down": "~/.config/hypr/scripts/brightness.sh down",
+//        "on-scroll-up": "~/.config/hypr/scripts/brightness.sh up",
+//        "on-scroll-down": "~/.config/hypr/scripts/brightness.sh down",
         "smooth-scrolling-threshold": 1
     },
 
     "tray": {
-        "icon-size": 18,
+        "icon-size": 16,
         "spacing": 10
     },
 
@@ -277,10 +277,10 @@
         "format": "{icon}",
         "format-muted": " ",
         "tooltip": false,
-        "on-click": "~/.config/hypr/scripts/volumecontrol.sh --toggle",
+//        "on-click": "~/.config/hypr/scripts/volumecontrol.sh --toggle",
         "on-click-right": "pavucontrol",
-        "on-scroll-up": "~/.config/hypr/scripts/volumecontrol.sh --inc",
-        "on-scroll-down": "~/.config/hypr/scripts/volumecontrol.sh --dec",
+//        "on-scroll-up": "~/.config/hypr/scripts/volumecontrol.sh --inc",
+//        "on-scroll-down": "~/.config/hypr/scripts/volumecontrol.sh --dec",
         "scroll-step": 5,
         "format-icons": {
             "headphone": "",
@@ -294,10 +294,10 @@
     "pulseaudio": {
         "format": "{volume}%",
         "format-muted": "0%",
-        "on-click": "~/.config/hypr/scripts/volumecontrol.sh --toggle",
+//        "on-click": "~/.config/hypr/scripts/volumecontrol.sh --toggle",
         "on-click-right": "pavucontrol",
-        "on-scroll-up": "~/.config/hypr/scripts/volumecontrol.sh --inc",
-        "on-scroll-down": "~/.config/hypr/scripts/volumecontrol.sh --dec",
+//        "on-scroll-up": "~/.config/hypr/scripts/volumecontrol.sh --inc",
+//        "on-scroll-down": "~/.config/hypr/scripts/volumecontrol.sh --dec",
         "scroll-step": 5,
     },
 
@@ -326,8 +326,8 @@
         "on-click-middle": "playerctl previous",
         "on-click-right": "playerctl next",
         "scroll-step": 5.0,
-        "on-scroll-up": "~/.config/hypr/scripts/volumecontrol.sh --inc",
-        "on-scroll-down": "~/.config/hypr/scripts/volumecontrol.sh --dec",
+//        "on-scroll-up": "~/.config/hypr/scripts/volumecontrol.sh --inc",
+//        "on-scroll-down": "~/.config/hypr/scripts/volumecontrol.sh --dec",
         "smooth-scrolling-threshold": 1,
         "player-icons": {
             "chromium": "",
@@ -370,40 +370,40 @@
 
     // works for arch, fedora and opensuse also.
     "custom/updater_icon": {
-        "exec": "~/.config/hypr/scripts/systemupdate.sh --check",
+//        "exec": "~/.config/hypr/scripts/systemupdate.sh --check",
         "format" : " ",
         "tooltip": "false",
         "interval": 86400 // once every day
     },
 
     "custom/updater": {
-        "exec": "~/.config/hypr/scripts/systemupdate.sh --check",
+//        "exec": "~/.config/hypr/scripts/systemupdate.sh --check",
         "return-type": "json",
         "format": "{}",
-        "on-click": "~/.config/hypr/scripts/systemupdate.sh --update",
+//        "on-click": "~/.config/hypr/scripts/systemupdate.sh --update",
         "interval": 86400, // once every day
         "tooltip": true
     },
 
     "custom/cava": {
-        "exec": "~/.config/hypr/scripts/cava.sh",
+//        "exec": "~/.config/hypr/scripts/cava.sh",
         "framerate": 60
     },
 
     "custom/clipboard_icon": {
         "format": "󰅌",
-        "on-click": "walker -m clipboard",
-        "on-click-right": "~/.config/hypr/scripts/cliphist.sh w",
+//        "on-click": "walker -m clipboard",
+//        "on-click-right": "~/.config/hypr/scripts/cliphist.sh w",
         "tooltip": "false",
         "interval": 1
     },
 
     "custom/clipboard": {
         "format": "{}",
-        "exec": "~/.config/hypr/scripts/cliphist.sh l",
-        "on-click": "~/.config/hypr/scripts/cliphist.sh c",
+//        "exec": "~/.config/hypr/scripts/cliphist.sh l",
+//        "on-click": "~/.config/hypr/scripts/cliphist.sh c",
         //"on-click": "walker -m clipboard",
-        "on-click-right": "~/.config/hypr/scripts/cliphist.sh w",
+//        "on-click-right": "~/.config/hypr/scripts/cliphist.sh w",
         "tooltip": "true",
         "tooltip-format": "Item copied: {}",
         "interval": 1
@@ -411,11 +411,11 @@
 
     "custom/nightlight": {
         "format": "󰖔 ",
-        "exec": "~/.config/hypr/scripts/nightlight.sh",
-        "on-scroll-down": "~/.config/hypr/scripts/nightlight.sh --dec",
-        "on-scroll-up": "~/.config/hypr/scripts/nightlight.sh --inc",
-        "on-click": "~/.config/hypr/scripts/nightlight.sh --value",
-        "on-click-right": "~/.config/hypr/scripts/nightlight.sh --def",
+//        "exec": "~/.config/hypr/scripts/nightlight.sh",
+//        "on-scroll-down": "~/.config/hypr/scripts/nightlight.sh --dec",
+//        "on-scroll-up": "~/.config/hypr/scripts/nightlight.sh --inc",
+//        "on-click": "~/.config/hypr/scripts/nightlight.sh --value",
+//        "on-click-right": "~/.config/hypr/scripts/nightlight.sh --def",
         "tooltip": true,
         "tooltip-format": "Screen temperature is: {}\n\nLeft Click: set temp 5000k\nRight Click: set temp 6500k (default)\n\nScroll Down: increase temp(+100K)\nScroll Up: decrease temp(-100K)",
         "interval": 1

@@ -1,14 +1,11 @@
-{
-  inputs,
-  config,
-  ...
-}: let
-  inherit (config.lib.stylix) colors;
-in {
+{inputs, ...}: {
   imports = [inputs.nvf.homeManagerModules.default];
   programs.nvf = {
     enable = true;
     settings.vim = {
+      theme = {
+        enable = true;
+      };
       options = {
         tabstop = 2;
         shiftwidth = 2;
@@ -23,6 +20,14 @@ in {
         normal."<leader><Right>" = {
           silent = true;
           action = "<cmd>bnext<CR>";
+        };
+        visual."<" = {
+          action = "<gv";
+          desc = "Unindent and reselect";
+        };
+        visual.">" = {
+          action = ">gv";
+          desc = "Indent and reselect";
         };
       };
       viAlias = true;
@@ -86,7 +91,7 @@ in {
         nvim-web-devicons.enable = true;
         cinnamon-nvim.enable = true;
         fidget-nvim.enable = true;
-        highlight-undo.enable = true;
+        highlight-undo.enable = false;
         indent-blankline.enable = true;
         nvim-cursorline = {
           enable = true;
@@ -103,17 +108,6 @@ in {
           #          theme = "auto";
         };
       };
-      theme = {
-        enable = true;
-        #        name = "base16";
-        #style = "dark";
-        #base16-colors = {
-        #  inherit (colors) base00 base01 base02 base03 base04 base05 base06 base07;
-        #  inherit (colors) base08 base09 base0A base0B base0C base0D base0E base0F;
-        #};
-        #transparent = false;
-      };
-
       # General features
       autopairs.nvim-autopairs.enable = true;
       autocomplete.nvim-cmp.enable = true;
@@ -170,7 +164,7 @@ in {
         illuminate.enable = true;
         modes-nvim.enable = false;
         smartcolumn = {
-          enable = true;
+          enable = false;
           setupOpts.custom_colorcolumn = {
             nix = "110";
             ruby = "120";

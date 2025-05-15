@@ -5,74 +5,72 @@
   ...
 }: let
   waybarConfig = {
+    include = [
+      "\${HOME}/.config/niri/waybar/modules/modules-dual-tone.jsonc"
+      "\${HOME}/.config/niri/waybar/modules/modules-custom.jsonc"
+      "\${HOME}/.config/niri/waybar/modules/modules-groups.jsonc"
+    ];
+
     layer = "top";
-    position = "top";
-    height = 28;
-    spacing = 6;
-    margin = "5 5 0 5";
-    modules-left = [
-      "custom/launcher"
-      "hyprland/workspaces"
-      "hyprland/submap"
-      "hyprland/window"
+    position = "bottom";
+    mod = "dock";
+    exclusive = true;
+    passthrough = false;
+    "gtk-layer-shell" = true;
+    reload_style_on_change = true;
+    height = 20;
+    "margin-top" = 0;
+    "margin-left" = 0;
+    "margin-right" = 0;
+
+    "modules-left" = [
+      "custom/launch_rofi"
+      "niri/window"
+      "idle_inhibitor"
+      "custom/nightlight"
+      #      "custom/clipboard_icon"
+      #      "custom/clipboard"
+      "group/system"
+      #      "power-profiles-daemon"
+      "mpris"
     ];
-    modules-center = [];
-    modules-right = [
-      "pulseaudio#volume"
+
+    "modules-center" = [
+      "niri/workspaces"
+    ];
+
+    "modules-right" = [
+      #      "tray"
+      "custom/pulseaudio_icon"
+      "pulseaudio"
+      "custom/pulse_mic_icon"
+      "pulseaudio#microphone"
+      "custom/updater_icon"
+      "custom/updater"
       "battery"
+      "backlight"
+      "group/network"
+      "custom/notify_icon"
+      "custom/notify"
       "clock"
-      "tray"
+      "group/power"
     ];
 
-    "custom/launcher" = {
-      format = "";
-      on-click = "wofi --show drun";
-      tooltip = false;
-    };
-
-    "hyprland/window" = {
-      format = "{}";
-      separate-outputs = true;
-    };
-
-    "hyprland/workspaces" = {
-      format = "{name}";
-      all-outputs = true;
-      on-click = "activate";
-      sort-by-number = true;
-      format-icons = {
-        active = "";
-        default = "";
+    "niri/workspaces" = {
+      "disable-scroll" = true;
+      "all-outputs" = true;
+      "on-click" = "activate";
+      "on-scroll-up" = "hyprctl dispatch workspace e-1";
+      "on-scroll-down" = "hyprctl dispatch workspace e+1";
+      format = "{icon}";
+      "format-icons" = {
+        default = "";
       };
-    };
-
-    "pulseaudio#volume" = {
-      format = " {volume}%";
-      tooltip = false;
-      on-click = "pavucontrol";
-    };
-
-    battery = {
-      states = {
-        good = 80;
-        warning = 30;
-        critical = 15;
+      "persistent-workspaces" = {
+        "1" = [];
+        "2" = [];
+        "3" = [];
       };
-      format = "{capacity}%  ";
-      format-charging = "{capacity}% ";
-      format-plugged = "{capacity}% ";
-      format-alt = "{time}  ";
-      tooltip = false;
-    };
-
-    clock = {
-      format = "{:%H:%M }";
-      tooltip = true;
-      tooltip-format = "{:%A, %d %B %Y}";
-    };
-
-    tray = {
-      spacing = 10;
     };
   };
 in {
@@ -84,4 +82,7 @@ in {
     style = builtins.readFile ./style.css;
   };
   home.file.".config/waybar/style/mocha.css".source = ./mocha.css;
+  home.file.".config/niri/waybar/modules/modules-dual-tone.jsonc".source = ./modules/modules-dual-tone.jsonc;
+  home.file.".config/niri/waybar/modules/modules-custom.jsonc".source = ./modules/modules-custom.jsonc;
+  home.file.".config/niri/waybar/modules/modules-groups.jsonc".source = ./modules/modules-groups.jsonc;
 }
