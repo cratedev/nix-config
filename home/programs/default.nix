@@ -1,4 +1,8 @@
-{colors, ...}: {
+{
+  colors,
+  system,
+  ...
+}: {
   imports = [
     ./common.nix
     ./browsers.nix
@@ -10,6 +14,5 @@
     ./nvf.nix
     ./ags/default.nix
     ./waybar/default.nix
-    ./nixcats.nix
   ];
 }
