@@ -10,5 +10,6 @@
     ./nvf.nix
     ./ags/default.nix
     ./waybar/default.nix
+    ./nixcats.nix
   ];
 }

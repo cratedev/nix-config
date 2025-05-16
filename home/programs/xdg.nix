@@ -6,7 +6,7 @@
   discord = ["discordcanary.desktop"];
   spotify = ["spotify.desktop"];
   telegram = ["telegramdesktop.desktop"];
-  
+
   # XDG MIME types
   associations = {
     # Web-related
@@ -54,6 +54,13 @@ in {
       extraConfig = {
         XDG_SCREENSHOTS_DIR = "${config.xdg.userDirs.pictures}/Screenshots";
       };
+    };
+    desktopEntries."1password" = {
+      name = "1Password";
+      exec = "1password --ozone-platform=wayland";
+      terminal = false;
+      type = "Application";
+      categories = ["Utility"];
     };
   };
 }

@@ -24,6 +24,7 @@
     #matugen
     lazygit
     nautilus
+    binutils
   ];
 
   filesystemTools = with pkgs; [
