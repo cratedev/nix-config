@@ -6,5 +6,6 @@
     ./applications.nix
     ./media.nix
     ./git.nix
+    ./niri.nix
   ];
 }
