@@ -8,6 +8,7 @@
     ./git.nix
     ./nvf.nix
     ./niri.nix
+    ./xdg.nix
     ./waybar
     #    ./ags.nix
     #    ./hyprland.nix
