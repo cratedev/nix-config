@@ -73,14 +73,6 @@ in {
 
   # ============================= Fonts =============================
   # ============================= Hardware =============================
-  hardware = {bluetooth.enable = false;};
-  security = {polkit.enable = true;};
-  security.pam.services.sddm.text = ''
-    auth      sufficient   pam_fprintd.so
-    auth      required     pam_unix.so try_first_pass
-    account   required     pam_unix.so
-    session   required     pam_unix.so
-  '';
 
   # ============================= XDG Portals =============================
   xdg.portal = {
