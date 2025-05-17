@@ -72,32 +72,6 @@ in {
   };
 
   # ============================= Fonts =============================
-  fonts = {
-    packages = with pkgs; [
-      font-awesome
-      material-design-icons
-      noto-fonts
-      noto-fonts-cjk-sans
-      noto-fonts-emoji
-      fira-code
-      fira-code-symbols
-      mplus-outline-fonts.githubRelease
-      dina-font
-      proggyfonts
-      liberation_ttf
-      jetbrains-mono
-      nerd-fonts.jetbrains-mono
-      font-awesome
-    ];
-    enableDefaultPackages = false;
-    fontconfig.defaultFonts = {
-      serif = ["Noto Serif" "Noto Color Emoji"];
-      sansSerif = ["Noto Sans" "Noto Color Emoji"];
-      monospace = ["JetBrainsMono Nerd Font" "Noto Color Emoji"];
-      emoji = ["Noto Color Emoji"];
-    };
-  };
-
   # ============================= Hardware =============================
   hardware = {bluetooth.enable = false;};
   security = {polkit.enable = true;};
@@ -107,62 +81,6 @@ in {
     account   required     pam_unix.so
     session   required     pam_unix.so
   '';
-
-  # ============================= Services =============================
-  services = {
-    tailscale = {
-      enable = false;
-      useRoutingFeatures = "client";
-      extraSetFlags = [
-        "--accept-routes"
-        "--accept-dns"
-        "--exit-node-allow-lan-access"
-        "--exit-node=100.114.171.64"
-      ];
-    };
-    resolved.enable = true;
-    teamviewer.enable = true;
-    printing.enable = false;
-    power-profiles-daemon.enable = true;
-    dbus.packages = [pkgs.gcr];
-    geoclue2.enable = true;
-    blueman.enable = true;
-    gnome.gnome-keyring.enable = true;
-    udev.packages = with pkgs; [gnome-settings-daemon];
-    displayManager.sddm = {
-      enable = true;
-      wayland.enable = true;
-      theme = "catppuccin-mocha";
-      package = pkgs.kdePackages.sddm;
-    };
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-      jack.enable = true;
-    };
-    openssh = {
-      enable = true;
-      settings = {
-        X11Forwarding = true;
-        PermitRootLogin = "no";
-        PasswordAuthentication = false;
-      };
-      knownHosts = import ./ssh/knownHosts;
-      openFirewall = true;
-    };
-    fprintd = {
-      enable = true;
-      package = pkgs.fprintd-tod;
-      tod.enable = true;
-      tod.driver = pkgs.libfprint-2-tod1-broadcom;
-    };
-    xserver = {
-      enable = false;
-      desktopManager.gnome.enable = false;
-    };
-  };
 
   # ============================= XDG Portals =============================
   xdg.portal = {
@@ -174,61 +92,6 @@ in {
     ];
     config.common.default = "*";
   };
-
-  # ============================= Programs =============================
-  programs = {
-    ssh.startAgent = true;
-    dconf.enable = true;
-    niri.enable = true;
-    hyprland.enable = false;
-    fish.enable = true;
-    xwayland.enable = true;
-    _1password.enable = true;
-    _1password-gui = {
-      enable = true;
-      polkitPolicyOwners = ["matt"];
-    };
-    steam.enable = true;
-    zoxide = {
-      enable = true;
-      flags = ["--cmd cd"];
-    };
-  };
-
-  # ============================= System Packages =============================
-  environment.systemPackages = with pkgs; [
-    nh
-    sshfs
-    nixd
-    nix-search-cli
-    nix-search-tv
-    niri
-    kitty
-    python3
-    ncurses
-    vim
-    wget
-    curl
-    busybox
-    cachix
-    (catppuccin-sddm.override {
-      flavor = "mocha";
-      font = "Noto Sans";
-      fontSize = "9";
-    })
-    rofi-wayland
-    xorg.xrandr
-    nss
-    wineWowPackages.stagingFull
-    winetricks
-    vulkan-tools
-    libpulseaudio
-    libGL
-    glxinfo
-    pciutils
-    e2fsprogs
-    xfsprogs
-  ];
 
   # ============================= Session Variables =============================
   environment = {
