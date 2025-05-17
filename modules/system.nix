@@ -1,4 +1,4 @@
-{lib, ...}: let
+{...}: let
   username = "matt";
 in {
   nix = {
@@ -14,11 +14,6 @@ in {
   };
 
   # Garbage Collection
-  nix.gc = {
-    automatic = lib.mkDefault true;
-    dates = lib.mkDefault "weekly";
-    options = lib.mkDefault "--delete-older-than 7d";
-  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
