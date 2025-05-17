@@ -5,5 +5,6 @@
     ./browsers.nix
     ./applications.nix
     ./media.nix
+    ./git.nix
   ];
 }
