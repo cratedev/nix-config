@@ -227,6 +227,8 @@ in {
     libGL
     glxinfo
     pciutils
+    e2fsprogs
+    xfsprogs
   ];
 
   # ============================= Session Variables =============================

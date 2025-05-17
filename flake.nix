@@ -18,7 +18,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    stylix.url = "github:danth/stylix";
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     niri.url = "github:sodiboo/niri-flake/d21e04836830680650bf44fa3d8ab80d7ea762bd";
     agenix.url = "github:yaxitech/ragenix";
     ghostty.url = "github:ghostty-org/ghostty";

@@ -1,4 +1,8 @@
-{...}: {
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+    just
+  ];
+
   programs = {
     nushell = {
       enable = true;
