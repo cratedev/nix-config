@@ -17,5 +17,7 @@
     lazygit
     nautilus
     binutils
+    fuzzel
+    networkmanagerapplet
   ];
 }
