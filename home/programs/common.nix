@@ -3,26 +3,6 @@
   inputs,
   ...
 }: let
-  utilities = with pkgs; [
-    cliphist
-    wl-clipboard-rs
-    zip
-    unzip
-    p7zip
-    ripgrep
-    libnotify
-    xdg-utils
-    fzf
-    ncdu
-    libsecret
-    brightnessctl
-    gowall
-    navi
-    lazygit
-    nautilus
-    binutils
-  ];
-
   filesystemTools = with pkgs; [
     e2fsprogs
     xfsprogs
@@ -52,7 +32,7 @@
       else []
     );
 in {
-  home.packages = utilities ++ filesystemTools ++ devTools ++ apps;
+  home.packages = filesystemTools ++ devTools ++ apps;
 
   xdg.configFile = {
     "spotify-player".source = ../dots/spotify-player;
