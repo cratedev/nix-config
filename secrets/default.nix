@@ -1,9 +1,6 @@
-# import & decrypt secrets in `mysecrets` in this module
-{ config, pkgs, agenix, inputs, mysecrets, ... }:
-
-{
+{inputs, ...}: {
   imports = [
-     inputs.agenix.nixosModules.default
+    inputs.agenix.nixosModules.default
   ];
 
   # if you changed this key, you need to regenerate all encrypt files from the decrypt contents!
@@ -19,9 +16,10 @@
     # target path for decrypted file
     path = "/etc/xxx";
     # encrypted file path
-    file =  "${inputs.mysecrets}/secrets/xxx.age";  # refer to ./xxx.age located in `mysecrets` repo
+    file = "${inputs.mysecrets}/secrets/xxx.age"; # refer to ./xxx.age located in `mysecrets` repo
     mode = "0400";
     owner = "root";
     group = "root";
   };
 }
+

@@ -1,7 +1,6 @@
 {
   pkgs,
   lib,
-  config,
   ...
 }: let
   # Define reusable variables
@@ -231,18 +230,21 @@ in {
   ];
 
   # ============================= Session Variables =============================
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
-  environment.sessionVariables.NH_FLAKE = "/home/${username}/nix-config";
-
-  environment.etc = {
-    "1password/custom_allowed_browsers" = {
-      text = ''
-            .zen-wrapped
-            .zen-beta-wrapp
-        zen
-        zen-beta
-      '';
-      mode = "0755";
+  environment = {
+    sessionVariables = {
+      NIXOS_OZONE_WL = "1";
+      NH_FLAKE = "/home/${username}/nix-config";
+    };
+    etc = {
+      "1password/custom_allowed_browsers" = {
+        text = ''
+          		.zen-wrapped
+          		.zen-beta-wrapp
+          zen
+          zen-beta
+        '';
+        mode = "0755";
+      };
     };
   };
   # ============================= SSHFS =========================================

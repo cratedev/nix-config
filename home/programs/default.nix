@@ -1,8 +1,4 @@
-{
-  colors,
-  system,
-  ...
-}: {
+{...}: {
   imports = [
     ./common.nix
     ./browsers.nix
