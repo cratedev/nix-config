@@ -3,6 +3,6 @@
     ./common.nix
     ./xdg.nix
     #    ./ags/default.nix
-    ./waybar/default.nix
+    #    ./waybar/default.nix
   ];
 }
