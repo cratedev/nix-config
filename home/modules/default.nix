@@ -2,5 +2,6 @@
   imports = [
     ./utilities.nix
     ./dotfiles.nix
+    ./browsers.nix
   ];
 }
