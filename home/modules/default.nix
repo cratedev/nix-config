@@ -7,5 +7,6 @@
     ./media.nix
     ./git.nix
     ./niri.nix
+    ./hyprland.nix
   ];
 }
