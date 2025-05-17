@@ -6,7 +6,8 @@
     ./applications.nix
     ./media.nix
     ./git.nix
+    ./nvf.nix
     ./niri.nix
-    ./hyprland.nix
+    #    ./hyprland.nix
   ];
 }
