@@ -8,20 +8,19 @@
   timezone = "America/Toronto";
   locale = "en_US.UTF-8";
   stylixTheme = "da-one-ocean"; #darkmoss ayu-mirage da-one-gray horizon-dark tokyo-city-terminal-dark
-
   # Define the path to the shared authorized_keys file
-  sharedAuthorizedKeys = builtins.readFile ./ssh/authorized_keys;
+  #  sharedAuthorizedKeys = builtins.readFile ./ssh/authorized_keys;
 in {
   # ============================= User Related =============================
-  users.users.${username} = {
-    isNormalUser = true;
-    description = username;
-    extraGroups = ["networkmanager" "wheel" "docker" "podman" "libvirt"];
-    openssh.authorizedKeys.keys = lib.splitString "\n" sharedAuthorizedKeys;
-    shell = pkgs.nushell;
-  };
+  #  users.users.${username} = {
+  #    isNormalUser = true;
+  #    description = username;
+  #    extraGroups = ["networkmanager" "wheel" "docker" "podman" "libvirt"];
+  #    openssh.authorizedKeys.keys = lib.splitString "\n" sharedAuthorizedKeys;
+  #    shell = pkgs.nushell;
+  #  };
 
-  users.groups.libvirt = {};
+  #  users.groups.libvirt = {};
 
   # ============================= Stylix =============================
   stylix = {
