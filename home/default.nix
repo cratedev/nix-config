@@ -3,6 +3,7 @@
     ./programs
     ./shell
     ./dots
+    ./modules
   ];
 
   home = {

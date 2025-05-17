@@ -1,7 +1,7 @@
 {...}: {
   imports = [
     ./common.nix
-    ./browsers.nix
+    #    ./browsers.nix
     ./niri.nix
     #    ./hyprland.nix
     ./git.nix
@@ -10,6 +10,5 @@
     ./nvf.nix
     #    ./ags/default.nix
     ./waybar/default.nix
-    ./modules/utilities.nix
   ];
 }

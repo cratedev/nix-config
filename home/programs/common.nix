@@ -1,44 +1,4 @@
 {
-  pkgs,
-  inputs,
-  ...
-}: let
-  filesystemTools = with pkgs; [
-    e2fsprogs
-    xfsprogs
-  ];
-
-  devTools = with pkgs; [
-    # nodejs
-    #    nodePackages.npm
-    #    nodePackages.pnpm
-    #    yarn
-    #    python312Packages.pip
-  ];
-
-  apps = with pkgs;
-    [
-      obsidian
-      fuzzel
-      networkmanagerapplet
-      #      inputs.astal.packages.${system}.default
-    ]
-    ++ (
-      if pkgs.stdenv.system == "x86_64-linux"
-      then [
-        inputs.zen-browser.packages.x86_64-linux.default
-        (discord.override {withVencord = true;})
-      ]
-      else []
-    );
-in {
-  home.packages = filesystemTools ++ devTools ++ apps;
-
-  xdg.configFile = {
-    "spotify-player".source = ../dots/spotify-player;
-    "rofi".source = ../dots/rofi;
-  };
-
   programs = {
     spotify-player.enable = true;
     ncspot.enable = true;
