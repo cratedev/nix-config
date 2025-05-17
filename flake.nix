@@ -1,5 +1,5 @@
 {
-  description = "crate NixOS configuration";
+  description = "crate";
 
   nixConfig = {
     extra-substituters = [
@@ -11,20 +11,17 @@
   };
 
   inputs = {
-    # Secrets (non-flake)
     mysecrets = {
       url = "git+ssh://git@github.com/cratedev/nix-secrets";
       flake = false;
     };
 
-    # Core system
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Modules and tools
     stylix.url = "github:danth/stylix";
     niri.url = "github:sodiboo/niri-flake/d21e04836830680650bf44fa3d8ab80d7ea762bd";
     agenix.url = "github:yaxitech/ragenix";
@@ -35,18 +32,13 @@
     ghostty.url = "github:ghostty-org/ghostty";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     ags.url = "github:Aylur/ags";
-
-    # Hardware support
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-
-    # Spicetify config
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
   };
 
   outputs = inputs @ {nixpkgs, ...}: let
     inherit (nixpkgs) lib;
 
-    # Shared modules used across all hosts
     commonModules = [
       inputs.stylix.nixosModules.stylix
       inputs.niri.nixosModules.niri
@@ -54,7 +46,6 @@
       ./secrets/default.nix
     ];
 
-    # Home-manager configuration for user `matt`
     homeManagerModule = {
       home-manager = {
         useGlobalPkgs = true;
@@ -66,7 +57,6 @@
       };
     };
 
-    # Helper function to create system configurations
     createSystemConfig = system: hostFile: extraModules:
       lib.nixosSystem {
         inherit system;
