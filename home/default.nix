@@ -1,6 +1,5 @@
 {...}: {
   imports = [
-    ./programs
     ./shell
     ./dots
     ./modules
