@@ -8,6 +8,7 @@
     ./git.nix
     ./nvf.nix
     ./niri.nix
+    ./ags.nix
     #    ./hyprland.nix
   ];
 }
