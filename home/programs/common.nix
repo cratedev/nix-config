@@ -17,11 +17,7 @@
     libsecret
     brightnessctl
     gowall
-    #    immich-cli
     navi
-    calibre
-    #swaybg
-    #matugen
     lazygit
     nautilus
     binutils
@@ -33,11 +29,11 @@
   ];
 
   devTools = with pkgs; [
-    nodejs
-    nodePackages.npm
-    nodePackages.pnpm
-    yarn
-    python312Packages.pip
+    # nodejs
+    #    nodePackages.npm
+    #    nodePackages.pnpm
+    #    yarn
+    #    python312Packages.pip
   ];
 
   apps = with pkgs;
@@ -52,8 +48,6 @@
       then [
         inputs.zen-browser.packages.x86_64-linux.default
         (discord.override {withVencord = true;})
-        lutris
-        wine
       ]
       else []
     );
