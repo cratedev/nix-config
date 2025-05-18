@@ -1,4 +1,4 @@
-{...}: let
+let
   username = "matt";
 in {
   nix = {
@@ -11,12 +11,8 @@ in {
       trusted-public-keys = ["cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="];
       builders-use-substitutes = true;
     };
+    nix.channel.enable = false;
   };
 
-  # Garbage Collection
-
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  # Time zone and locale
 }

@@ -2,13 +2,17 @@
   imports = [
     ../../modules/system.nix
     ../../modules/user.nix
+    ../../modules/fonts.nix
+    ../../modules/services.nix
+    ../../modules/programs.nix
+    ../../modules/packages.nix
+    ../../modules/xdg.nix
+    ../../modules/stylix.nix
+    ../../modules/env.nix
+    ../../modules/garbage.nix
     ./hardware-configuration.nix
   ];
 
-  # Where we're going, we don't need channels
-  nix.channel.enable = false;
-
-  # Bootloader.
   boot.loader = {
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
@@ -17,11 +21,23 @@
   networking = {
     hostName = "crate-laptop"; # Define your hostname.
     networkmanager.enable = true;
-    firewall.enable = false;
-    firewall.checkReversePath = "loose";
+    firewall = {
+      enable = false;
+      checkReversePath = "loose";
+    };
   };
 
-  # ============================= SSHFS =========================================
+  hardware.bluetooth.enable = false;
+  security = {
+    polkit.enable = true;
+    pam.services.sddm.text = ''
+      auth      sufficient   pam_fprintd.so
+      auth      required     pam_unix.so try_first_pass
+      account   required     pam_unix.so
+      session   required     pam_unix.so
+    '';
+  };
+
   fileSystems."/home/matt/unraid-ssh" = {
     device = "root@10.0.0.10:/mnt";
     fsType = "fuse.sshfs";
@@ -32,11 +48,5 @@
       "IdentityFile=/home/matt/.ssh/id_ed25519"
     ];
   };
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "24.05";
 }
