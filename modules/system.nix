@@ -3,8 +3,10 @@ let
 in {
   nix = {
     channel.enable = false;
-    optimise.automatic = true;
-    optimise.dates = ["03:45"];
+    optimise = {
+      automatic = true;
+      dates = ["03:45"];
+    };
     settings = {
       trusted-users = [username];
       experimental-features = ["nix-command" "flakes" "impure-derivations" "ca-derivations"];
