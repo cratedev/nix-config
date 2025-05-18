@@ -2,6 +2,7 @@ let
   username = "matt";
 in {
   nix = {
+    channel.enable = false;
     optimise.automatic = true;
     optimise.dates = ["03:45"];
     settings = {
@@ -11,7 +12,6 @@ in {
       trusted-public-keys = ["cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="];
       builders-use-substitutes = true;
     };
-    nix.channel.enable = false;
   };
 
   nixpkgs.config.allowUnfree = true;
