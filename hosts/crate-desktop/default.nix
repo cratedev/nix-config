@@ -2,7 +2,6 @@
   imports = [
     ../../modules/system.nix
     ../../modules/user.nix
-    ../../modules/generic.nix
     ../../modules/fonts.nix
     ../../modules/services.nix
     ../../modules/programs.nix
